@@ -67,6 +67,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         _isOpen = true;
         _animator.SetBool("IsOpen", _isOpen);
+        GetComponentInChildren<BoxCollider>().enabled = false;
 
         foreach (GridPosition gridPosition in _gridPositionList)
         {
@@ -78,6 +79,8 @@ public class Door : MonoBehaviour, IInteractable
     {
         _isOpen = false;
         _animator.SetBool("IsOpen", _isOpen);
+        GetComponentInChildren<BoxCollider>().enabled = true;
+        
         foreach (GridPosition gridPosition in _gridPositionList)
         {
             Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, false);

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6974419755738519163}
   - component: {fileID: 7817089101997019498}
   - component: {fileID: 3353118920192573760}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Bld_Bunker_Wall_Concrete_Door_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5916167025931668752}
   - component: {fileID: 3511835637020340269}
   - component: {fileID: 5127581871661641907}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Bld_Bunker_Wall_Concrete_Door_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -201,7 +201,7 @@ GameObject:
   - component: {fileID: 6740954438170751716}
   - component: {fileID: 2981400811988645022}
   - component: {fileID: 6105015957607752270}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: DoorBunkerConcreteDouble
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 5309096592676112652}
   - component: {fileID: 8782642169602548591}
   - component: {fileID: 8112934235718431619}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Bld_Bunker_Wall_Concrete_Door_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
