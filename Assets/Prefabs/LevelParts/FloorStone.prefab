@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2066776299389519053}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorStone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 3576711692935889128}
   - component: {fileID: 7264015806996874118}
   - component: {fileID: 8293195267741544162}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Bld_Bunker_Floor_Stone_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -29,7 +29,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 3, y: 0, z: 0}
-  m_LocalScale: {x: 1.6, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5309096592676112652}
@@ -105,8 +105,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 2.561201, y: 0.34942842, z: 0.33015135}
-  m_Center: {x: -1.25, y: 2.831284, z: 0}
+  m_Size: {x: 2.561201, y: 2.9526188, z: 0.7851267}
+  m_Center: {x: -1.25, y: 1.5296887, z: -0.028140545}
 --- !u!1 &5259250719351711773
 GameObject:
   m_ObjectHideFlags: 0
@@ -118,7 +118,6 @@ GameObject:
   - component: {fileID: 5916167025931668752}
   - component: {fileID: 3511835637020340269}
   - component: {fileID: 5127581871661641907}
-  - component: {fileID: 5019458340644050052}
   m_Layer: 0
   m_Name: SM_Bld_Bunker_Wall_Concrete_Door_R
   m_TagString: Untagged
@@ -134,7 +133,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5259250719351711773}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.3494995, y: 1.4093865, z: 0.09503504}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -191,27 +190,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &5019458340644050052
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5259250719351711773}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0994946, y: 2.3577154, z: 0.20744568}
-  m_Center: {x: 0.5497473, y: 0.09009433, z: -0.03901789}
 --- !u!1 &6502009717265169080
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +199,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6740954438170751716}
+  - component: {fileID: 2981400811988645022}
+  - component: {fileID: 6105015957607752270}
   m_Layer: 0
   m_Name: DoorBunkerConcreteDouble
   m_TagString: Untagged
@@ -244,6 +224,40 @@ Transform:
   - {fileID: 4809624102317942914}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2981400811988645022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6502009717265169080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b2a287c407b9e42a18d2118248fc8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _isOpen: 0
+--- !u!95 &6105015957607752270
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6502009717265169080}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e91486b57ea13044d869506ce74c7694, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6699146990092155653
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,7 +269,6 @@ GameObject:
   - component: {fileID: 5309096592676112652}
   - component: {fileID: 8782642169602548591}
   - component: {fileID: 8112934235718431619}
-  - component: {fileID: 7936604624127537323}
   m_Layer: 0
   m_Name: SM_Bld_Bunker_Wall_Concrete_Door_L
   m_TagString: Untagged
@@ -328,24 +341,3 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7936604624127537323
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6699146990092155653}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0994946, y: 2.3577154, z: 0.20744568}
-  m_Center: {x: -0.5497473, y: 0.09009433, z: -0.03901789}

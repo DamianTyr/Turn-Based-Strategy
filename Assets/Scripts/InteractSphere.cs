@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InteractSphere : MonoBehaviour, IInteractable
@@ -8,16 +9,20 @@ public class InteractSphere : MonoBehaviour, IInteractable
     [SerializeField] private MeshRenderer meshRenderer;
 
     private GridPosition _gridPosition;
+    private List<GridPosition> _gridPositionList;
     private bool _isGreen;
     private bool _isActive;
     private Action _onInteractionComplete;
     private float _timer;
-    
+
+    private void Awake()
+    {
+        _gridPositionList = new List<GridPosition>();
+    }
+
     private void Start()
     {
-        _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        LevelGrid.Instance.SetInteractableAtGridPosition(_gridPosition, this);
-        SetColorGreen();;
+        SetColorGreen();
     }
 
     private void Update()
@@ -52,5 +57,10 @@ public class InteractSphere : MonoBehaviour, IInteractable
         
         if (_isGreen) SetColorRed();
         else SetColorGreen();
+    }
+
+    public void AddToGridPositionList(GridPosition gridPosition)
+    {
+        _gridPositionList.Add(gridPosition);
     }
 }

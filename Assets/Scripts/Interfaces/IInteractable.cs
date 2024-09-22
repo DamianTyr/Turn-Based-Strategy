@@ -6,4 +6,6 @@ using UnityEngine;
 public interface IInteractable
 { 
     void Interact(Action OnInteractionComplete);
+
+    void AddToGridPositionList(GridPosition gridPosition);
 }

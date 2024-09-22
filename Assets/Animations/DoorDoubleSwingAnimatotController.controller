@@ -21,7 +21,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d16aa5d381e667d49a470b8dcee16fc4, type: 2}
+  m_Motion: {fileID: 7400000, guid: 08f777326a8d657429a076f5d6910a7f, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -33,7 +33,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DoorAnimatorController
+  m_Name: DoorDoubleSwingAnimatotController
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsOpen
@@ -101,7 +101,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 7521b97667d66ed40b012e8c6035dbef, type: 2}
+  m_Motion: {fileID: 7400000, guid: 70c986b6ecaaa0f42b6f9614a38787b0, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Door : MonoBehaviour, IInteractable
@@ -6,6 +7,8 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] private bool _isOpen;
     private Action _onInteractionComplete;
     private GridPosition _gridPosition;
+    private List<GridPosition> _gridPositionList;
+    
     private Animator _animator;
 
     private bool _isActive;
@@ -25,13 +28,11 @@ public class Door : MonoBehaviour, IInteractable
     private void Awake()
     {
         _animator = GetComponent<Animator>();
+        _gridPositionList = new List<GridPosition>();
     }
 
     private void Start()
     {
-        _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        LevelGrid.Instance.SetInteractableAtGridPosition(_gridPosition, this);
-
         if (_isOpen)
         {
             OpenDoor();
@@ -57,17 +58,29 @@ public class Door : MonoBehaviour, IInteractable
         }
     }
 
+    public void AddToGridPositionList(GridPosition gridPosition)
+    {
+        _gridPositionList.Add(gridPosition);
+    }
+
     public void OpenDoor()
     {
         _isOpen = true;
         _animator.SetBool("IsOpen", _isOpen);
-        Pathfinding.Instance.SetIsWalkableGridPosition(_gridPosition, true);
+
+        foreach (GridPosition gridPosition in _gridPositionList)
+        {
+            Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, true);
+        }
     }
 
     public void CloseDoor()
     {
         _isOpen = false;
         _animator.SetBool("IsOpen", _isOpen);
-        Pathfinding.Instance.SetIsWalkableGridPosition(_gridPosition, false);
+        foreach (GridPosition gridPosition in _gridPositionList)
+        {
+            Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, false);
+        }
     }
 }

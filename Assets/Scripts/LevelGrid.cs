@@ -31,6 +31,29 @@ public class LevelGrid : MonoBehaviour
     private void Start()
     {
         Pathfinding.Instance.Setup(width, height, cellSize);
+        
+        for (int x = 0; x < width; x++)
+        {
+            for (int z = 0; z < height; z++)
+            {
+                GridPosition gridPosition = new GridPosition(x, z);
+                Vector3 worldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+
+                float raycastOffsetDistance = 5f;
+
+                Ray ray = new Ray(worldPosition + Vector3.down * raycastOffsetDistance, Vector3.up);
+                if (Physics.Raycast(ray, out RaycastHit hitInfo))
+                {
+                    if (hitInfo.transform.parent == null) continue;
+                    if (hitInfo.transform.parent.TryGetComponent(out IInteractable interactable))
+                    {
+                        Debug.Log("Setting Interactable");
+                        interactable.AddToGridPositionList(gridPosition);
+                        _gridSystem.GetGridObject(gridPosition).SetInteractable(interactable);                   
+                    }
+                }
+            }
+        }
     }
 
     private GridObject CreateGridObject(GridSystem<GridObject> gridSystem, GridPosition gridPosition)

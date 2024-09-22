@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4143125970862534333}
   - component: {fileID: 3490964660727730145}
   - component: {fileID: 3285994521606004883}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorConcreteVisual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -114,7 +114,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6451470557916670029}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: FloorConrete
   m_TagString: Untagged
   m_Icon: {fileID: 0}
