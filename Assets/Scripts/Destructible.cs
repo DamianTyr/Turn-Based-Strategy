@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class DestructibleCrate : MonoBehaviour, IDamageable
+public class Destructible : MonoBehaviour, IDamageable
 {
     public static event EventHandler OnAnyDestroyed;
 
-    [SerializeField] private Transform crateDestroyedPrefab;
+    [SerializeField] private Transform destroyedPrefab;
     
     private GridPosition _gridPosition;
 
@@ -25,8 +26,8 @@ public class DestructibleCrate : MonoBehaviour, IDamageable
         Vector3 explosionPosition = transform.position + new Vector3(0, 1f, 0);
         explosionPosition += damageDirection;
         
-        Transform crateDestroyedTransform = Instantiate(crateDestroyedPrefab, transform.position, Quaternion.identity);
-        ApplyExplosionToChildren(crateDestroyedTransform, 300f, explosionPosition, 10f);
+        Transform destroyedTransform = Instantiate(destroyedPrefab, transform.position, Quaternion.identity);
+        ApplyExplosionToChildren(destroyedTransform, 300f, explosionPosition, 10f);
         
         OnAnyDestroyed?.Invoke(this, EventArgs.Empty);
         Destroy(gameObject);

@@ -173,5 +173,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd472492df6f3db45aa210c81c3d5eaf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  crateDestroyedPrefab: {fileID: 145405172896530146, guid: c0d7fb07e37740543ae1fbc34cf0a025,
+  destroyedPrefab: {fileID: 145405172896530146, guid: c0d7fb07e37740543ae1fbc34cf0a025,
     type: 3}
