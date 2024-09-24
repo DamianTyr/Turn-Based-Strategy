@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+
 public class MoveAction : BaseAction
 {
     private List<Vector3> _positionList;
@@ -9,6 +10,9 @@ public class MoveAction : BaseAction
     
     public event EventHandler OnStartMoving;
     public event EventHandler OnStopMoving;
+
+    public static event EventHandler OnAnyStartMoving;
+    public static event EventHandler OnAnyStopMoving;
     
     void Update()
     {
@@ -32,6 +36,7 @@ public class MoveAction : BaseAction
             if (_currentPositionIndex >= _positionList.Count)
             {
                 OnStopMoving?.Invoke(this, EventArgs.Empty);
+                OnAnyStopMoving?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
             }
         }
@@ -50,6 +55,7 @@ public class MoveAction : BaseAction
         }
    
         OnStartMoving?.Invoke(this, EventArgs.Empty);  
+        OnAnyStartMoving?.Invoke(this, EventArgs.Empty);
         ActionStart(onActionComplete);
     }
     

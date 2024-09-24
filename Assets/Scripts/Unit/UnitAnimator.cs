@@ -61,6 +61,7 @@ public class UnitAnimator : MonoBehaviour
 
     private void MoveAction_OnOnStopMoving(object sender, EventArgs e)
     {
+        //We should update the pathfinding visual here
         animator.SetBool("IsWalking", false);
     }
 

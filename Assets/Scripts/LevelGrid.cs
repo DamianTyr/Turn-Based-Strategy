@@ -6,7 +6,7 @@ public class LevelGrid : MonoBehaviour
 {
     public static LevelGrid Instance { get; private set; }
 
-    public event EventHandler OnAnyUnitMovedGridPossition;
+    public event EventHandler OnAnyUnitMovedGridPosition;
     
     private GridSystem<GridObject> _gridSystem;
     [SerializeField] private int width;
@@ -83,9 +83,11 @@ public class LevelGrid : MonoBehaviour
     {
         RemoveUnitAtGridPosition(fromGridPosition, unit);
         AddUnitAtGridPosition(toGridPosition, unit);
-        OnAnyUnitMovedGridPossition?.Invoke(this, EventArgs.Empty);
+        
+        //TODO: This should be moved to where units stops moving
+        //OnAnyUnitMovedGridPosition?.Invoke(this, EventArgs.Empty);
     }
-
+    
     public GridPosition GetGridPosition(Vector3 worldPosition) => _gridSystem.GetGridPosition(worldPosition);
     public Vector3 GetWorldPosition(GridPosition gridPosition) => _gridSystem.GetWorldPosition(gridPosition);
     public bool IsValidGridPosition(GridPosition gridPosition) => _gridSystem.IsValidGridPosition(gridPosition);

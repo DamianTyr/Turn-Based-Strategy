@@ -29,7 +29,6 @@ public class Unit : MonoBehaviour, IDamageable
         LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
         TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange; 
         _healthSystem.OnDead += HealthSystem_OnDead;
-        
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
     }
 
@@ -92,7 +91,7 @@ public class Unit : MonoBehaviour, IDamageable
             SpendActionPoints(baseAction.GetActionPointsCost());
             return true;
         }
-        else return false;
+        return false;
 
     }
 
