@@ -47,7 +47,6 @@ public class LevelGrid : MonoBehaviour
                     if (hitInfo.transform.parent == null) continue;
                     if (hitInfo.transform.parent.TryGetComponent(out IInteractable interactable))
                     {
-                        Debug.Log("Setting Interactable");
                         interactable.AddToGridPositionList(gridPosition);
                         _gridSystem.GetGridObject(gridPosition).SetInteractable(interactable);                   
                     }
