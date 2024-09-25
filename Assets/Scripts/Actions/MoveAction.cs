@@ -10,9 +10,6 @@ public class MoveAction : BaseAction
     
     public event EventHandler OnStartMoving;
     public event EventHandler OnStopMoving;
-
-    public static event EventHandler OnAnyStartMoving;
-    public static event EventHandler OnAnyStopMoving;
     
     void Update()
     {
@@ -36,7 +33,6 @@ public class MoveAction : BaseAction
             if (_currentPositionIndex >= _positionList.Count)
             {
                 OnStopMoving?.Invoke(this, EventArgs.Empty);
-                OnAnyStopMoving?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
             }
         }
@@ -55,7 +51,6 @@ public class MoveAction : BaseAction
         }
    
         OnStartMoving?.Invoke(this, EventArgs.Empty);  
-        OnAnyStartMoving?.Invoke(this, EventArgs.Empty);
         ActionStart(onActionComplete);
     }
     

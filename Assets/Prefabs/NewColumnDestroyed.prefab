@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7350582866363368191}
   - component: {fileID: 4181443931040569024}
   - component: {fileID: 8186565249578999779}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_14
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -148,7 +148,7 @@ GameObject:
   - component: {fileID: 97298483406874412}
   - component: {fileID: 5441014487612666866}
   - component: {fileID: 4610735468096006072}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 7817182003886616775}
   - component: {fileID: 703778629645075696}
   - component: {fileID: 9046458930226812256}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_17
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -418,7 +418,7 @@ GameObject:
   - component: {fileID: 6192583847652824928}
   - component: {fileID: 5224502820912206406}
   - component: {fileID: 6353613273412280491}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -549,7 +549,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7554564424885805179}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: NewColumnDestroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -585,7 +585,7 @@ GameObject:
   - component: {fileID: 6165673281622938491}
   - component: {fileID: 9117887219040318877}
   - component: {fileID: 6242984357753414073}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 2692157442282844328}
   - component: {fileID: 3230721622166183800}
   - component: {fileID: 7749281511809493303}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -855,7 +855,7 @@ GameObject:
   - component: {fileID: 2269757086022754985}
   - component: {fileID: 7646750061280328961}
   - component: {fileID: 7842064606071914033}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -990,7 +990,7 @@ GameObject:
   - component: {fileID: 6091057594147674168}
   - component: {fileID: 8861304631722667887}
   - component: {fileID: 112614656755448359}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1125,7 +1125,7 @@ GameObject:
   - component: {fileID: 8944088448121725800}
   - component: {fileID: 7960048277112575541}
   - component: {fileID: 3861879501502834767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 3343478598790309543}
   - component: {fileID: 560423285109195543}
   - component: {fileID: 3323338369168934283}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1395,7 +1395,7 @@ GameObject:
   - component: {fileID: 3698703104063530034}
   - component: {fileID: 390529465720447651}
   - component: {fileID: 9047533799701205112}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_12
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1530,7 +1530,7 @@ GameObject:
   - component: {fileID: 1305067982008575950}
   - component: {fileID: 6484552282905712230}
   - component: {fileID: 4815540099106021783}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1665,7 +1665,7 @@ GameObject:
   - component: {fileID: 3268427712069878272}
   - component: {fileID: 4459061059739072832}
   - component: {fileID: 2831344058593543626}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_22
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 1332428245019460122}
   - component: {fileID: 5838401355223091960}
   - component: {fileID: 3345683036462516143}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1935,7 +1935,7 @@ GameObject:
   - component: {fileID: 6739630372035422749}
   - component: {fileID: 214803986342857317}
   - component: {fileID: 5161113283313312138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2070,7 +2070,7 @@ GameObject:
   - component: {fileID: 7376162402269082350}
   - component: {fileID: 3476749331999539658}
   - component: {fileID: 4409256975977141672}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_26
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2205,7 +2205,7 @@ GameObject:
   - component: {fileID: 9023818220447822218}
   - component: {fileID: 1942653585639855540}
   - component: {fileID: 3581724707867384767}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2340,7 +2340,7 @@ GameObject:
   - component: {fileID: 3854144376616033887}
   - component: {fileID: 1427587003003628081}
   - component: {fileID: 8949337352348203717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_23
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2475,7 +2475,7 @@ GameObject:
   - component: {fileID: 7327714186966007752}
   - component: {fileID: 8884605380655143944}
   - component: {fileID: 5730050282722821364}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_18
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2610,7 +2610,7 @@ GameObject:
   - component: {fileID: 6256319935443450784}
   - component: {fileID: 4695974877942745618}
   - component: {fileID: 1125325261292818559}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2745,7 +2745,7 @@ GameObject:
   - component: {fileID: 4253409201748846884}
   - component: {fileID: 4624627255450170351}
   - component: {fileID: 3084079775697731850}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_16
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2880,7 +2880,7 @@ GameObject:
   - component: {fileID: 6290790092922873929}
   - component: {fileID: 6969980373203356619}
   - component: {fileID: 5603620645337012514}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_21
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3015,7 +3015,7 @@ GameObject:
   - component: {fileID: 488389812978793520}
   - component: {fileID: 614527567704598933}
   - component: {fileID: 2288859988880844960}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_20
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3150,7 +3150,7 @@ GameObject:
   - component: {fileID: 3733784819094891331}
   - component: {fileID: 686558007204051133}
   - component: {fileID: 520409688722473130}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_25
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3285,7 +3285,7 @@ GameObject:
   - component: {fileID: 8308503005674683733}
   - component: {fileID: 8363101092863795162}
   - component: {fileID: 8448822968650476302}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_24
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3420,7 +3420,7 @@ GameObject:
   - component: {fileID: 8522786946831409659}
   - component: {fileID: 576134274201234773}
   - component: {fileID: 5907788716624336964}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_13
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3555,7 +3555,7 @@ GameObject:
   - component: {fileID: 1805273846370641419}
   - component: {fileID: 8089923701809557117}
   - component: {fileID: 4237745033147734945}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_11
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3690,7 +3690,7 @@ GameObject:
   - component: {fileID: 7653887895947757588}
   - component: {fileID: 5483371957895460149}
   - component: {fileID: 3461607601082373523}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3825,7 +3825,7 @@ GameObject:
   - component: {fileID: 6161104704856356907}
   - component: {fileID: 8127567786852271030}
   - component: {fileID: 4650655579780399272}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3956,7 +3956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4404449621597248696}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_root
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4021,7 +4021,7 @@ GameObject:
   - component: {fileID: 5865995811950120827}
   - component: {fileID: 2955263206900489629}
   - component: {fileID: 8027849824628389495}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: SM_Prop_Wall_Quarantine_Column_Short_01_sh_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

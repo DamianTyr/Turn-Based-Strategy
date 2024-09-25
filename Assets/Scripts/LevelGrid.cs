@@ -83,9 +83,6 @@ public class LevelGrid : MonoBehaviour
     {
         RemoveUnitAtGridPosition(fromGridPosition, unit);
         AddUnitAtGridPosition(toGridPosition, unit);
-        
-        //TODO: This should be moved to where units stops moving
-        //OnAnyUnitMovedGridPosition?.Invoke(this, EventArgs.Empty);
     }
     
     public GridPosition GetGridPosition(Vector3 worldPosition) => _gridSystem.GetGridPosition(worldPosition);
