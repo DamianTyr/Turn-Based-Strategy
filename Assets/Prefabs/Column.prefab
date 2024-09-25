@@ -95,7 +95,7 @@ GameObject:
   - component: {fileID: 1331110840782966682}
   - component: {fileID: 7751150493969153621}
   m_Layer: 8
-  m_Name: NewColumn
+  m_Name: Column
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

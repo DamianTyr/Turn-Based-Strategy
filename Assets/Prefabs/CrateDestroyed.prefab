@@ -1360,7 +1360,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7193041936289123636}
   m_Layer: 8
-  m_Name: NewCrateDestroyed
+  m_Name: CrateDestroyed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
