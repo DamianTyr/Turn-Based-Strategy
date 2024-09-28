@@ -20,6 +20,9 @@ public class Unit : MonoBehaviour, IDamageable
     private void Awake()
     {
         _baseActionArray = GetComponents<BaseAction>();
+        //int actionCount = _baseActionArray.Length;
+        //_baseActionArray[actionCount + 1] = _weapon.GetAttackAction();
+        
         _healthSystem = GetComponent<HealthSystem>();
     }
     
