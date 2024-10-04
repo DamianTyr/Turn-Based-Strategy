@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShootAction : BaseAction
@@ -11,9 +12,7 @@ public class ShootAction : BaseAction
         Cooloff
     }
 
-    [SerializeField] private LayerMask obstaclesLayerMask;
-    
-    public event EventHandler<OnShootEventArgs> OnShoot;
+    private LayerMask _obstaclesLayerMask;
     public static event EventHandler<OnShootEventArgs> OnAnyShoot;
     
     public class OnShootEventArgs : EventArgs
@@ -27,6 +26,14 @@ public class ShootAction : BaseAction
     private float _stateTimer;
     private Unit _targetUnit;
     private bool canShootBullets;
+    
+    private BulletProjectile _bulletProjectile;
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _unitAnimator.EquipRifle();
+    }
     
     void Update()
     {
@@ -61,16 +68,14 @@ public class ShootAction : BaseAction
     private void Shoot()
     {
         _targetUnit.Damage(40, transform);
-        OnShoot?.Invoke(this, new OnShootEventArgs
-        {
-            targetUnit = _targetUnit,
-            shootingUnit = Unit
-        });
-        OnAnyShoot?.Invoke(this, new OnShootEventArgs
-        {
-            targetUnit = _targetUnit,
-            shootingUnit = Unit
-        });
+
+        Transform shootPointTransform = _unitAnimator.GetShootPointTransform();
+        BulletProjectile bulletProjectile = Instantiate(_bulletProjectile, shootPointTransform.position,Quaternion.identity);
+        Vector3 targetUnitShootAtPosition = _targetUnit.GetWorldPosition();
+        targetUnitShootAtPosition.y = shootPointTransform.position.y;
+        bulletProjectile.Setup(targetUnitShootAtPosition);
+        _unitAnimator.TriggerShoot();
+        ScreenShake.Instance.Shake();
     }
 
     private void NextState()
@@ -90,8 +95,6 @@ public class ShootAction : BaseAction
             case State.Cooloff:
                 ActionComplete();
                 break;
-            default:
-                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -131,7 +134,7 @@ public class ShootAction : BaseAction
                 Vector3 shootDirection = (targetUnit.GetWorldPosition() - unitWorldPosition).normalized;
                 float unitShoulderHight = 1.7f;
                 if (Physics.Raycast(
-                        unitWorldPosition + Vector3.up * unitShoulderHight, shootDirection, Vector3.Distance(unitWorldPosition, targetUnit.GetWorldPosition()), obstaclesLayerMask))
+                        unitWorldPosition + Vector3.up * unitShoulderHight, shootDirection, Vector3.Distance(unitWorldPosition, targetUnit.GetWorldPosition()), _obstaclesLayerMask))
                 {
                     //Blocked by obstacle
                     continue;
@@ -177,5 +180,15 @@ public class ShootAction : BaseAction
     public int GetTargetCountAtPosition(GridPosition gridPosition)
     {
         return GetValidActionGridPositionList(gridPosition).Count;
+    }
+
+    public void SetBulletProjectile(BulletProjectile bulletProjectile)
+    {
+        _bulletProjectile = bulletProjectile;
+    }
+
+    public void SetObstacleLayerMask(LayerMask layerMask)
+    {
+        _obstaclesLayerMask = layerMask;
     }
 }

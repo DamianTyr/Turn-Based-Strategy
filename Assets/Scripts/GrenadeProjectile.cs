@@ -43,7 +43,7 @@ public class GrenadeProjectile : MonoBehaviour
          }
 
          OnAnyGrenadeExplosion?.Invoke(this, EventArgs.Empty);
-
+         ScreenShake.Instance.Shake(5f);
          trailRenderer.transform.parent = null;
          Instantiate(grenadeExplosionVFXPrefab, _targetPosition + Vector3.up * 1f, Quaternion.identity);
          _onGrenadeBehaviorComplete();

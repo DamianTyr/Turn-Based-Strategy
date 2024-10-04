@@ -1,4 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using GameDevTV.Inventories;
 using UnityEngine;
 
 public class Unit : MonoBehaviour, IDamageable
@@ -7,32 +11,78 @@ public class Unit : MonoBehaviour, IDamageable
     
     public static event EventHandler OnAnyActionPointChange;
     public static event EventHandler OnAnyUnitSpawned;
-    public static event EventHandler OnAnyUnitDead; 
+    public static event EventHandler OnAnyUnitDead;
+    public static event EventHandler OnAnyActionListChanged;
 
     [SerializeField] private bool isEnemy;
+    
     private GridPosition _gridPosition;
     
-    private BaseAction[] _baseActionArray;
+    private List<BaseAction> _baseActionList;
     private int _actionPoints = 9;
     
     private HealthSystem _healthSystem;
+    private Equipment _equipment;
+
+    private Dictionary<EquipLocation, EquipableItem> _equippedItemsDict = new Dictionary<EquipLocation, EquipableItem>();
     
     private void Awake()
     {
-        _baseActionArray = GetComponents<BaseAction>();
-        //int actionCount = _baseActionArray.Length;
-        //_baseActionArray[actionCount + 1] = _weapon.GetAttackAction();
-        
+        UpdateActionList();
         _healthSystem = GetComponent<HealthSystem>();
+        _equipment = GetComponent<Equipment>();
     }
-    
+
     private void Start()
     {
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
         TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange; 
         _healthSystem.OnDead += HealthSystem_OnDead;
+        _equipment.OnEquipmentUpdated += Equipment_OnOnEquipmentUpdated;
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void Update()
+    {
+        GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        if (newGridPosition != _gridPosition)
+        {
+            GridPosition oldGridPosition = _gridPosition;
+            _gridPosition = newGridPosition;
+            LevelGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
+        }
+    }
+    
+    private void Equipment_OnOnEquipmentUpdated(EquipLocation equipLocation, EquipableItem equipableItem)
+    {
+        if (equipableItem == null)
+        {
+            _equippedItemsDict[equipLocation].RemoveFromUnit(this);
+            _equippedItemsDict[equipLocation] = null;
+        }
+        else
+        {
+            _equippedItemsDict[equipLocation] = equipableItem;
+            _equippedItemsDict[equipLocation].Setup(transform);
+        }
+
+        StartCoroutine(UpdateActionListNextFrame());
+    }
+    
+    private void UpdateActionList()
+    {
+        BaseAction[] baseActionArray = GetComponents<BaseAction>();
+        _baseActionList = baseActionArray.ToList();
+        OnAnyActionListChanged?.Invoke(this, EventArgs.Empty);
+    }
+
+    private IEnumerator UpdateActionListNextFrame()
+    {
+        yield return null;
+        BaseAction[] baseActionArray = GetComponents<BaseAction>();
+        _baseActionList = baseActionArray.ToList();
+        OnAnyActionListChanged?.Invoke(this, EventArgs.Empty);
     }
 
     private void HealthSystem_OnDead(object sender, Transform damageDealerTransform)
@@ -53,27 +103,17 @@ public class Unit : MonoBehaviour, IDamageable
         }
     }
 
-    private void Update()
-    {
-        GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-        if (newGridPosition != _gridPosition)
-        {
-            GridPosition oldGridPosition = _gridPosition;
-            _gridPosition = newGridPosition;
-            LevelGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
-        }
-    }
 
     public T GetActiom<T>() where T : BaseAction
     {
-        foreach (BaseAction baseAction in _baseActionArray)
+        foreach (BaseAction baseAction in _baseActionList)
         {
             if (baseAction is T)
             {
                 return (T)baseAction;
             }
         }
-
+        
         return null;
     }
 
@@ -82,9 +122,9 @@ public class Unit : MonoBehaviour, IDamageable
         return _gridPosition;
     }
 
-    public BaseAction[] GetBaseActionArray()
+    public List<BaseAction>GetBaseActionList()
     {
-        return _baseActionArray;
+        return _baseActionList;
     }
 
     public bool TrySpendActionPointsToTakeAction(BaseAction baseAction)

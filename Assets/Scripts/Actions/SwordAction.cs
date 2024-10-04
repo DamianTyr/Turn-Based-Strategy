@@ -26,6 +26,12 @@ public class SwordAction : BaseAction
         return "Sword";
     }
 
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+        _unitAnimator.EquipSword();
+    }
+
     private void Update()
     {
         if (!IsActive) return;
@@ -57,7 +63,7 @@ public class SwordAction : BaseAction
                 float afterHitStateTime = .5f;
                 _stateTimer = afterHitStateTime;
                 _targetUnit.Damage(200, transform);
-                OnAnySwordHit?.Invoke(this, EventArgs.Empty);
+                ScreenShake.Instance.Shake(1f);
                 break;
             case State.SwingingSwordAfterHit:
                 OnSwordActionCompleted?.Invoke(this, EventArgs.Empty);

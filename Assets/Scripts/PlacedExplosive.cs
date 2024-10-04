@@ -6,8 +6,6 @@ public class PlacedExplosive : MonoBehaviour
     [SerializeField] private int explosionDamage = 100;
     [SerializeField] private Transform explosionVFXPrefab;
     [SerializeField] private Transform explosionPoint;
-
-    public static event EventHandler onAnyPlacedExplosiveDetonation;
     
     public void Explode()
     {
@@ -23,7 +21,7 @@ public class PlacedExplosive : MonoBehaviour
             }
         }
         
-        onAnyPlacedExplosiveDetonation?.Invoke(this, EventArgs.Empty);
+        ScreenShake.Instance.Shake(5f);
         Instantiate(explosionVFXPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
 
         Destructible destructible = GetComponent<Destructible>();

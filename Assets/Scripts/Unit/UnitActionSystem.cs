@@ -13,10 +13,10 @@ public class UnitActionSystem : MonoBehaviour
     
     [SerializeField] private Unit selectedUnit;
     [SerializeField] private LayerMask unitLayerMask;
-
+    
     private BaseAction _selectedAction; 
     private bool _isBusy;
-
+    
     private void Awake()
     {
         if (Instance != null)
@@ -108,5 +108,4 @@ public class UnitActionSystem : MonoBehaviour
     {
         return _selectedAction;
     }
-    
 }

@@ -1,11 +1,9 @@
 using System;
 using UnityEngine;
 
-
 public class UnitAnimator : MonoBehaviour
 {
     [SerializeField] private Animator animator;
-    [SerializeField] private Transform bulletProjectilePrefab;
     [SerializeField] private Transform shootPointTransform;
 
     [SerializeField] private Transform rifleTransform;
@@ -18,12 +16,7 @@ public class UnitAnimator : MonoBehaviour
             moveAction.OnStartMoving += MoveAction_OnStartMoving;
             moveAction.OnStopMoving += MoveAction_OnOnStopMoving;
         }
-
-        if (TryGetComponent(out ShootAction shootAction))
-        {
-            shootAction.OnShoot += ShootAction_OnShoot;
-        }
-
+        
         if (TryGetComponent(out SwordAction swordAction))
         {
             swordAction.OnSwordActionStarted += SwordAction_OnOnSwordActionStarted;
@@ -47,21 +40,13 @@ public class UnitAnimator : MonoBehaviour
         EquipRifle(); 
     }
 
-    private void ShootAction_OnShoot(object sender, ShootAction.OnShootEventArgs e)
+    public void TriggerShoot()
     {
         animator.SetTrigger("Shoot");
-        Transform bulletProjetileTransform = Instantiate(bulletProjectilePrefab, shootPointTransform.position,Quaternion.identity);
-        BulletProjectile bulletProjectile = bulletProjetileTransform.GetComponent<BulletProjectile>();
-
-        Vector3 targetUnitShootAtPosition = e.targetUnit.GetWorldPosition();
-
-        targetUnitShootAtPosition.y = shootPointTransform.position.y;
-        bulletProjectile.Setup(targetUnitShootAtPosition);
     }
 
     private void MoveAction_OnOnStopMoving(object sender, EventArgs e)
     {
-        //We should update the pathfinding visual here
         animator.SetBool("IsWalking", false);
     }
 
@@ -70,15 +55,20 @@ public class UnitAnimator : MonoBehaviour
         animator.SetBool("IsWalking", true);
     }
 
-    private void EquipSword()
+    public void EquipSword()
     {
         swordTransform.gameObject.SetActive(true);
         rifleTransform.gameObject.SetActive(false);
     }
 
-    private void EquipRifle()
+    public void EquipRifle()
     {
         swordTransform.gameObject.SetActive(false);
         rifleTransform.gameObject.SetActive(true);
+    }
+
+    public Transform GetShootPointTransform()
+    {
+        return shootPointTransform;
     }
 }

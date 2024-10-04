@@ -10,10 +10,18 @@ public abstract class BaseAction : MonoBehaviour
     protected Unit Unit;
     protected bool IsActive;
     protected Action OnActionComplete;
+
+    protected UnitAnimator _unitAnimator;
     
     protected virtual void Awake()
     {
         Unit = GetComponent<Unit>(); 
+    }
+
+    protected virtual void OnEnable()
+    {
+        _unitAnimator = GetComponent<UnitAnimator>();
+        Debug.Log("Enable Base Action");
     }
 
     public abstract string GetActionName();
@@ -76,4 +84,5 @@ public abstract class BaseAction : MonoBehaviour
     }
 
     public abstract EnemyAIAction GetEnemyAIAction(GridPosition gridPosition);
+    
 }
