@@ -55,7 +55,7 @@ namespace GameDevTV.Inventories
         /// </summary>
         public void RemoveItem(EquipLocation slot)
         {
-            OnEquipmentUpdated?.Invoke(equippedItems[slot].GetAllowedEquipLocation(), null);
+            OnEquipmentUpdated?.Invoke(slot, null);
             equippedItems.Remove(slot);
             OnAnyEquipmentUpdated?.Invoke();
         }

@@ -14,11 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemID: d8822e94-0a92-47ae-a54a-bb81d767bb1c
   displayName: Test Equipable Gun
-  description: This is amaing equipable gun test
+  description: This is equipable gun test
   icon: {fileID: 21300000, guid: 5644080e10ea6f34caa2ee85b0bee17f, type: 3}
   pickup: {fileID: 0}
   stackable: 0
   allowedEquipLocation: 0
+  _weaponVisualPrefab: {fileID: 4313582500624559560, guid: 52a1c458a4b17c44486987c1d49dce52,
+    type: 3}
+  idleAnimationClip: {fileID: 0}
+  runAnimationClip: {fileID: 0}
+  attackAnimationClip: {fileID: 0}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 256

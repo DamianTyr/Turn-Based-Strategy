@@ -17,27 +17,27 @@ public class UnitAnimator : MonoBehaviour
             moveAction.OnStopMoving += MoveAction_OnOnStopMoving;
         }
         
-        if (TryGetComponent(out SwordAction swordAction))
+        if (TryGetComponent(out MeleeAttackAction swordAction))
         {
-            swordAction.OnSwordActionStarted += SwordAction_OnOnSwordActionStarted;
-            swordAction.OnSwordActionCompleted += SwordAction_OnOnSwordActionCompleted;
+            //swordAction.OnMeleeAtackActionStarted += MeleeAtackActionOnOnMeleeAtackActionStarted;
+            //swordAction.OnMeleeAttackActionCompleted += MeleeAttackActionOnOnMeleeAttackActionCompleted;
         }
     }
 
     private void Start()
     {
-        EquipRifle();
+        //EquipRifle();
     }
 
-    private void SwordAction_OnOnSwordActionStarted(object sender, EventArgs e)
+    private void MeleeAtackActionOnOnMeleeAtackActionStarted(object sender, EventArgs e)
     {
-        EquipSword();
+        //EquipSword();
         animator.SetTrigger("SwordSlash");
     }
     
-    private void SwordAction_OnOnSwordActionCompleted(object sender, EventArgs e)
+    private void MeleeAttackActionOnOnMeleeAttackActionCompleted(object sender, EventArgs e)
     {
-        EquipRifle(); 
+        //EquipRifle(); 
     }
 
     public void TriggerShoot()
@@ -55,17 +55,17 @@ public class UnitAnimator : MonoBehaviour
         animator.SetBool("IsWalking", true);
     }
 
-    public void EquipSword()
-    {
-        swordTransform.gameObject.SetActive(true);
-        rifleTransform.gameObject.SetActive(false);
-    }
+    // public void EquipSword()
+    // {
+    //     swordTransform.gameObject.SetActive(true);
+    //     rifleTransform.gameObject.SetActive(false);
+    // }
 
-    public void EquipRifle()
-    {
-        swordTransform.gameObject.SetActive(false);
-        rifleTransform.gameObject.SetActive(true);
-    }
+    // public void EquipRifle()
+    // {
+    //     swordTransform.gameObject.SetActive(false);
+    //     rifleTransform.gameObject.SetActive(true);
+    // }
 
     public Transform GetShootPointTransform()
     {

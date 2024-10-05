@@ -21,7 +21,6 @@ public abstract class BaseAction : MonoBehaviour
     protected virtual void OnEnable()
     {
         _unitAnimator = GetComponent<UnitAnimator>();
-        Debug.Log("Enable Base Action");
     }
 
     public abstract string GetActionName();

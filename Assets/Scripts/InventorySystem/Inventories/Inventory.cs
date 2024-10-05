@@ -19,7 +19,7 @@ namespace GameDevTV.Inventories
 
         [SerializeField] private EquipableGun testEquipableGun;
         [SerializeField] private EquipableGrenade testEquipableGrenade;
-        [SerializeField] private EquipableSword testEquipableSword;
+        [FormerlySerializedAs("testEquipableSword")] [SerializeField] private EquipableMeleeWeapon testEquipableMeleeWeapon;
         
         // STATE
         InventorySlot[] slots;
@@ -34,7 +34,7 @@ namespace GameDevTV.Inventories
         {
             AddToFirstEmptySlot(testEquipableGun, 5);
             AddToFirstEmptySlot(testEquipableGrenade, 5);
-            AddToFirstEmptySlot(testEquipableSword, 5);
+            AddToFirstEmptySlot(testEquipableMeleeWeapon, 5);
         }
         
         // PUBLIC

@@ -9,18 +9,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6d3aa7063accc254d850b8290a309540, type: 3}
-  m_Name: TestOfEquipableSword
+  m_Script: {fileID: 11500000, guid: fa19e81329e5e284785b36845ac7ef55, type: 3}
+  m_Name: TestOfUnarmedMeleeWeapon
   m_EditorClassIdentifier: 
-  itemID: bd37aca6-bb1f-44ab-b4d9-eacabdb1eb06
-  displayName: Test Sword
-  description: This is a test sword
-  icon: {fileID: 21300000, guid: b47431e0d918eeb4eb1dc79bd8e8fb50, type: 3}
+  itemID: 73818f98-1eb4-402e-b8a4-a7fdcebe0f2d
+  displayName: Unarmed Melee Weapon
+  description: Unarmed Melee Weapon test - This should not be exposed to equipment
+    and Inventory
+  icon: {fileID: 0}
   pickup: {fileID: 0}
   stackable: 0
   allowedEquipLocation: 0
-  _weaponVisualPrefab: {fileID: 7761850465057418983, guid: cd3c3b989c06b9f459eeda400436d45d,
-    type: 3}
+  _weaponVisualPrefab: {fileID: 0}
   idleAnimationClip: {fileID: 0}
   runAnimationClip: {fileID: 0}
   attackAnimationClip: {fileID: 0}

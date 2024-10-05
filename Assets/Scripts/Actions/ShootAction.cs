@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShootAction : BaseAction
@@ -26,14 +25,9 @@ public class ShootAction : BaseAction
     private float _stateTimer;
     private Unit _targetUnit;
     private bool canShootBullets;
-    
-    private BulletProjectile _bulletProjectile;
 
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        _unitAnimator.EquipRifle();
-    }
+    private Transform _shootPointTransform;
+    [SerializeField] private BulletProjectile _bulletProjectile;
     
     void Update()
     {
@@ -68,11 +62,10 @@ public class ShootAction : BaseAction
     private void Shoot()
     {
         _targetUnit.Damage(40, transform);
-
-        Transform shootPointTransform = _unitAnimator.GetShootPointTransform();
-        BulletProjectile bulletProjectile = Instantiate(_bulletProjectile, shootPointTransform.position,Quaternion.identity);
+        
+        BulletProjectile bulletProjectile = Instantiate(_bulletProjectile, _shootPointTransform.position,Quaternion.identity);
         Vector3 targetUnitShootAtPosition = _targetUnit.GetWorldPosition();
-        targetUnitShootAtPosition.y = shootPointTransform.position.y;
+        targetUnitShootAtPosition.y = _shootPointTransform.position.y;
         bulletProjectile.Setup(targetUnitShootAtPosition);
         _unitAnimator.TriggerShoot();
         ScreenShake.Instance.Shake();
@@ -109,7 +102,6 @@ public class ShootAction : BaseAction
         return GetValidActionGridPositionList(unitGridPosition);
     }
     
-
     public List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
@@ -190,5 +182,10 @@ public class ShootAction : BaseAction
     public void SetObstacleLayerMask(LayerMask layerMask)
     {
         _obstaclesLayerMask = layerMask;
+    }
+
+    public void SetShootPointTransform(Transform transform)
+    {
+        _shootPointTransform = transform;
     }
 }

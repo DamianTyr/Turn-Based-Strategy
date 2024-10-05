@@ -2,13 +2,11 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
- 
-public class SwordAction : BaseAction
+public class MeleeAttackAction : BaseAction
 {
-    public static event EventHandler OnAnySwordHit;
-    
-    public event EventHandler OnSwordActionStarted;
-    public event EventHandler OnSwordActionCompleted;
+    public static event EventHandler OnAnyMeleeAttackHit;
+    public event EventHandler OnMeleeAtackActionStarted;
+    public event EventHandler OnMeleeAttackActionCompleted;
     
     private enum State
     {
@@ -23,13 +21,7 @@ public class SwordAction : BaseAction
     
     public override string GetActionName()
     {
-        return "Sword";
-    }
-
-    protected override void OnEnable()
-    {
-        base.OnEnable();
-        _unitAnimator.EquipSword();
+        return "Melee Attack";
     }
 
     private void Update()
@@ -66,7 +58,7 @@ public class SwordAction : BaseAction
                 ScreenShake.Instance.Shake(1f);
                 break;
             case State.SwingingSwordAfterHit:
-                OnSwordActionCompleted?.Invoke(this, EventArgs.Empty);
+                OnMeleeAttackActionCompleted?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
                 break;
         }
@@ -81,7 +73,7 @@ public class SwordAction : BaseAction
         float beforeHitStateTime = .7f;
         _stateTimer = beforeHitStateTime;
         
-        OnSwordActionStarted?.Invoke(this, EventArgs.Empty);
+        OnMeleeAtackActionStarted?.Invoke(this, EventArgs.Empty);
         ActionStart(onActionComplete);
     }
 

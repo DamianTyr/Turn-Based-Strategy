@@ -15,6 +15,7 @@ public class Unit : MonoBehaviour, IDamageable
     public static event EventHandler OnAnyActionListChanged;
 
     [SerializeField] private bool isEnemy;
+    [SerializeField] private UnarmedMeleeWeapon _unarmedMeleeWeapon;
     
     private GridPosition _gridPosition;
     
@@ -60,9 +61,11 @@ public class Unit : MonoBehaviour, IDamageable
         {
             _equippedItemsDict[equipLocation].RemoveFromUnit(this);
             _equippedItemsDict[equipLocation] = null;
+            _unarmedMeleeWeapon.Setup(transform);
         }
         else
         {
+            _unarmedMeleeWeapon.RemoveFromUnit(this);
             _equippedItemsDict[equipLocation] = equipableItem;
             _equippedItemsDict[equipLocation].Setup(transform);
         }
