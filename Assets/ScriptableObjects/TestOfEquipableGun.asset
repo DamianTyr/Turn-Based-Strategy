@@ -21,9 +21,9 @@ MonoBehaviour:
   allowedEquipLocation: 0
   _weaponVisualPrefab: {fileID: 4313582500624559560, guid: 52a1c458a4b17c44486987c1d49dce52,
     type: 3}
-  idleAnimationClip: {fileID: 0}
-  runAnimationClip: {fileID: 0}
-  attackAnimationClip: {fileID: 0}
+  idleAnimationClip: {fileID: 7400000, guid: 682bbfe4aac10ab4b97154d321250ae4, type: 3}
+  runAnimationClip: {fileID: 7400018, guid: 80c75ee775e6d0b41b81389561a71f0c, type: 3}
+  attackAnimationClip: {fileID: 7400000, guid: a4f962957124c5845b4d9140d718cc2b, type: 3}
   obstacleLayerMask:
     serializedVersion: 2
     m_Bits: 256

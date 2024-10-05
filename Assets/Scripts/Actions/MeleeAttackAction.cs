@@ -1,13 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Animancer;
 using UnityEngine;
 
 public class MeleeAttackAction : BaseAction
 {
-    public static event EventHandler OnAnyMeleeAttackHit;
-    public event EventHandler OnMeleeAtackActionStarted;
-    public event EventHandler OnMeleeAttackActionCompleted;
-    
     private enum State
     {
         SwingingSwordBeforeHit, 
@@ -18,6 +15,9 @@ public class MeleeAttackAction : BaseAction
     private State _state;
     private float _stateTimer;
     private Unit _targetUnit;
+
+    private AnimationClip _meleeAtackAniationClip;
+    private AnimancerState _animancerStatePreAttack;
     
     public override string GetActionName()
     {
@@ -58,7 +58,7 @@ public class MeleeAttackAction : BaseAction
                 ScreenShake.Instance.Shake(1f);
                 break;
             case State.SwingingSwordAfterHit:
-                OnMeleeAttackActionCompleted?.Invoke(this, EventArgs.Empty);
+                //OnMeleeAttackActionCompleted?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
                 break;
         }
@@ -70,11 +70,19 @@ public class MeleeAttackAction : BaseAction
         
         
         _state = State.SwingingSwordBeforeHit;
-        float beforeHitStateTime = .7f;
+        float beforeHitStateTime = .4f;
         _stateTimer = beforeHitStateTime;
+
+        _animancerStatePreAttack = AnimancerComponent.States.Current;
+        AnimancerState animancerState = AnimancerComponent.Play(_meleeAtackAniationClip);
+        animancerState.Events(this).OnEnd += OnMeleeAttackAnimationEnd;
         
-        OnMeleeAtackActionStarted?.Invoke(this, EventArgs.Empty);
         ActionStart(onActionComplete);
+    }
+
+    private void OnMeleeAttackAnimationEnd()
+    {
+        AnimancerComponent.Play(_animancerStatePreAttack);
     }
 
     public override List<GridPosition> GetValidActionGridPositionList()
@@ -114,5 +122,10 @@ public class MeleeAttackAction : BaseAction
     public int GetMaxSwordDistance()
     {
         return _maxSwordDistance;
+    }
+    
+    public void SetMeleeAttackAnimationClip(AnimationClip animationClip)
+    {
+        _meleeAtackAniationClip = animationClip;
     }
 }

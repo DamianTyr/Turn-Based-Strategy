@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Animancer;
 using UnityEngine;
 
 public class ShootAction : BaseAction
@@ -12,22 +13,18 @@ public class ShootAction : BaseAction
     }
 
     private LayerMask _obstaclesLayerMask;
-    public static event EventHandler<OnShootEventArgs> OnAnyShoot;
     
-    public class OnShootEventArgs : EventArgs
-    {
-        public Unit targetUnit;
-        public Unit shootingUnit;
-    }
-
     private int _maxShootDistance = 7;
     private State _state;
     private float _stateTimer;
     private Unit _targetUnit;
-    private bool canShootBullets;
-
+    private bool _canShootBullets;
+    
+    private BulletProjectile _bulletProjectilePrefab;
     private Transform _shootPointTransform;
-    [SerializeField] private BulletProjectile _bulletProjectile;
+    
+    private AnimationClip _shootAnimationClip;
+    private AnimancerState _animancerStatePreShot;
     
     void Update()
     {
@@ -43,10 +40,10 @@ public class ShootAction : BaseAction
                 transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * rotateSpeed);
                 break;
             case State.Shooting:
-                if (canShootBullets)
+                if (_canShootBullets)
                 {
                     Shoot();
-                    canShootBullets = false;
+                    _canShootBullets = false;
                 }
 
                 break;
@@ -63,12 +60,21 @@ public class ShootAction : BaseAction
     {
         _targetUnit.Damage(40, transform);
         
-        BulletProjectile bulletProjectile = Instantiate(_bulletProjectile, _shootPointTransform.position,Quaternion.identity);
+        BulletProjectile bulletProjectile = Instantiate(_bulletProjectilePrefab, _shootPointTransform.position,Quaternion.identity);
         Vector3 targetUnitShootAtPosition = _targetUnit.GetWorldPosition();
         targetUnitShootAtPosition.y = _shootPointTransform.position.y;
         bulletProjectile.Setup(targetUnitShootAtPosition);
-        _unitAnimator.TriggerShoot();
+        
+        _animancerStatePreShot = AnimancerComponent.States.Current;
+        AnimancerState animancerState = AnimancerComponent.Play(_shootAnimationClip);
+        animancerState.Events(this).OnEnd += OnShootAnimationEnd;
+        
         ScreenShake.Instance.Shake();
+    }
+
+    private void OnShootAnimationEnd()
+    {
+        AnimancerComponent.Play(_animancerStatePreShot);
     }
 
     private void NextState()
@@ -144,7 +150,7 @@ public class ShootAction : BaseAction
         
         float aimingStateTime = 1f;
         _stateTimer = aimingStateTime;
-        canShootBullets = true;
+        _canShootBullets = true;
         
         ActionStart(onActionComplete);
     }
@@ -176,7 +182,7 @@ public class ShootAction : BaseAction
 
     public void SetBulletProjectile(BulletProjectile bulletProjectile)
     {
-        _bulletProjectile = bulletProjectile;
+        _bulletProjectilePrefab = bulletProjectile;
     }
 
     public void SetObstacleLayerMask(LayerMask layerMask)
@@ -187,5 +193,10 @@ public class ShootAction : BaseAction
     public void SetShootPointTransform(Transform transform)
     {
         _shootPointTransform = transform;
+    }
+
+    public void SetShootAnimationCLip(AnimationClip animationClip)
+    {
+        _shootAnimationClip = animationClip;
     }
 }

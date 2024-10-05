@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Animancer;
 using UnityEngine;
 
 public abstract class BaseAction : MonoBehaviour
@@ -10,24 +11,20 @@ public abstract class BaseAction : MonoBehaviour
     protected Unit Unit;
     protected bool IsActive;
     protected Action OnActionComplete;
-
-    protected UnitAnimator _unitAnimator;
+    
+    protected AnimancerComponent AnimancerComponent;
     
     protected virtual void Awake()
     {
-        Unit = GetComponent<Unit>(); 
+        Unit = GetComponent<Unit>();
+        AnimancerComponent = GetComponent<AnimancerComponent>();
     }
-
-    protected virtual void OnEnable()
-    {
-        _unitAnimator = GetComponent<UnitAnimator>();
-    }
-
+    
     public abstract string GetActionName();
 
     public abstract void TakeAction(GridPosition gridPosition, Action onActionComplete);
     
-    public virtual bool IsValidActionGridPosition(GridPosition gridPosition)
+    public bool IsValidActionGridPosition(GridPosition gridPosition)
     {
         List<GridPosition> validGridPositionList = GetValidActionGridPositionList();
         return validGridPositionList.Contains(gridPosition);

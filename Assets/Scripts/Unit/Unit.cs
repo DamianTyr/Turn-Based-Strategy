@@ -18,8 +18,8 @@ public class Unit : MonoBehaviour, IDamageable
     [SerializeField] private UnarmedMeleeWeapon _unarmedMeleeWeapon;
     
     private GridPosition _gridPosition;
-    
-    private List<BaseAction> _baseActionList;
+
+    private List<BaseAction> _baseActionList = new List<BaseAction>();
     private int _actionPoints = 9;
     
     private HealthSystem _healthSystem;
@@ -29,18 +29,23 @@ public class Unit : MonoBehaviour, IDamageable
     
     private void Awake()
     {
-        UpdateActionList();
         _healthSystem = GetComponent<HealthSystem>();
         _equipment = GetComponent<Equipment>();
+        UpdateActionList();
     }
 
     private void Start()
     {
         _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
         LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
+        
         TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange; 
         _healthSystem.OnDead += HealthSystem_OnDead;
         _equipment.OnEquipmentUpdated += Equipment_OnOnEquipmentUpdated;
+        
+        _unarmedMeleeWeapon.Setup(transform);
+        UpdateActionList();
+        
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
     }
 

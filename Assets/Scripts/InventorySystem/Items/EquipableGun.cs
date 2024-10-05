@@ -11,6 +11,7 @@ public class EquipableGun : EquipableWeapon
    [SerializeField] private BulletProjectile _bulletProjectile;
    public override void Setup(Transform transform)
    {
+      base.Setup(transform);
       UnitEquipmentVisuals unitEquipmentVisuals = transform.GetComponent<UnitEquipmentVisuals>();
       GameObject spawnedWeaponVisual = unitEquipmentVisuals.SpawnWeaponVisual(_weaponVisualPrefab);
       WeaponShootPoint weaponShootPoint = spawnedWeaponVisual.GetComponentInChildren<WeaponShootPoint>();
@@ -19,6 +20,7 @@ public class EquipableGun : EquipableWeapon
       shootAction.SetBulletProjectile(_bulletProjectile);
       shootAction.SetObstacleLayerMask(obstacleLayerMask);
       shootAction.SetShootPointTransform(weaponShootPoint.transform);
+      shootAction.SetShootAnimationCLip(attackAnimationClip);
    }
 
    public override void RemoveFromUnit(Unit unit)

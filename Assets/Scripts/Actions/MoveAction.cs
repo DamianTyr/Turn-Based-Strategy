@@ -1,16 +1,23 @@
 using System;
 using System.Collections.Generic;
+using Animancer;
 using UnityEngine;
 
 public class MoveAction : BaseAction
 {
     private List<Vector3> _positionList;
     [SerializeField] private int maxMoveDistance;
+    
     private int _currentPositionIndex;
     
-    public event EventHandler OnStartMoving;
-    public event EventHandler OnStopMoving;
+    private AnimationClip _idleAnimationClip;
+    private AnimationClip _runAnimationClip;
     
+    private void Start()
+    {
+        AnimancerComponent.Play(_idleAnimationClip);
+    }
+
     void Update()
     {
         if (!IsActive) return;
@@ -32,7 +39,7 @@ public class MoveAction : BaseAction
             _currentPositionIndex++;
             if (_currentPositionIndex >= _positionList.Count)
             {
-                OnStopMoving?.Invoke(this, EventArgs.Empty);
+                AnimancerComponent.Play(_idleAnimationClip);
                 ActionComplete();
             }
         }
@@ -49,8 +56,8 @@ public class MoveAction : BaseAction
         {
             _positionList.Add(LevelGrid.Instance.GetWorldPosition(pathGridPosition));
         }
-   
-        OnStartMoving?.Invoke(this, EventArgs.Empty);  
+        
+        AnimancerComponent.Play(_runAnimationClip);
         ActionStart(onActionComplete);
     }
     
@@ -92,5 +99,15 @@ public class MoveAction : BaseAction
     public override string GetActionName()
     {
         return "Move";
+    }
+    
+    public void SetAnimationClips(AnimationClip idleAnimationClip, AnimationClip runAnimationClip)
+    {
+        //if (AnimancerComponent == null) AnimancerComponent = transform.GetComponent<AnimancerComponent>();
+        
+        _idleAnimationClip = idleAnimationClip;
+        _runAnimationClip = runAnimationClip;
+
+        AnimancerComponent.Play(idleAnimationClip);
     }
 }
