@@ -490,8 +490,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isEnemy: 0
-  _unarmedMeleeWeapon: {fileID: 11400000, guid: aa0f97ad119227f499b41f9fa4b7d969,
-    type: 2}
+  _startingWeapon: {fileID: 11400000, guid: aa0f97ad119227f499b41f9fa4b7d969, type: 2}
 --- !u!65 &5207580426632811867
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -526,8 +525,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxMoveDistance: 5
-  idleAnimationClip: {fileID: 0}
-  runAnimationClip: {fileID: 0}
 --- !u!114 &-6644049396873835144
 MonoBehaviour:
   m_ObjectHideFlags: 0

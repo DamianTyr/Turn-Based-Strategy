@@ -39,7 +39,7 @@ public class MoveAction : BaseAction
             _currentPositionIndex++;
             if (_currentPositionIndex >= _positionList.Count)
             {
-                AnimancerComponent.Play(_idleAnimationClip);
+                AnimancerComponent.Play(_idleAnimationClip, .3f);
                 ActionComplete();
             }
         }
@@ -57,7 +57,7 @@ public class MoveAction : BaseAction
             _positionList.Add(LevelGrid.Instance.GetWorldPosition(pathGridPosition));
         }
         
-        AnimancerComponent.Play(_runAnimationClip);
+        AnimancerComponent.Play(_runAnimationClip, 0.3f);
         ActionStart(onActionComplete);
     }
     
@@ -88,11 +88,31 @@ public class MoveAction : BaseAction
 
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
-        int targetCountAtGridPosition = Unit.GetActiom<ShootAction>().GetTargetCountAtPosition(gridPosition);
-        return new EnemyAIAction
+        Unit.TryGetComponent(out ShootAction shootAction);
+        if (shootAction)
+        {
+            int targetCountAtGridPosition = shootAction.GetTargetCountAtPosition(gridPosition);
+            return new EnemyAIAction
+            {
+                GridPosition = gridPosition,
+                ActionValue = targetCountAtGridPosition * 10
+            };
+        }
+        Unit.TryGetComponent(out MeleeAttackAction meleeAttackAction);
+        if (meleeAttackAction)
+        {
+            int targetCountAtGridPosition = meleeAttackAction.GetTargetCountAtPosition(gridPosition);
+            return new EnemyAIAction
+            {
+                GridPosition = gridPosition,
+                ActionValue = targetCountAtGridPosition * 30
+            };
+        }
+
+        return new EnemyAIAction()
         {
             GridPosition = gridPosition,
-            ActionValue = targetCountAtGridPosition * 10
+            ActionValue = 0
         };
     }
 
@@ -103,11 +123,9 @@ public class MoveAction : BaseAction
     
     public void SetAnimationClips(AnimationClip idleAnimationClip, AnimationClip runAnimationClip)
     {
-        //if (AnimancerComponent == null) AnimancerComponent = transform.GetComponent<AnimancerComponent>();
-        
         _idleAnimationClip = idleAnimationClip;
         _runAnimationClip = runAnimationClip;
 
-        AnimancerComponent.Play(idleAnimationClip);
+        AnimancerComponent.Play(idleAnimationClip, 0.3f);
     }
 }

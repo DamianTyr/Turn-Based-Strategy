@@ -8,10 +8,10 @@ public class EquipableMeleeWeapon : EquipableWeapon
     {
         base.Setup(transform);
         UnitEquipmentVisuals unitEquipmentVisuals = transform.GetComponent<UnitEquipmentVisuals>();
-        unitEquipmentVisuals.SpawnWeaponVisual(_weaponVisualPrefab);
+        unitEquipmentVisuals.SpawnWeaponVisual(weaponVisualPrefab);
         
         MeleeAttackAction meleeAttackAction = transform.AddComponent<MeleeAttackAction>();
-        meleeAttackAction.SetMeleeAttackAnimationClip(attackAnimationClip);
+        meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
     public override void RemoveFromUnit(Unit unit)

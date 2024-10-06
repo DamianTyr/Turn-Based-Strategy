@@ -10,7 +10,7 @@ public class UnarmedMeleeWeapon : EquipableWeapon
     {
         base.Setup(transform);
         MeleeAttackAction meleeAttackAction = transform.AddComponent<MeleeAttackAction>();
-        meleeAttackAction.SetMeleeAttackAnimationClip(attackAnimationClip);
+        meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
     public override void RemoveFromUnit(Unit unit)

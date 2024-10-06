@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class Unit : MonoBehaviour, IDamageable
 {
-    private const int ActionPointsMax = 9;
+    private const int ActionPointsMax = 3;
     
     public static event EventHandler OnAnyActionPointChange;
     public static event EventHandler OnAnyUnitSpawned;
@@ -15,12 +15,12 @@ public class Unit : MonoBehaviour, IDamageable
     public static event EventHandler OnAnyActionListChanged;
 
     [SerializeField] private bool isEnemy;
-    [SerializeField] private UnarmedMeleeWeapon _unarmedMeleeWeapon;
+    [SerializeField] private EquipableWeapon _startingWeapon;
     
     private GridPosition _gridPosition;
 
     private List<BaseAction> _baseActionList = new List<BaseAction>();
-    private int _actionPoints = 9;
+    private int _actionPoints = 3;
     
     private HealthSystem _healthSystem;
     private Equipment _equipment;
@@ -43,7 +43,7 @@ public class Unit : MonoBehaviour, IDamageable
         _healthSystem.OnDead += HealthSystem_OnDead;
         _equipment.OnEquipmentUpdated += Equipment_OnOnEquipmentUpdated;
         
-        _unarmedMeleeWeapon.Setup(transform);
+        _startingWeapon.Setup(transform);
         UpdateActionList();
         
         OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
@@ -66,16 +66,15 @@ public class Unit : MonoBehaviour, IDamageable
         {
             _equippedItemsDict[equipLocation].RemoveFromUnit(this);
             _equippedItemsDict[equipLocation] = null;
-            _unarmedMeleeWeapon.Setup(transform);
         }
         else
         {
-            _unarmedMeleeWeapon.RemoveFromUnit(this);
+            _startingWeapon.RemoveFromUnit(this);
             _equippedItemsDict[equipLocation] = equipableItem;
             _equippedItemsDict[equipLocation].Setup(transform);
         }
 
-        StartCoroutine(UpdateActionListNextFrame());
+        StartCoroutine(UpdateActionListNextFrame(equipLocation));
     }
     
     private void UpdateActionList()
@@ -85,14 +84,17 @@ public class Unit : MonoBehaviour, IDamageable
         OnAnyActionListChanged?.Invoke(this, EventArgs.Empty);
     }
 
-    private IEnumerator UpdateActionListNextFrame()
+    private IEnumerator UpdateActionListNextFrame(EquipLocation equipLocation)
     {
         yield return null;
-        BaseAction[] baseActionArray = GetComponents<BaseAction>();
-        _baseActionList = baseActionArray.ToList();
-        OnAnyActionListChanged?.Invoke(this, EventArgs.Empty);
-    }
+        
+        //if item was not been replaced Setup Starting Weapon
+        
+        if (_equippedItemsDict[equipLocation] == null) _startingWeapon.Setup(transform); 
 
+        UpdateActionList();
+    }
+    
     private void HealthSystem_OnDead(object sender, Transform damageDealerTransform)
     {
         LevelGrid.Instance.RemoveUnitAtGridPosition(_gridPosition, this);

@@ -20,7 +20,9 @@ MonoBehaviour:
   pickup: {fileID: 0}
   stackable: 0
   allowedEquipLocation: 0
-  _weaponVisualPrefab: {fileID: 0}
+  damage: 30
+  weaponVisualPrefab: {fileID: 0}
   idleAnimationClip: {fileID: 7400000, guid: f8c2d6a0ce3bc2d40b090cd67dd23862, type: 3}
   runAnimationClip: {fileID: 7400016, guid: 5fe51830c6e12034892d1041e85357b6, type: 3}
   attackAnimationClip: {fileID: 7400000, guid: f1613afb92638e743bace9a9392b5ee7, type: 3}
+  attackAnimationFadeTime: 0.3

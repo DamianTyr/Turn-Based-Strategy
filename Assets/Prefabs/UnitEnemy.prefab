@@ -74,6 +74,12 @@ PrefabInstance:
       propertyPath: isEnemy
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6754385236005166742, guid: 1560e0f4758bbb5449871c9b795fb9b1,
+        type: 3}
+      propertyPath: _startingWeapon
+      value: 
+      objectReference: {fileID: 11400000, guid: 31c4641bd7836294387e2cd5796d1c7e,
+        type: 2}
     - target: {fileID: 7787047186835988082, guid: 1560e0f4758bbb5449871c9b795fb9b1,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

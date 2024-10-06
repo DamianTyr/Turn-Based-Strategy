@@ -26,9 +26,6 @@ namespace GameDevTV.UI.Inventories
        
         private void Awake() 
         {
-            //var player = GameObject.FindGameObjectWithTag("Player");
-            //_selectedEquipment = player.GetComponent<Equipment>();
-            
             _unitActionSystem = UnitActionSystem.Instance;
             _unitActionSystem.OnSelectedUnitChanged += UnitActionSystem_OnOnSelectedUnitChanged;
 

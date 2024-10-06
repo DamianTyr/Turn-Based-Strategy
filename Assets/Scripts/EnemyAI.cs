@@ -103,10 +103,7 @@ public class EnemyAI : MonoBehaviour
             bestBaseAction.TakeAction(bestEnemyAIAction.GridPosition, onEnemyAIActionComplete);
             return true;
         }
-        else
-        {
-            return false;
-        }
+        return false;
     }
 
     private void SetStateTakingTurn()

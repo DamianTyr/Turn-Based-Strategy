@@ -11,21 +11,23 @@ public class ShootAction : BaseAction
         Shooting, 
         Cooloff
     }
-
-    private LayerMask _obstaclesLayerMask;
     
     private int _maxShootDistance = 7;
+    private Transform _shootPointTransform;
+    private EquipableGun _equipableGun;
+    
     private State _state;
     private float _stateTimer;
     private Unit _targetUnit;
+    
+    private AnimancerState _animancerStatePreShot;
     private bool _canShootBullets;
     
-    private BulletProjectile _bulletProjectilePrefab;
-    private Transform _shootPointTransform;
-    
-    private AnimationClip _shootAnimationClip;
-    private AnimancerState _animancerStatePreShot;
-    
+    private void OnEnable()
+    {
+        Debug.Log("Shoot Action Added");
+    }
+
     void Update()
     {
         if (!IsActive) return;
@@ -58,15 +60,15 @@ public class ShootAction : BaseAction
 
     private void Shoot()
     {
-        _targetUnit.Damage(40, transform);
+        _targetUnit.Damage(_equipableGun.GetDamage(), transform);
         
-        BulletProjectile bulletProjectile = Instantiate(_bulletProjectilePrefab, _shootPointTransform.position,Quaternion.identity);
+        BulletProjectile bulletProjectile = Instantiate(_equipableGun.GetBulletProjectile(), _shootPointTransform.position,Quaternion.identity);
         Vector3 targetUnitShootAtPosition = _targetUnit.GetWorldPosition();
         targetUnitShootAtPosition.y = _shootPointTransform.position.y;
         bulletProjectile.Setup(targetUnitShootAtPosition);
         
         _animancerStatePreShot = AnimancerComponent.States.Current;
-        AnimancerState animancerState = AnimancerComponent.Play(_shootAnimationClip);
+        AnimancerState animancerState = AnimancerComponent.Play(_equipableGun.GetAttackAnimationClip(), _equipableGun.GetAttackAnimationFadeTime());
         animancerState.Events(this).OnEnd += OnShootAnimationEnd;
         
         ScreenShake.Instance.Shake();
@@ -74,7 +76,7 @@ public class ShootAction : BaseAction
 
     private void OnShootAnimationEnd()
     {
-        AnimancerComponent.Play(_animancerStatePreShot);
+        AnimancerComponent.Play(_animancerStatePreShot, _equipableGun.GetAttackAnimationFadeTime());
     }
 
     private void NextState()
@@ -107,8 +109,8 @@ public class ShootAction : BaseAction
         GridPosition unitGridPosition = Unit.GetGridPosition();
         return GetValidActionGridPositionList(unitGridPosition);
     }
-    
-    public List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
+
+    private List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
 
@@ -130,9 +132,9 @@ public class ShootAction : BaseAction
 
                 Vector3 unitWorldPosition = LevelGrid.Instance.GetWorldPosition(unitGridPosition);
                 Vector3 shootDirection = (targetUnit.GetWorldPosition() - unitWorldPosition).normalized;
-                float unitShoulderHight = 1.7f;
+                float unitShoulderHeight = 1.7f;
                 if (Physics.Raycast(
-                        unitWorldPosition + Vector3.up * unitShoulderHight, shootDirection, Vector3.Distance(unitWorldPosition, targetUnit.GetWorldPosition()), _obstaclesLayerMask))
+                        unitWorldPosition + Vector3.up * unitShoulderHeight, shootDirection, Vector3.Distance(unitWorldPosition, targetUnit.GetWorldPosition()), _equipableGun.GetObstaclesLayerMask()))
                 {
                     //Blocked by obstacle
                     continue;
@@ -180,23 +182,14 @@ public class ShootAction : BaseAction
         return GetValidActionGridPositionList(gridPosition).Count;
     }
 
-    public void SetBulletProjectile(BulletProjectile bulletProjectile)
+
+    public void SetShootPointTransform(Transform shootPointTransform)
     {
-        _bulletProjectilePrefab = bulletProjectile;
+        _shootPointTransform = shootPointTransform;
     }
 
-    public void SetObstacleLayerMask(LayerMask layerMask)
+    public void SetEquipableGun(EquipableGun equipableGun)
     {
-        _obstaclesLayerMask = layerMask;
-    }
-
-    public void SetShootPointTransform(Transform transform)
-    {
-        _shootPointTransform = transform;
-    }
-
-    public void SetShootAnimationCLip(AnimationClip animationClip)
-    {
-        _shootAnimationClip = animationClip;
+        _equipableGun = equipableGun;
     }
 }

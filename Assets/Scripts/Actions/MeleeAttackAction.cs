@@ -15,9 +15,9 @@ public class MeleeAttackAction : BaseAction
     private State _state;
     private float _stateTimer;
     private Unit _targetUnit;
-
-    private AnimationClip _meleeAtackAniationClip;
+    
     private AnimancerState _animancerStatePreAttack;
+    private EquipableWeapon _equipableWeapon;
     
     public override string GetActionName()
     {
@@ -54,11 +54,10 @@ public class MeleeAttackAction : BaseAction
                 _state = State.SwingingSwordAfterHit;
                 float afterHitStateTime = .5f;
                 _stateTimer = afterHitStateTime;
-                _targetUnit.Damage(200, transform);
+                _targetUnit.Damage(_equipableWeapon.GetDamage(), transform);
                 ScreenShake.Instance.Shake(1f);
                 break;
             case State.SwingingSwordAfterHit:
-                //OnMeleeAttackActionCompleted?.Invoke(this, EventArgs.Empty);
                 ActionComplete();
                 break;
         }
@@ -74,7 +73,7 @@ public class MeleeAttackAction : BaseAction
         _stateTimer = beforeHitStateTime;
 
         _animancerStatePreAttack = AnimancerComponent.States.Current;
-        AnimancerState animancerState = AnimancerComponent.Play(_meleeAtackAniationClip);
+        AnimancerState animancerState = AnimancerComponent.Play(_equipableWeapon.GetAttackAnimationClip());
         animancerState.Events(this).OnEnd += OnMeleeAttackAnimationEnd;
         
         ActionStart(onActionComplete);
@@ -87,9 +86,13 @@ public class MeleeAttackAction : BaseAction
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
-
         GridPosition unitGridPosition = Unit.GetGridPosition();
+        return GetValidActionGridPositionList(unitGridPosition);
+    }
+    
+    private List<GridPosition> GetValidActionGridPositionList(GridPosition unitGridPosition)
+    {
+        List<GridPosition> validGridPositionList = new List<GridPosition>();
         
         for (int x = -_maxSwordDistance; x <= _maxSwordDistance; x++)
         {
@@ -124,8 +127,13 @@ public class MeleeAttackAction : BaseAction
         return _maxSwordDistance;
     }
     
-    public void SetMeleeAttackAnimationClip(AnimationClip animationClip)
+    public int GetTargetCountAtPosition(GridPosition gridPosition)
     {
-        _meleeAtackAniationClip = animationClip;
+        return GetValidActionGridPositionList(gridPosition).Count;
+    }
+
+    public void SetEquipableMeleeWeapon(EquipableWeapon equipableWeapon)
+    {
+        _equipableWeapon = equipableWeapon;
     }
 }
