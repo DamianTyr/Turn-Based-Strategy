@@ -33,7 +33,7 @@ public class MeleeAttackAction : BaseAction
         switch (_state)
         {
             case State.SwingingSwordBeforeHit:
-                float rotateSpeed = 10f;
+                float rotateSpeed = 15f;
                 Vector3 aimDirection = (_targetUnit.GetWorldPosition() - Unit.GetWorldPosition()).normalized;
                 transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * rotateSpeed);
                 break;
@@ -52,7 +52,7 @@ public class MeleeAttackAction : BaseAction
         {
             case State.SwingingSwordBeforeHit:
                 _state = State.SwingingSwordAfterHit;
-                float afterHitStateTime = .5f;
+                float afterHitStateTime = 1f;
                 _stateTimer = afterHitStateTime;
                 _targetUnit.Damage(_equipableWeapon.GetDamage(), transform);
                 ScreenShake.Instance.Shake(1f);
