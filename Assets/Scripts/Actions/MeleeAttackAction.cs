@@ -73,7 +73,7 @@ public class MeleeAttackAction : BaseAction
         _stateTimer = beforeHitStateTime;
 
         _animancerStatePreAttack = AnimancerComponent.States.Current;
-        AnimancerState animancerState = AnimancerComponent.Play(_equipableWeapon.GetAttackAnimationClip());
+        AnimancerState animancerState = AnimancerComponent.Play(_equipableWeapon.GetAttackAnimationClip(), _equipableWeapon.GetAttackAnimationFadeTime());
         animancerState.Events(this).OnEnd += OnMeleeAttackAnimationEnd;
         
         ActionStart(onActionComplete);

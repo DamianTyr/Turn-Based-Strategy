@@ -1,24 +1,24 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace GameDevTV.UI
 {
     public class ShowHideUI : MonoBehaviour
     {
-        [SerializeField] KeyCode toggleKey = KeyCode.Escape;
-        [SerializeField] GameObject uiContainer = null;
+        [SerializeField] private GameObject uiContainer;
 
+        private InputManager _inputManager;
+        
         // Start is called before the first frame update
         void Start()
         {
             uiContainer.SetActive(false);
+            _inputManager = InputManager.Instance;
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKeyDown(toggleKey))
+            if (_inputManager.IsInventoryButtonPressedThisFrame())
             {
                 uiContainer.SetActive(!uiContainer.activeSelf);
             }

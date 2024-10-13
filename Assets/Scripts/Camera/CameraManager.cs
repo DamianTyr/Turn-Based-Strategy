@@ -5,13 +5,36 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private GameObject actionCameraGameObject;
+    [SerializeField] private GameObject inventoryCameraGameObject;
 
+    private InputManager _inputManager;
+    private bool _isShowingInvetory;
+    
     private void Start()
     {
         BaseAction.OnAnyActionStarted += BaseAction_OnOnAnyActionStarted; 
         BaseAction.OnAnyActionCompleted += BaseActionOnOnAnyActionCompleted;
         
         HideActionCamera();
+        HideInventoryCamera();
+        _inputManager = InputManager.Instance;
+    }
+
+    private void Update()
+    {
+        if (_inputManager.IsInventoryButtonPressedThisFrame())
+        {
+            if (_isShowingInvetory)
+            {
+                HideInventoryCamera();
+                _isShowingInvetory = false;
+            }
+            else
+            {
+                ShowInventoryCamera();
+                _isShowingInvetory = true;
+            }
+        }
     }
 
     private void BaseActionOnOnAnyActionCompleted(object sender, EventArgs e)
@@ -59,5 +82,15 @@ public class CameraManager : MonoBehaviour
     private void HideActionCamera()
     {
         actionCameraGameObject.SetActive(false);
+    }
+
+    private void ShowInventoryCamera()
+    {
+        inventoryCameraGameObject.SetActive(true);
+    }
+    
+    private void HideInventoryCamera()
+    {
+        inventoryCameraGameObject.SetActive(false);
     }
 }

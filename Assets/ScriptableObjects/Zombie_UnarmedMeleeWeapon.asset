@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa19e81329e5e284785b36845ac7ef55, type: 3}
+  m_Name: Zombie_UnarmedMeleeWeapon
+  m_EditorClassIdentifier: 
+  itemID: 0d4e8b0e-7adb-4315-8054-51d744f98374
+  displayName: ZombieWeapon
+  description: Unarmed Melee Weapon - This should not be exposed to equipment and
+    Inventory
+  icon: {fileID: 0}
+  pickup: {fileID: 0}
+  stackable: 0
+  allowedEquipLocation: 0
+  damage: 20
+  weaponVisualPrefab: {fileID: 0}
+  idleAnimationClip: {fileID: 7400000, guid: 6ff84b2de0b0a4343b04ef9e8d358664, type: 3}
+  runAnimationClip: {fileID: 7400000, guid: 4427ff7ccdf204f49860d80928896422, type: 3}
+  attackAnimationClip: {fileID: 7400000, guid: f1613afb92638e743bace9a9392b5ee7, type: 3}
+  attackAnimationFadeTime: 0.2

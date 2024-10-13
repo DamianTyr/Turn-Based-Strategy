@@ -100,4 +100,13 @@ public class InputManager : MonoBehaviour
         return zoomAmmount;
 #endif
     }
+    
+    public bool IsInventoryButtonPressedThisFrame()
+    {
+#if USE_NEW_INPUT_SYSTEM
+        return _playerInputActions.Player.Inventory.WasPressedThisFrame();
+#else
+        return Input.GetKeyDown(KeyCode.I);
+#endif
+    }
 }
