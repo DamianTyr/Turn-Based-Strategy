@@ -16,7 +16,6 @@ public class HealthSystem : MonoBehaviour
 
     public void Damage(int damageAmount, Transform damageDealerTransform)
     {
-        Debug.Log("Damaged for: " + damageAmount);
         health -= damageAmount;
         OnDamage?.Invoke(this,EventArgs.Empty);
         if (health < 0)

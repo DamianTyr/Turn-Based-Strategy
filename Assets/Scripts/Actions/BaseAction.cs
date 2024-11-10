@@ -8,7 +8,7 @@ public abstract class BaseAction : MonoBehaviour
     public static event EventHandler OnAnyActionStarted;
     public static event EventHandler OnAnyActionCompleted;
     
-    protected Unit Unit;
+    protected Combat.Unit Unit;
     protected bool IsActive;
     protected Action OnActionComplete;
     
@@ -16,7 +16,7 @@ public abstract class BaseAction : MonoBehaviour
     
     protected virtual void Awake()
     {
-        Unit = GetComponent<Unit>();
+        Unit = GetComponent<Combat.Unit>();
         AnimancerComponent = GetComponent<AnimancerComponent>();
     }
     
@@ -53,7 +53,7 @@ public abstract class BaseAction : MonoBehaviour
         OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
     }
 
-    public Unit GetUnit()
+    public Combat.Unit GetUnit()
     {
         return Unit;
     }

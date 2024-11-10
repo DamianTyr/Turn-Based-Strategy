@@ -1,4 +1,5 @@
 using System;
+using Combat;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -61,7 +62,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
     {
-        foreach (Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())   
+        foreach (Combat.Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())   
         {
             if (TryTakeEnemyAIAction(enemyUnit, onEnemyAIActionComplete)) return true;
         }
@@ -69,7 +70,7 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
     
-    private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
+    private bool TryTakeEnemyAIAction(Combat.Unit enemyUnit, Action onEnemyAIActionComplete)
     {
         EnemyAIAction bestEnemyAIAction = null;
         BaseAction bestBaseAction = null;

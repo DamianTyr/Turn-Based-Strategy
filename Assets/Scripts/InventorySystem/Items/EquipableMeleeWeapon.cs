@@ -1,3 +1,4 @@
+using Combat;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -14,7 +15,7 @@ public class EquipableMeleeWeapon : EquipableWeapon
         meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
-    public override void RemoveFromUnit(Unit unit)
+    public override void RemoveFromUnit(Combat.Unit unit)
     {
         base.RemoveFromUnit(unit);
         unit.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);

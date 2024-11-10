@@ -13,7 +13,7 @@ public class EquipableGrenade : EquipableItem
         grenadeAction.SetGrenadeProjectilePrefab(grenadeProjectilePrefab);
     }
 
-    public override void RemoveFromUnit(Unit unit)
+    public override void RemoveFromUnit(Combat.Unit unit)
     {
         unit.transform.TryGetComponent(out GrenadeAction grenadeAction);
         if (grenadeAction)

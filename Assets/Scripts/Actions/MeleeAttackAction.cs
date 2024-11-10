@@ -14,7 +14,7 @@ public class MeleeAttackAction : BaseAction
     private int _maxSwordDistance = 1;
     private State _state;
     private float _stateTimer;
-    private Unit _targetUnit;
+    private Combat.Unit _targetUnit;
     
     private AnimancerState _animancerStatePreAttack;
     private EquipableWeapon _equipableWeapon;
@@ -104,7 +104,7 @@ public class MeleeAttackAction : BaseAction
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
                 if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
 
-                Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
+                Combat.Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
                 if (targetUnit.IsEnemy() == Unit.IsEnemy()) continue;
                 
                 validGridPositionList.Add(testGridPosition);

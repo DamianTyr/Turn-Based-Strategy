@@ -1,3 +1,4 @@
+using Combat;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -19,7 +20,7 @@ public class EquipableGun : EquipableWeapon
       shootAction.SetShootPointTransform(weaponShootPoint.transform);
    }
 
-   public override void RemoveFromUnit(Unit unit)
+   public override void RemoveFromUnit(Combat.Unit unit)
    {
       base.RemoveFromUnit(unit);
       unit.transform.TryGetComponent(out ShootAction shootAction);

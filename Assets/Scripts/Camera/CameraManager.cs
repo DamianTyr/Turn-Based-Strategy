@@ -1,5 +1,4 @@
 using System;
-using UnityEditor;
 using UnityEngine;
 
 public class CameraManager : MonoBehaviour
@@ -42,8 +41,6 @@ public class CameraManager : MonoBehaviour
         switch (sender)
         {
             case ShootAction shootAction:
-              
-                
                 HideActionCamera();
                 break;
         }
@@ -54,8 +51,8 @@ public class CameraManager : MonoBehaviour
         switch (sender)
         {
             case ShootAction shootAction:
-                Unit shooterUnit = shootAction.GetUnit();
-                Unit targetUnit = shootAction.GetTargetUnit();
+                Combat.Unit shooterUnit = shootAction.GetUnit();
+                Combat.Unit targetUnit = shootAction.GetTargetUnit();
                 
                 Vector3 cameraCharacterHeight = Vector3.up * 1.7f;
 

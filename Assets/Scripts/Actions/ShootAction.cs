@@ -18,7 +18,7 @@ public class ShootAction : BaseAction
     
     private State _state;
     private float _stateTimer;
-    private Unit _targetUnit;
+    private Combat.Unit _targetUnit;
     
     private AnimancerState _animancerStatePreShot;
     private bool _canShootBullets;
@@ -127,7 +127,7 @@ public class ShootAction : BaseAction
                 if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
                 if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
 
-                Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
+                Combat.Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
                 if (targetUnit.IsEnemy() == Unit.IsEnemy()) continue;
 
                 Vector3 unitWorldPosition = LevelGrid.Instance.GetWorldPosition(unitGridPosition);
@@ -157,7 +157,7 @@ public class ShootAction : BaseAction
         ActionStart(onActionComplete);
     }
 
-    public Unit GetTargetUnit()
+    public Combat.Unit GetTargetUnit()
     {
         return _targetUnit;
     }
@@ -169,7 +169,7 @@ public class ShootAction : BaseAction
     
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
-        Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        Combat.Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
         return new EnemyAIAction
         {
             GridPosition = gridPosition,

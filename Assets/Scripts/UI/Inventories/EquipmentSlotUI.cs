@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
+using Combat;
 
 namespace GameDevTV.UI.Inventories
 {
@@ -29,14 +30,14 @@ namespace GameDevTV.UI.Inventories
             _unitActionSystem = UnitActionSystem.Instance;
             _unitActionSystem.OnSelectedUnitChanged += UnitActionSystem_OnOnSelectedUnitChanged;
 
-            Unit selectedUnit = _unitActionSystem.GetSelectedUnit();
+            Combat.Unit selectedUnit = _unitActionSystem.GetSelectedUnit();
             _selectedEquipment = selectedUnit.GetComponent<Equipment>();
             Equipment.OnAnyEquipmentUpdated += RedrawUI;
         }
 
         private void UnitActionSystem_OnOnSelectedUnitChanged(object sender, EventArgs e)
         {
-            Unit selectedUnit = _unitActionSystem.GetSelectedUnit();
+            Combat.Unit selectedUnit = _unitActionSystem.GetSelectedUnit();
             Equipment selectedEquipment = selectedUnit.GetComponent<Equipment>();
 
             if (_selectedEquipment == null)

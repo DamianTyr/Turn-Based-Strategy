@@ -6,13 +6,13 @@ using UnityEngine.UI;
 public class UnitWorldUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI actionPointsText;
-    [SerializeField] private Unit unit;
+    [SerializeField] private Combat.Unit unit;
     [SerializeField] private Image healthBarImage;
     [SerializeField] private HealthSystem healthSystem;
 
     private void Start()
     {
-        Unit.OnAnyActionPointChange += Unit_OnOnAnyActionPointChange;
+        Combat.Unit.OnAnyActionPointChange += Unit_OnOnAnyActionPointChange;
         healthSystem.OnDamage += HealthSystemOnDamage;
         
         UpdateActionPointsText();

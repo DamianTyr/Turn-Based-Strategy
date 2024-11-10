@@ -4,37 +4,37 @@ public class GridObject
 {
     private GridSystem<GridObject> _gridSystem;
     private GridPosition _gridPosition;
-    private List<Unit> _unitList;
+    private List<Combat.Unit> _unitList;
     private IInteractable _interactable;
 
     public GridObject(GridSystem<GridObject> gridSystem, GridPosition gridPosition)
     {
         _gridSystem = gridSystem;
         _gridPosition = gridPosition;
-        _unitList = new List<Unit>();
+        _unitList = new List<Combat.Unit>();
     }
 
     public override string ToString()
     {
         string unitString = "";
-        foreach (Unit unit in _unitList)
+        foreach (Combat.Unit unit in _unitList)
         {
             unitString += unit + "\n";
         }
         return _gridPosition.ToString() + "\n" + unitString;
     }
 
-    public void AddUnit(Unit unit)
+    public void AddUnit(Combat.Unit unit)
     {
         _unitList.Add(unit);
     }
 
-    public void RemoveUnit(Unit unit)
+    public void RemoveUnit(Combat.Unit unit)
     {
         _unitList.Remove(unit);
     }
 
-    public List<Unit> GetUnitList()
+    public List<Combat.Unit> GetUnitList()
     {
         return _unitList;
     }
@@ -44,7 +44,7 @@ public class GridObject
         return _unitList.Count > 0;
     }
 
-    public Unit GetUnit()
+    public Combat.Unit GetUnit()
     {
         if (HasAnyUnit())
         {

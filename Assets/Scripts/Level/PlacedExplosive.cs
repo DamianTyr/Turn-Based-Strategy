@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class PlacedExplosive : MonoBehaviour
@@ -26,7 +25,5 @@ public class PlacedExplosive : MonoBehaviour
 
         Destructible destructible = GetComponent<Destructible>();
         destructible.Damage(25, explosionPoint);
-        
-        Debug.Log("Boom");
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
+using Combat;
 using UnityEngine;
 
 public class UnitActionSystemUI : MonoBehaviour
@@ -22,8 +23,8 @@ public class UnitActionSystemUI : MonoBehaviour
         UnitActionSystem.Instance.OnSelectedActionChanged += UnitActionSystem_OnOnSelectedActionChanged;
         UnitActionSystem.Instance.OnActionStarted += UnitActionSystem_OnActionStarted;
         TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange;
-        Unit.OnAnyActionPointChange += Unit_OnAnyActionPointChange; 
-        Unit.OnAnyActionListChanged += Unit_OnOnAnyActionListChanged;
+        Combat.Unit.OnAnyActionPointChange += Unit_OnAnyActionPointChange; 
+        Combat.Unit.OnAnyActionListChanged += Unit_OnOnAnyActionListChanged;
         
         CreateUnitActionButtons();
         UpdateSelectedVisual();
@@ -74,7 +75,7 @@ public class UnitActionSystemUI : MonoBehaviour
         
         actionButtonList.Clear();
         
-        Unit selectedUnit =  UnitActionSystem.Instance.GetSelectedUnit();
+        Combat.Unit selectedUnit =  UnitActionSystem.Instance.GetSelectedUnit();
         foreach (BaseAction baseAction in selectedUnit.GetBaseActionList())
         {
             Transform actionButtonTransform = Instantiate(actionButtonPrefab, actionButtonContainerTransform);
@@ -94,7 +95,7 @@ public class UnitActionSystemUI : MonoBehaviour
 
     private void UpdateActionPoints()
     {
-        Unit selctedUnit = UnitActionSystem.Instance.GetSelectedUnit();
+        Combat.Unit selctedUnit = UnitActionSystem.Instance.GetSelectedUnit();
         actionPointsText.text = "Action Points: " + selctedUnit.GetActionPoints();
     }
 }

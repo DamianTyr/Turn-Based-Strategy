@@ -1,5 +1,5 @@
-using System;
 using System.Collections.Generic;
+using Combat;
 using UnityEngine;
 
 public class LevelGrid : MonoBehaviour
@@ -37,7 +37,7 @@ public class LevelGrid : MonoBehaviour
             for (int z = 0; z < height; z++)
             {
                 GridPosition gridPosition = new GridPosition(x, z);
-                Vector3 worldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
+                Vector3 worldPosition = Instance.GetWorldPosition(gridPosition);
 
                 float raycastOffsetDistance = 5f;
 
