@@ -39,7 +39,7 @@ public class GridSystemVisual : MonoBehaviour
         Instance = this;
     }
 
-    private void Start()
+    protected virtual void Start()
     {
         int width = LevelGrid.Instance.GetWidht();
         int height = LevelGrid.Instance.GetHeight();
@@ -66,27 +66,27 @@ public class GridSystemVisual : MonoBehaviour
         UpdateGridVisual();
     }
 
-    private void BaseAction_OnOnAnyStopMoving(object sender, EventArgs e)
+    protected void BaseAction_OnOnAnyStopMoving(object sender, EventArgs e)
     {
         UpdateGridVisual();
     }
 
-    private void BaseAction_OnOnAnyStartMoving(object sender, EventArgs e)
+    protected void BaseAction_OnOnAnyStartMoving(object sender, EventArgs e)
     {
         HideAllGridPosition();
     }
 
-    private void LevelGrid_OnOnAnyUnitMovedGridPosition(object sender, EventArgs e)
+    protected void LevelGrid_OnOnAnyUnitMovedGridPosition(object sender, EventArgs e)
     {
         UpdateGridVisual();
     }
 
-    private void UnitActionSystem_OnSelectedActionChanged(object sender, EventArgs e)
+    protected void UnitActionSystem_OnSelectedActionChanged(object sender, EventArgs e)
     {
         UpdateGridVisual();
     }
 
-    private void HideAllGridPosition()
+    protected void HideAllGridPosition()
     {
         for (int x = 0; x < _gridSystemVisualSingleArray.GetLength(0); x++)
         {
@@ -97,7 +97,7 @@ public class GridSystemVisual : MonoBehaviour
         }
     }
 
-    private void ShowGridPositionRange(GridPosition gridPosition, int range, GridVisualType gridVisualType)
+    protected void ShowGridPositionRange(GridPosition gridPosition, int range, GridVisualType gridVisualType)
     {
         List<GridPosition> gridPositionList = new List<GridPosition>();
         
@@ -117,7 +117,7 @@ public class GridSystemVisual : MonoBehaviour
         ShowGridPositionList(gridPositionList, GridVisualType.RedSoft);
     }
     
-    private void ShowGridPositionRangeSquare(GridPosition gridPosition, int range, GridVisualType gridVisualType)
+    protected void ShowGridPositionRangeSquare(GridPosition gridPosition, int range, GridVisualType gridVisualType)
     {
         List<GridPosition> gridPositionList = new List<GridPosition>();
         
@@ -133,7 +133,7 @@ public class GridSystemVisual : MonoBehaviour
         ShowGridPositionList(gridPositionList, GridVisualType.RedSoft);
     }
 
-    private void ShowGridPositionList(List<GridPosition> gridPositionList, GridVisualType gridVisualType)
+    protected void ShowGridPositionList(List<GridPosition> gridPositionList, GridVisualType gridVisualType)
     {
         foreach (GridPosition gridPosition in gridPositionList)
         {
@@ -141,7 +141,7 @@ public class GridSystemVisual : MonoBehaviour
         }
     }
 
-    private void UpdateGridVisual()
+    protected void UpdateGridVisual()
     {
         HideAllGridPosition();
 
