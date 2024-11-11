@@ -16,6 +16,7 @@ public class Pathfinding : MonoBehaviour
    private int _height;
    private float _cellSize;
    private GridSystem<PathNode> _gridSystem;
+   private BaseGrid _baseGrid;
 
    private void Awake()
    {
@@ -27,30 +28,31 @@ public class Pathfinding : MonoBehaviour
       else Instance = this;
    }
    
-   public void Setup(int width, int height, float cellSize)
+   public void Setup(int width, int height, float cellSize, BaseGrid baseGrid)
    {
       _width = width;
       _height = height;
       _cellSize = cellSize;
+      _baseGrid = baseGrid;
       
       _gridSystem = new GridSystem<PathNode>(_width, _height, _cellSize, (GridSystem<PathNode> gridSystem, GridPosition gridPosition) => new PathNode(gridPosition));
       //_gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
 
-      for (int x = 0; x < width; x++)
-      {
-         for (int z = 0; z < height; z++)
-         {
-            GridPosition gridPosition = new GridPosition(x, z);
-            Vector3 worldPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
-
-            float raycastOffsetDistance = 5f;
-            if (Physics.Raycast(worldPosition + Vector3.down * raycastOffsetDistance, Vector3.up,
-                   raycastOffsetDistance * 2, obstaclesLayerMask))
-            {
-               GetNode(x, z).SetIsWalkable(false);  
-            }
-         }
-      }
+       for (int x = 0; x < width; x++)
+       {
+          for (int z = 0; z < height; z++)
+          {
+             GridPosition gridPosition = new GridPosition(x, z);
+             Vector3 worldPosition = baseGrid.GetWorldPosition(gridPosition);
+      
+             float raycastOffsetDistance = 5f;
+             if (Physics.Raycast(worldPosition + Vector3.down * raycastOffsetDistance, Vector3.up,
+                    raycastOffsetDistance * 2, obstaclesLayerMask))
+             {
+                GetNode(x, z).SetIsWalkable(false);  
+             }
+          }
+       }
    }
 
    public List<GridPosition> FindPath(GridPosition startGridPosition, GridPosition endGridPosition, out int pathLenght)

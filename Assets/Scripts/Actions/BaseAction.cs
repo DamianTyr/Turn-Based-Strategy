@@ -22,7 +22,7 @@ public abstract class BaseAction : MonoBehaviour
     
     public abstract string GetActionName();
 
-    public abstract void TakeAction(GridPosition gridPosition, Action onActionComplete);
+    public abstract void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete);
     
     public bool IsValidActionGridPosition(GridPosition gridPosition)
     {

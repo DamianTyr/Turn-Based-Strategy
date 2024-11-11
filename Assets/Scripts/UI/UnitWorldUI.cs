@@ -2,21 +2,29 @@ using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Combat;
 
 public class UnitWorldUI : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI actionPointsText;
-    [SerializeField] private Combat.Unit unit;
+    [SerializeField] private Unit unit;
     [SerializeField] private Image healthBarImage;
     [SerializeField] private HealthSystem healthSystem;
 
     private void Start()
     {
-        Combat.Unit.OnAnyActionPointChange += Unit_OnOnAnyActionPointChange;
+        Unit.OnAnyActionPointChange += Unit_OnOnAnyActionPointChange;
+        GameStateManager.Instance.OnGameStateChanged += GameStateManager_OnGameStateChanged;
         healthSystem.OnDamage += HealthSystemOnDamage;
         
         UpdateActionPointsText();
         UpdateHealthBar();
+    }
+
+    private void GameStateManager_OnGameStateChanged(GameState gameState)
+    {
+        if (gameState == GameState.RealTime) actionPointsText.enabled = false;
+        else actionPointsText.enabled = true;
     }
 
     private void HealthSystemOnDamage(object sender, EventArgs e)

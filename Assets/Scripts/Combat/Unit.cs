@@ -38,8 +38,8 @@ namespace Combat
 
         private void Start()
         {
-            _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
-            LevelGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
+            _gridPosition = MissionGrid.Instance.GetGridPosition(transform.position);
+            MissionGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
         
             TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange; 
             _healthSystem.OnDead += HealthSystem_OnDead;
@@ -53,12 +53,12 @@ namespace Combat
 
         private void Update()
         {
-            GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+            GridPosition newGridPosition = MissionGrid.Instance.GetGridPosition(transform.position);
             if (newGridPosition != _gridPosition)
             {
                 GridPosition oldGridPosition = _gridPosition;
                 _gridPosition = newGridPosition;
-                LevelGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
+                MissionGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
             }
         }
     
@@ -99,7 +99,7 @@ namespace Combat
     
         private void HealthSystem_OnDead(object sender, Transform damageDealerTransform)
         {
-            LevelGrid.Instance.RemoveUnitAtGridPosition(_gridPosition, this);
+            MissionGrid.Instance.RemoveUnitAtGridPosition(_gridPosition, this);
             Destroy(gameObject);
 
             OnAnyUnitDead(this, EventArgs.Empty);

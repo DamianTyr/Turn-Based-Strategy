@@ -62,7 +62,7 @@ public class EnemyAI : MonoBehaviour
 
     private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
     {
-        foreach (Combat.Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())   
+        foreach (Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())   
         {
             if (TryTakeEnemyAIAction(enemyUnit, onEnemyAIActionComplete)) return true;
         }
@@ -70,7 +70,7 @@ public class EnemyAI : MonoBehaviour
         return false;
     }
     
-    private bool TryTakeEnemyAIAction(Combat.Unit enemyUnit, Action onEnemyAIActionComplete)
+    private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
     {
         EnemyAIAction bestEnemyAIAction = null;
         BaseAction bestBaseAction = null;
@@ -101,7 +101,7 @@ public class EnemyAI : MonoBehaviour
 
         if (bestEnemyAIAction != null && enemyUnit.TrySpendActionPointsToTakeAction(bestBaseAction))
         {
-            bestBaseAction.TakeAction(bestEnemyAIAction.GridPosition, onEnemyAIActionComplete);
+            bestBaseAction.TakeAction(enemyUnit.GetGridPosition(), bestEnemyAIAction.GridPosition, onEnemyAIActionComplete);
             return true;
         }
         return false;

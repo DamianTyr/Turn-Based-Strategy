@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Combat;
 using UnityEngine;
 
 public class GrenadeAction : BaseAction
@@ -12,7 +13,7 @@ public class GrenadeAction : BaseAction
         return "Grenade";
     }
 
-    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
         GrenadeProjectile grenadeProjectile = Instantiate(_grenadeProjectilePrefab, Unit.GetWorldPosition(), Quaternion.identity);
         grenadeProjectile.Setup(gridPosition, OnGrenadeBehaviorComplete);
@@ -32,7 +33,7 @@ public class GrenadeAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
                 
                 int testDistance = Math.Abs(x) + Math.Abs(z);
                 if (testDistance > _maxThrowDistance) continue;

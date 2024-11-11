@@ -11,7 +11,7 @@ public class Destructible : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        _gridPosition = LevelGrid.Instance.GetGridPosition(transform.position);
+        _gridPosition = MissionGrid.Instance.GetGridPosition(transform.position);
     }
 
     public GridPosition GetGridPosition()

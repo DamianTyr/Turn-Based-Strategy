@@ -124,13 +124,13 @@ public class ShootAction : BaseAction
                 int testDistance = Math.Abs(x) + Math.Abs(z);
                 if (testDistance > _maxShootDistance) continue;
 
-                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
 
-                Combat.Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
+                Combat.Unit targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(testGridPosition);
                 if (targetUnit.IsEnemy() == Unit.IsEnemy()) continue;
 
-                Vector3 unitWorldPosition = LevelGrid.Instance.GetWorldPosition(unitGridPosition);
+                Vector3 unitWorldPosition = MissionGrid.Instance.GetWorldPosition(unitGridPosition);
                 Vector3 shootDirection = (targetUnit.GetWorldPosition() - unitWorldPosition).normalized;
                 float unitShoulderHeight = 1.7f;
                 if (Physics.Raycast(
@@ -145,9 +145,9 @@ public class ShootAction : BaseAction
         return validGridPositionList;
     }
     
-    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        _targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        _targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(gridPosition);
         _state = State.Aiming;
         
         float aimingStateTime = 1f;
@@ -169,7 +169,7 @@ public class ShootAction : BaseAction
     
     public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
     {
-        Combat.Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        Combat.Unit targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(gridPosition);
         return new EnemyAIAction
         {
             GridPosition = gridPosition,

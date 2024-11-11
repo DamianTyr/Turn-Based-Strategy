@@ -3,9 +3,20 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    [SerializeField] private GameState _currentGameState = GameState.TurnBased;
+    public static GameStateManager Instance  { get; private set; }
+    public GameState _currentGameState = GameState.TurnBased;
 
     public Action<GameState> OnGameStateChanged;
+    
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.Log("There is more than one Turn System");
+            Destroy(gameObject);
+        }
+        else Instance = this;
+    }
     
     public GameState GetGameState()
     {
@@ -22,5 +33,5 @@ public class GameStateManager : MonoBehaviour
 public enum GameState{
     TurnBased, 
     Armory, 
-    Bunker
+    RealTime
 }

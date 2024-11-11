@@ -12,10 +12,13 @@ public class MoveAction : BaseAction
     
     private AnimationClip _idleAnimationClip;
     private AnimationClip _runAnimationClip;
+
+    private BaseGrid _baseGrid;
     
     private void Start()
     {
         AnimancerComponent.Play(_idleAnimationClip);
+        _baseGrid = FindObjectOfType<BaseGrid>();
     }
 
     void Update()
@@ -45,16 +48,16 @@ public class MoveAction : BaseAction
         }
     }
     
-    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        List<GridPosition> pathGridPostionList = Pathfinding.Instance.FindPath(Unit.GetGridPosition(), gridPosition, out int pathLenght);
+        List<GridPosition> pathGridPostionList = Pathfinding.Instance.FindPath(callerGridPosition, gridPosition, out int pathLenght);
         
         _currentPositionIndex = 0;
         _positionList = new List<Vector3>();
 
         foreach (GridPosition pathGridPosition in pathGridPostionList)
         {
-            _positionList.Add(LevelGrid.Instance.GetWorldPosition(pathGridPosition));
+            _positionList.Add(_baseGrid.GetWorldPosition(pathGridPosition));
         }
         
         AnimancerComponent.Play(_runAnimationClip, 0.3f);
@@ -73,9 +76,9 @@ public class MoveAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
                 if (unitGridPosition == testGridPosition) continue;
-                if (LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
+                if (MissionGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
                 if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition)) continue;
                 if (!Pathfinding.Instance.HasPath(unitGridPosition,testGridPosition)) continue;
                 int pathfindingDistanceMultiplier = 10;
@@ -125,7 +128,5 @@ public class MoveAction : BaseAction
     {
         _idleAnimationClip = idleAnimationClip;
         _runAnimationClip = runAnimationClip;
-
-        AnimancerComponent.Play(idleAnimationClip, 0.3f);
     }
 }

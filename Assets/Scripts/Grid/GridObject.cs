@@ -1,40 +1,41 @@
 using System.Collections.Generic;
+using Combat;
 
 public class GridObject
 {
     private GridSystem<GridObject> _gridSystem;
     private GridPosition _gridPosition;
-    private List<Combat.Unit> _unitList;
+    private List<Unit> _unitList;
     private IInteractable _interactable;
 
     public GridObject(GridSystem<GridObject> gridSystem, GridPosition gridPosition)
     {
         _gridSystem = gridSystem;
         _gridPosition = gridPosition;
-        _unitList = new List<Combat.Unit>();
+        _unitList = new List<Unit>();
     }
 
     public override string ToString()
     {
         string unitString = "";
-        foreach (Combat.Unit unit in _unitList)
+        foreach (Unit unit in _unitList)
         {
             unitString += unit + "\n";
         }
         return _gridPosition.ToString() + "\n" + unitString;
     }
 
-    public void AddUnit(Combat.Unit unit)
+    public void AddUnit(Unit unit)
     {
         _unitList.Add(unit);
     }
 
-    public void RemoveUnit(Combat.Unit unit)
+    public void RemoveUnit(Unit unit)
     {
         _unitList.Remove(unit);
     }
 
-    public List<Combat.Unit> GetUnitList()
+    public List<Unit> GetUnitList()
     {
         return _unitList;
     }
@@ -44,16 +45,13 @@ public class GridObject
         return _unitList.Count > 0;
     }
 
-    public Combat.Unit GetUnit()
+    public Unit GetUnit()
     {
         if (HasAnyUnit())
         {
             return _unitList[0];
         }
-        else
-        {
-            return null;
-        }
+        return null;
     }
 
     public IInteractable GetInteractable()

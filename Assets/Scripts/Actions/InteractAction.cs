@@ -17,9 +17,9 @@ public class InteractAction : BaseAction
         return "Interact";
     }
 
-    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        IInteractable interactable = LevelGrid.Instance.GetInteractableAtGridPosition(gridPosition);
+        IInteractable interactable = MissionGrid.Instance.GetInteractableAtGridPosition(gridPosition);
         interactable.Interact(OnInteractComplete);
         ActionStart(onActionComplete);
     }
@@ -37,8 +37,8 @@ public class InteractAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                IInteractable interactable = LevelGrid.Instance.GetInteractableAtGridPosition(testGridPosition);
+                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                IInteractable interactable = MissionGrid.Instance.GetInteractableAtGridPosition(testGridPosition);
                 if (interactable == null) continue;
                 
                 validGridPositionList.Add(testGridPosition);

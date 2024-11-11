@@ -47,12 +47,12 @@ namespace Combat
         {
             if (InputManager.Instance.IsMouseButtonDownThisFrame())
             {
-                GridPosition mouseGridPosition = LevelGrid.Instance.GetGridPosition(MouseWorld.GetPosition());
+                GridPosition mouseGridPosition = MissionGrid.Instance.GetGridPosition(MouseWorld.GetPosition());
                 if (!_selectedAction.IsValidActionGridPosition(mouseGridPosition)) return;
                 if (!selectedUnit.TrySpendActionPointsToTakeAction(_selectedAction)) return;
             
                 SetBusy();
-                _selectedAction.TakeAction(mouseGridPosition, ClearBusy);
+                _selectedAction.TakeAction(selectedUnit.GetGridPosition(),mouseGridPosition, ClearBusy);
                 OnActionStarted?.Invoke(this, EventArgs.Empty);
             }
         }

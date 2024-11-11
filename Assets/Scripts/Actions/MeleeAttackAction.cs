@@ -63,9 +63,9 @@ public class MeleeAttackAction : BaseAction
         }
     }
 
-    public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        _targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        _targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(gridPosition);
         
         
         _state = State.SwingingSwordBeforeHit;
@@ -101,10 +101,10 @@ public class MeleeAttackAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if (!LevelGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                if (!LevelGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
 
-                Combat.Unit targetUnit = LevelGrid.Instance.GetUnitAtGridPosition(testGridPosition);
+                Combat.Unit targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(testGridPosition);
                 if (targetUnit.IsEnemy() == Unit.IsEnemy()) continue;
                 
                 validGridPositionList.Add(testGridPosition);

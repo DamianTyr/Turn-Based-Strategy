@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 
-
 public class TurnSystem : MonoBehaviour
 {
     public static TurnSystem Instance  { get; private set; }
@@ -9,7 +8,7 @@ public class TurnSystem : MonoBehaviour
     public event EventHandler OnTurnChange;
     
     private int _turnNumber = 1;
-
+    
     private bool isPlayerTurn = true;
     
     private void Awake()

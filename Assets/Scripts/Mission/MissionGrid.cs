@@ -2,18 +2,9 @@ using System.Collections.Generic;
 using Combat;
 using UnityEngine;
 
-public class LevelGrid : MonoBehaviour
+public class MissionGrid : BaseGrid
 {
-    public static LevelGrid Instance { get; private set; }
-
-    //public event EventHandler OnAnyUnitMovedGridPosition;
-    
-    private GridSystem<GridObject> _gridSystem;
-    [SerializeField] private int width;
-    [SerializeField] private int height;
-    [SerializeField] private float cellSize;
-    
-    [SerializeField] private Transform gridDebugObjectPrefab;
+    public static MissionGrid Instance { get; private set; }
     
     private void Awake()
     {
@@ -30,7 +21,7 @@ public class LevelGrid : MonoBehaviour
 
     private void Start()
     {
-        Pathfinding.Instance.Setup(width, height, cellSize);
+        Pathfinding.Instance.Setup(width, height, cellSize, this);
         
         for (int x = 0; x < width; x++)
         {
@@ -83,13 +74,7 @@ public class LevelGrid : MonoBehaviour
         RemoveUnitAtGridPosition(fromGridPosition, unit);
         AddUnitAtGridPosition(toGridPosition, unit);
     }
-    
-    public GridPosition GetGridPosition(Vector3 worldPosition) => _gridSystem.GetGridPosition(worldPosition);
-    public Vector3 GetWorldPosition(GridPosition gridPosition) => _gridSystem.GetWorldPosition(gridPosition);
-    public bool IsValidGridPosition(GridPosition gridPosition) => _gridSystem.IsValidGridPosition(gridPosition);
-    public int GetWidht() => _gridSystem.GetWidth();
-    public int GetHeight() => _gridSystem.GetHeight();
-    
+
     public bool HasAnyUnitOnGridPosition(GridPosition gridPosition)
     {
         GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
