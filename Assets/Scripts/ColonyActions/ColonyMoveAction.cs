@@ -1,18 +1,15 @@
 using System;
 using System.Collections.Generic;
-using Animancer;
 using UnityEngine;
 
-public class MoveAction : BaseAction
+public class ColonyMoveAction : BaseAction
 {
     private List<Vector3> _positionList;
     [SerializeField] private int maxMoveDistance;
     
     private int _currentPositionIndex;
-    
-    private AnimationClip _idleAnimationClip;
-    private AnimationClip _runAnimationClip;
-
+    [SerializeField] private AnimationClip _idleAnimationClip;
+    [SerializeField] private AnimationClip _runAnimationClip;
     private BaseGrid _baseGrid;
     
     private void Start()
@@ -26,16 +23,16 @@ public class MoveAction : BaseAction
         if (!IsActive) return;
 
         Vector3 targetPosition = _positionList[_currentPositionIndex];
-        Vector3 moveDirection = (targetPosition - transform.position).normalized;
+        Vector3 moveDirection = (targetPosition - ((Component)this).transform.position).normalized;
         
         float rotateSpeed = 10f;
-        transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        ((Component)this).transform.forward = Vector3.Lerp(((Component)this).transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
         
         float stoppingDistance = 0.1f;
-        if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
+        if (Vector3.Distance(((Component)this).transform.position, targetPosition) > stoppingDistance)
         {
             float moveSpeed = 4f;
-            transform.position += moveDirection * (moveSpeed * Time.deltaTime);
+            ((Component)this).transform.position += moveDirection * (moveSpeed * Time.deltaTime);
         }
         else
         {
@@ -64,10 +61,16 @@ public class MoveAction : BaseAction
         ActionStart(onActionComplete);
     }
     
+    public override string GetActionName()
+    {
+        return "ColonyMoveAction";
+    }
+    
+
     public override List<GridPosition> GetValidActionGridPositionList()
-    { 
+    {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
-        GridPosition unitGridPosition = Unit.GetGridPosition();
+        GridPosition unitGridPosition = unit.GetGridPosition();
 
         for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
         {
@@ -76,9 +79,9 @@ public class MoveAction : BaseAction
                 GridPosition offsetGridPosition = new GridPosition(x, z);
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
-                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                if (!ColonyGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
                 if (unitGridPosition == testGridPosition) continue;
-                if (MissionGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
+                //if (ColonyGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
                 if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition)) continue;
                 if (!Pathfinding.Instance.HasPath(unitGridPosition,testGridPosition)) continue;
                 int pathfindingDistanceMultiplier = 10;
@@ -89,44 +92,12 @@ public class MoveAction : BaseAction
         return validGridPositionList;
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    public override AIAction GetAIAction(GridPosition gridPosition)
     {
-        Unit.TryGetComponent(out ShootAction shootAction);
-        if (shootAction)
-        {
-            int targetCountAtGridPosition = shootAction.GetTargetCountAtPosition(gridPosition);
-            return new EnemyAIAction
-            {
-                GridPosition = gridPosition,
-                ActionValue = targetCountAtGridPosition * 10
-            };
-        }
-        Unit.TryGetComponent(out MeleeAttackAction meleeAttackAction);
-        if (meleeAttackAction)
-        {
-            int targetCountAtGridPosition = meleeAttackAction.GetTargetCountAtPosition(gridPosition);
-            return new EnemyAIAction
-            {
-                GridPosition = gridPosition,
-                ActionValue = targetCountAtGridPosition * 30
-            };
-        }
-
-        return new EnemyAIAction()
+        return new AIAction()
         {
             GridPosition = gridPosition,
             ActionValue = 0
         };
-    }
-
-    public override string GetActionName()
-    {
-        return "Move";
-    }
-    
-    public void SetAnimationClips(AnimationClip idleAnimationClip, AnimationClip runAnimationClip)
-    {
-        _idleAnimationClip = idleAnimationClip;
-        _runAnimationClip = runAnimationClip;
     }
 }

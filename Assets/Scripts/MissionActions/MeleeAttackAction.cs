@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Animancer;
 using UnityEngine;
+using Mission;
 
 public class MeleeAttackAction : BaseAction
 {
@@ -14,7 +15,7 @@ public class MeleeAttackAction : BaseAction
     private int _maxSwordDistance = 1;
     private State _state;
     private float _stateTimer;
-    private Combat.Unit _targetUnit;
+    private Unit _targetUnit;
     
     private AnimancerState _animancerStatePreAttack;
     private EquipableWeapon _equipableWeapon;
@@ -34,7 +35,7 @@ public class MeleeAttackAction : BaseAction
         {
             case State.SwingingSwordBeforeHit:
                 float rotateSpeed = 15f;
-                Vector3 aimDirection = (_targetUnit.GetWorldPosition() - Unit.GetWorldPosition()).normalized;
+                Vector3 aimDirection = (_targetUnit.GetWorldPosition() - unit.GetWorldPosition()).normalized;
                 transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * rotateSpeed);
                 break;
             case State.SwingingSwordAfterHit:
@@ -65,7 +66,7 @@ public class MeleeAttackAction : BaseAction
 
     public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        _targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        _targetUnit = MissionGrid.Instance.GetOccupantAtGridPosition(gridPosition).GetComponent<Unit>();
         
         
         _state = State.SwingingSwordBeforeHit;
@@ -86,7 +87,7 @@ public class MeleeAttackAction : BaseAction
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        GridPosition unitGridPosition = Unit.GetGridPosition();
+        GridPosition unitGridPosition = unit.GetGridPosition();
         return GetValidActionGridPositionList(unitGridPosition);
     }
     
@@ -102,10 +103,10 @@ public class MeleeAttackAction : BaseAction
                 GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
 
                 if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                if (!MissionGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.HasAnyOccupantOnGridPosition(testGridPosition)) continue;
 
-                Combat.Unit targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(testGridPosition);
-                if (targetUnit.IsEnemy() == Unit.IsEnemy()) continue;
+                Unit targetUnit = MissionGrid.Instance.GetOccupantAtGridPosition(testGridPosition).GetComponent<Unit>();
+                if (targetUnit.IsEnemy() == unit.IsEnemy()) continue;
                 
                 validGridPositionList.Add(testGridPosition);
             }
@@ -113,9 +114,9 @@ public class MeleeAttackAction : BaseAction
         return validGridPositionList;
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    public override AIAction GetAIAction(GridPosition gridPosition)
     {
-        return new EnemyAIAction
+        return new AIAction
         {
             GridPosition = gridPosition,
             ActionValue = 200

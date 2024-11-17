@@ -1,6 +1,7 @@
-using Combat;
+using Mission;
 using Unity.VisualScripting;
 using UnityEngine;
+using Transform = UnityEngine.Transform;
 
 [CreateAssetMenu(menuName = ("InventorySystem/Equipable Gun"))]
 public class EquipableGun : EquipableWeapon
@@ -20,7 +21,7 @@ public class EquipableGun : EquipableWeapon
       shootAction.SetShootPointTransform(weaponShootPoint.transform);
    }
 
-   public override void RemoveFromUnit(Combat.Unit unit)
+   public override void RemoveFromUnit(Mission.Unit unit)
    {
       base.RemoveFromUnit(unit);
       unit.transform.TryGetComponent(out ShootAction shootAction);

@@ -1,5 +1,5 @@
 using System.Collections.Generic;
-using Combat;
+using Mission;
 using UnityEngine;
 
 public class MissionGrid : BaseGrid
@@ -15,10 +15,15 @@ public class MissionGrid : BaseGrid
         }
         Instance = this;
         
-        _gridSystem = new GridSystem<GridObject>(width, height, cellSize,  CreateGridObject);
+        _gridSystem = new GridSystem<IGridObject>(width, height, cellSize,  CreateGridObject);
         //_gridSystem.CreateDebugObjects(gridDebugObjectPrefab);
     }
-
+    
+    private IGridObject CreateGridObject(GridSystem<IGridObject> gridSystem, GridPosition gridPosition)
+    {
+        return new MissionGridObject(gridSystem, gridPosition);
+    }
+    
     private void Start()
     {
         Pathfinding.Instance.Setup(width, height, cellSize, this);
@@ -39,63 +44,26 @@ public class MissionGrid : BaseGrid
                     if (hitInfo.transform.parent.TryGetComponent(out IInteractable interactable))
                     {
                         interactable.AddToGridPositionList(gridPosition);
-                        _gridSystem.GetGridObject(gridPosition).SetInteractable(interactable);                   
+                        IGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+                        MissionGridObject missionGridObject = gridObject as MissionGridObject;
+                        missionGridObject.SetInteractable(interactable);                   
                     }
                 }
             }
         }
     }
-
-    private GridObject CreateGridObject(GridSystem<GridObject> gridSystem, GridPosition gridPosition)
-    {
-        return new GridObject(gridSystem, gridPosition);
-    }
-
-    public void AddUnitAtGridPosition(GridPosition gridPosition, Unit unit)
-    {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        gridObject.AddUnit(unit);
-    }
-
-    public List<Unit> GetUnitListAtGridPosition(GridPosition gridPosition)
-    {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        return gridObject.GetUnitList();
-    }
-
-    public void RemoveUnitAtGridPosition(GridPosition gridPosition, Unit unit)
-    {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        gridObject.RemoveUnit(unit);
-    }
-
-    public void UnitMovedGridPosition(Unit unit, GridPosition fromGridPosition, GridPosition toGridPosition)
-    {
-        RemoveUnitAtGridPosition(fromGridPosition, unit);
-        AddUnitAtGridPosition(toGridPosition, unit);
-    }
-
-    public bool HasAnyUnitOnGridPosition(GridPosition gridPosition)
-    {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        return gridObject.HasAnyUnit();
-    }
     
-    public Unit GetUnitAtGridPosition(GridPosition gridPosition)
-    {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        return gridObject.GetUnit();
-    }
-
     public IInteractable GetInteractableAtGridPosition(GridPosition gridPosition)
     {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        return gridObject.GetInteractable();
+        IGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        MissionGridObject missionGridObject = gridObject as MissionGridObject;
+        return missionGridObject.GetInteractable();
     }
 
     public void SetInteractableAtGridPosition(GridPosition gridPosition, IInteractable interactable)
     {
-        GridObject gridObject = _gridSystem.GetGridObject(gridPosition);
-        gridObject.SetInteractable(interactable);
+        IGridObject IgridObject = _gridSystem.GetGridObject(gridPosition);
+        MissionGridObject missionGridObject = IgridObject as MissionGridObject;
+        missionGridObject.SetInteractable(interactable);
     }
 }

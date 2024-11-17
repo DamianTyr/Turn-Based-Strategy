@@ -5,7 +5,7 @@ using System.Linq;
 using GameDevTV.Inventories;
 using UnityEngine;
 
-namespace Combat
+namespace Mission
 {
     public class Unit : MonoBehaviour, IDamageable
     {
@@ -39,7 +39,7 @@ namespace Combat
         private void Start()
         {
             _gridPosition = MissionGrid.Instance.GetGridPosition(transform.position);
-            MissionGrid.Instance.AddUnitAtGridPosition(_gridPosition, this);
+            MissionGrid.Instance.AddOccupantAtGridPosition(_gridPosition, transform);
         
             TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange; 
             _healthSystem.OnDead += HealthSystem_OnDead;
@@ -58,7 +58,7 @@ namespace Combat
             {
                 GridPosition oldGridPosition = _gridPosition;
                 _gridPosition = newGridPosition;
-                MissionGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
+                MissionGrid.Instance.OccupantMovedGridPosition(transform, oldGridPosition, newGridPosition);
             }
         }
     
@@ -97,9 +97,9 @@ namespace Combat
             UpdateActionList();
         }
     
-        private void HealthSystem_OnDead(object sender, Transform damageDealerTransform)
+        private void HealthSystem_OnDead(object sender, UnityEngine.Transform damageDealerTransform)
         {
-            MissionGrid.Instance.RemoveUnitAtGridPosition(_gridPosition, this);
+            MissionGrid.Instance.RemoveOccupantAtGridPosition(_gridPosition, transform);
             Destroy(gameObject);
 
             OnAnyUnitDead(this, EventArgs.Empty);
@@ -143,7 +143,7 @@ namespace Combat
         {
             if (CanSpendActionPointsToTakeAction(baseAction))
             {
-                SpendActionPoints(baseAction.GetActionPointsCost());
+                SpendActionPoints(baseAction.GetCost());
                 return true;
             }
             return false;
@@ -152,7 +152,7 @@ namespace Combat
 
         public bool CanSpendActionPointsToTakeAction(BaseAction baseAction)
         {
-            return _actionPoints >= baseAction.GetActionPointsCost();
+            return _actionPoints >= baseAction.GetCost();
         }
 
         private void SpendActionPoints(int amount)
@@ -171,7 +171,7 @@ namespace Combat
             return isEnemy;
         }
 
-        public void Damage(int damageAmount, Transform damageDealerTransform)
+        public void Damage(int damageAmount, UnityEngine.Transform damageDealerTransform)
         {
             _healthSystem.Damage(damageAmount, damageDealerTransform);
         }

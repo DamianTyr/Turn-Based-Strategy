@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Mission;
 
 public class CameraManager : MonoBehaviour
 {
@@ -51,17 +52,17 @@ public class CameraManager : MonoBehaviour
         switch (sender)
         {
             case ShootAction shootAction:
-                Combat.Unit shooterUnit = shootAction.GetUnit();
-                Combat.Unit targetUnit = shootAction.GetTargetUnit();
+                UnityEngine.Transform shooterTransform = shootAction.GetHolderTransform();
+                Unit targetUnit = shootAction.GetTargetUnit();
                 
                 Vector3 cameraCharacterHeight = Vector3.up * 1.7f;
 
-                Vector3 shootDirection = (targetUnit.GetWorldPosition() - shooterUnit.GetWorldPosition()).normalized;
+                Vector3 shootDirection = (targetUnit.GetWorldPosition() - shooterTransform.position).normalized;
 
                 float shoulderOffsetAmount = 0.5f;
                 Vector3 shoulderOffset = Quaternion.Euler(0, 90, 0) * shootDirection * shoulderOffsetAmount;
 
-                Vector3 actionCameraPosition = shooterUnit.GetWorldPosition() + cameraCharacterHeight + shoulderOffset + (shootDirection * -1f);
+                Vector3 actionCameraPosition = shootAction.GetHolderTransform().position + cameraCharacterHeight + shoulderOffset + (shootDirection * -1f);
 
                 actionCameraGameObject.transform.position = actionCameraPosition;
                 actionCameraGameObject.transform.LookAt(targetUnit.GetWorldPosition() + cameraCharacterHeight);

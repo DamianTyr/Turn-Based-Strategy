@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace Combat
+namespace Mission
 {
     public class UnitRagdollSpawner : MonoBehaviour
     {
-        [SerializeField] private Transform ragDollPrefab;
-        [SerializeField] private Transform originalRootBone;
+        [SerializeField] private UnityEngine.Transform ragDollPrefab;
+        [SerializeField] private UnityEngine.Transform originalRootBone;
         private HealthSystem _healthSystem;
 
         private void Awake()
@@ -14,9 +14,9 @@ namespace Combat
             _healthSystem.OnDead += HealthSystem_OnDead; 
         }
 
-        private void HealthSystem_OnDead(object sender, Transform damageDealerTransform)
+        private void HealthSystem_OnDead(object sender, UnityEngine.Transform damageDealerTransform)
         {
-            Transform ragdollTransform = Instantiate(ragDollPrefab, transform.position, transform.rotation);
+            UnityEngine.Transform ragdollTransform = Instantiate(ragDollPrefab, transform.position, transform.rotation);
             UnitRagdoll unitRagdoll = ragdollTransform.GetComponent<UnitRagdoll>();
             unitRagdoll.Setup(originalRootBone, damageDealerTransform);
         }

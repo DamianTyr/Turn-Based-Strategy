@@ -2,7 +2,7 @@
 using UnityEngine;
 using GameDevTV.Core.UI.Dragging;
 using GameDevTV.Inventories;
-using Combat;
+using Mission;
 
 namespace GameDevTV.UI.Inventories
 {

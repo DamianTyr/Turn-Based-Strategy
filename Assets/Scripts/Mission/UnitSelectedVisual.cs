@@ -1,11 +1,12 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Combat
+namespace Mission
 {
     public class UnitSelectedVisual : MonoBehaviour
     {
-        [SerializeField] private Unit unit;
+        [FormerlySerializedAs("transform")] [SerializeField] private Unit unit;
         private MeshRenderer meshRenderer;
 
         private void Awake()

@@ -1,5 +1,5 @@
 using System;
-using Combat;
+using Mission;
 using UnityEngine;
 
 public class MissionGridSystemVisual : BaseGridSystemVisual

@@ -28,7 +28,7 @@ public class InteractAction : BaseAction
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
 
-        GridPosition unitGridPosition = Unit.GetGridPosition();
+        GridPosition unitGridPosition = unit.GetGridPosition();
         
         for (int x = -_maxInteractDistance; x <= _maxInteractDistance; x++)
         {
@@ -47,9 +47,9 @@ public class InteractAction : BaseAction
         return validGridPositionList;
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    public override AIAction GetAIAction(GridPosition gridPosition)
     {
-        return new EnemyAIAction
+        return new AIAction
         {
             GridPosition = gridPosition,
             ActionValue = 0

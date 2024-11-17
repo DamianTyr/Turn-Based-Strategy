@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Animancer;
+using Mission;
 using UnityEngine;
 
 public class ShootAction : BaseAction
@@ -18,7 +19,7 @@ public class ShootAction : BaseAction
     
     private State _state;
     private float _stateTimer;
-    private Combat.Unit _targetUnit;
+    private Mission.Unit _targetUnit;
     
     private AnimancerState _animancerStatePreShot;
     private bool _canShootBullets;
@@ -38,8 +39,8 @@ public class ShootAction : BaseAction
         {
             case State.Aiming:
                 float rotateSpeed = 10f;
-                Vector3 aimDirection = (_targetUnit.GetWorldPosition() - Unit.GetWorldPosition()).normalized;
-                transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * rotateSpeed);
+                Vector3 aimDirection = (_targetUnit.GetWorldPosition() - unit.GetWorldPosition()).normalized;
+                ((Component)this).transform.forward = Vector3.Lerp(((Component)this).transform.forward, aimDirection, Time.deltaTime * rotateSpeed);
                 break;
             case State.Shooting:
                 if (_canShootBullets)
@@ -60,7 +61,7 @@ public class ShootAction : BaseAction
 
     private void Shoot()
     {
-        _targetUnit.Damage(_equipableGun.GetDamage(), transform);
+        _targetUnit.Damage(_equipableGun.GetDamage(), ((Component)this).transform);
         
         BulletProjectile bulletProjectile = Instantiate(_equipableGun.GetBulletProjectile(), _shootPointTransform.position,Quaternion.identity);
         Vector3 targetUnitShootAtPosition = _targetUnit.GetWorldPosition();
@@ -106,7 +107,7 @@ public class ShootAction : BaseAction
 
     public override List<GridPosition> GetValidActionGridPositionList()
     {
-        GridPosition unitGridPosition = Unit.GetGridPosition();
+        GridPosition unitGridPosition = unit.GetGridPosition();
         return GetValidActionGridPositionList(unitGridPosition);
     }
 
@@ -125,10 +126,10 @@ public class ShootAction : BaseAction
                 if (testDistance > _maxShootDistance) continue;
 
                 if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                if (!MissionGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
+                if (!MissionGrid.Instance.HasAnyOccupantOnGridPosition(testGridPosition)) continue;
 
-                Combat.Unit targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(testGridPosition);
-                if (targetUnit.IsEnemy() == Unit.IsEnemy()) continue;
+                Mission.Unit targetUnit = MissionGrid.Instance.GetOccupantAtGridPosition(testGridPosition).GetComponent<Unit>();
+                if (targetUnit.IsEnemy() == unit.IsEnemy()) continue;
 
                 Vector3 unitWorldPosition = MissionGrid.Instance.GetWorldPosition(unitGridPosition);
                 Vector3 shootDirection = (targetUnit.GetWorldPosition() - unitWorldPosition).normalized;
@@ -147,7 +148,7 @@ public class ShootAction : BaseAction
     
     public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        _targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(gridPosition);
+        _targetUnit = MissionGrid.Instance.GetOccupantAtGridPosition(gridPosition).GetComponent<Unit>();
         _state = State.Aiming;
         
         float aimingStateTime = 1f;
@@ -157,7 +158,7 @@ public class ShootAction : BaseAction
         ActionStart(onActionComplete);
     }
 
-    public Combat.Unit GetTargetUnit()
+    public Unit GetTargetUnit()
     {
         return _targetUnit;
     }
@@ -167,10 +168,10 @@ public class ShootAction : BaseAction
         return _maxShootDistance;
     }
     
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    public override AIAction GetAIAction(GridPosition gridPosition)
     {
-        Combat.Unit targetUnit = MissionGrid.Instance.GetUnitAtGridPosition(gridPosition);
-        return new EnemyAIAction
+        Unit targetUnit = MissionGrid.Instance.GetOccupantAtGridPosition(gridPosition).GetComponent<Unit>();
+        return new AIAction
         {
             GridPosition = gridPosition,
             ActionValue = 100 + Mathf.RoundToInt((1- targetUnit.GetHealthNormalized()) * 100f)

@@ -1,5 +1,5 @@
 using System;
-using Combat;
+using Mission;
 using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
@@ -72,7 +72,7 @@ public class EnemyAI : MonoBehaviour
     
     private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
     {
-        EnemyAIAction bestEnemyAIAction = null;
+        AIAction bestAIAction = null;
         BaseAction bestBaseAction = null;
         
         foreach (BaseAction baseAction in enemyUnit.GetBaseActionList())
@@ -83,25 +83,25 @@ public class EnemyAI : MonoBehaviour
                 continue;
             }
 
-            if (bestEnemyAIAction == null)
+            if (bestAIAction == null)
             {
-                bestEnemyAIAction = baseAction.GetBestEnemyAIAction();
+                bestAIAction = baseAction.GetBestAIAction();
                 bestBaseAction = baseAction;
             }
             else
             {
-                EnemyAIAction testEnemyAIAction = baseAction.GetBestEnemyAIAction();
-                if (testEnemyAIAction != null && testEnemyAIAction.ActionValue > bestEnemyAIAction.ActionValue)
+                AIAction testAIAction = baseAction.GetBestAIAction();
+                if (testAIAction != null && testAIAction.ActionValue > bestAIAction.ActionValue)
                 {
-                    bestEnemyAIAction = baseAction.GetBestEnemyAIAction();
+                    bestAIAction = baseAction.GetBestAIAction();
                     bestBaseAction = baseAction;
                 }
             }
         }
 
-        if (bestEnemyAIAction != null && enemyUnit.TrySpendActionPointsToTakeAction(bestBaseAction))
+        if (bestAIAction != null && enemyUnit.TrySpendActionPointsToTakeAction(bestBaseAction))
         {
-            bestBaseAction.TakeAction(enemyUnit.GetGridPosition(), bestEnemyAIAction.GridPosition, onEnemyAIActionComplete);
+            bestBaseAction.TakeAction(enemyUnit.GetGridPosition(), bestAIAction.GridPosition, onEnemyAIActionComplete);
             return true;
         }
         return false;

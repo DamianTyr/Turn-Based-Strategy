@@ -1,6 +1,6 @@
 using System;
 using System.Collections.Generic;
-using Combat;
+using Mission;
 using UnityEngine;
 
 public class GrenadeAction : BaseAction
@@ -15,7 +15,7 @@ public class GrenadeAction : BaseAction
 
     public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
     {
-        GrenadeProjectile grenadeProjectile = Instantiate(_grenadeProjectilePrefab, Unit.GetWorldPosition(), Quaternion.identity);
+        GrenadeProjectile grenadeProjectile = Instantiate(_grenadeProjectilePrefab, unit.GetWorldPosition(), Quaternion.identity);
         grenadeProjectile.Setup(gridPosition, OnGrenadeBehaviorComplete);
         ActionStart(onActionComplete);
     }
@@ -24,7 +24,7 @@ public class GrenadeAction : BaseAction
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
 
-        GridPosition unitGridPosition = Unit.GetGridPosition();
+        GridPosition unitGridPosition = unit.GetGridPosition();
         
         for (int x = -_maxThrowDistance; x <= _maxThrowDistance; x++)
         {
@@ -44,9 +44,9 @@ public class GrenadeAction : BaseAction
         return validGridPositionList;
     }
 
-    public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+    public override AIAction GetAIAction(GridPosition gridPosition)
     {
-        return new EnemyAIAction
+        return new AIAction
         {
             GridPosition = gridPosition,
             ActionValue = 0

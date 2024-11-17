@@ -22,6 +22,6 @@ namespace GameDevTV.Inventories
 
         public abstract void Setup(Transform transform);
 
-        public abstract void RemoveFromUnit(Combat.Unit unit);
+        public abstract void RemoveFromUnit(Mission.Unit unit);
     }
 }

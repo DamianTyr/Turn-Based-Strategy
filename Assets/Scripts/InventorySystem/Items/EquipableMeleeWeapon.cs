@@ -1,6 +1,7 @@
-using Combat;
+using Mission;
 using Unity.VisualScripting;
 using UnityEngine;
+using Transform = UnityEngine.Transform;
 
 [CreateAssetMenu(menuName = ("InventorySystem/Equipable Melee Weapon"))]
 public class EquipableMeleeWeapon : EquipableWeapon
@@ -15,7 +16,7 @@ public class EquipableMeleeWeapon : EquipableWeapon
         meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
-    public override void RemoveFromUnit(Combat.Unit unit)
+    public override void RemoveFromUnit(Mission.Unit unit)
     {
         base.RemoveFromUnit(unit);
         unit.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);

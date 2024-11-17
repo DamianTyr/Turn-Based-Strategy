@@ -1,66 +1,56 @@
 using System.Collections.Generic;
-using Combat;
+using UnityEngine;
 
-public class GridObject
-{
-    private GridSystem<GridObject> _gridSystem;
-    private GridPosition _gridPosition;
-    private List<Unit> _unitList;
-    private IInteractable _interactable;
-
-    public GridObject(GridSystem<GridObject> gridSystem, GridPosition gridPosition)
-    {
-        _gridSystem = gridSystem;
-        _gridPosition = gridPosition;
-        _unitList = new List<Unit>();
-    }
-
-    public override string ToString()
-    {
-        string unitString = "";
-        foreach (Unit unit in _unitList)
-        {
-            unitString += unit + "\n";
-        }
-        return _gridPosition.ToString() + "\n" + unitString;
-    }
-
-    public void AddUnit(Unit unit)
-    {
-        _unitList.Add(unit);
-    }
-
-    public void RemoveUnit(Unit unit)
-    {
-        _unitList.Remove(unit);
-    }
-
-    public List<Unit> GetUnitList()
-    {
-        return _unitList;
-    }
-
-    public bool HasAnyUnit()
-    {
-        return _unitList.Count > 0;
-    }
-
-    public Unit GetUnit()
-    {
-        if (HasAnyUnit())
-        {
-            return _unitList[0];
-        }
-        return null;
-    }
-
-    public IInteractable GetInteractable()
-    {
-        return _interactable;
-    }
-
-    public void SetInteractable(IInteractable interactable)
-    {
-        _interactable = interactable;
-    }
-}
+// public class GridObject
+// {
+//     protected GridPosition _gridPosition;
+//     protected GridSystem<GridObject> _gridSystem;
+//     protected List<Transform> _occupantList;
+//
+//
+//     public GridObject(GridSystem<GridObject> gridSystem, GridPosition gridPosition)
+//     {
+//         _gridSystem = gridSystem;
+//         _gridPosition = gridPosition;
+//         _occupantList = new List<Transform>();
+//     }
+//
+//     public override string ToString()
+//     {
+//         string occupantString = "";
+//         foreach (Transform occupant in _occupantList)
+//         {
+//             occupantString += occupant + "\n";
+//         }
+//         return _gridPosition.ToString() + "\n" + occupantString;
+//     }
+//
+//     public void AddOccupant(Transform occupant)
+//     {
+//         _occupantList.Add(occupant);
+//     }
+//
+//     public void RemoveOccupant(Transform occupant)
+//     {
+//         _occupantList.Remove(occupant);
+//     }
+//
+//     public List<Transform> GetOccupantList()
+//     {
+//         return _occupantList;
+//     }
+//
+//     public bool HasAnyOccupants()
+//     {
+//         return _occupantList.Count > 0;
+//     }
+//
+//     public Transform GetOccupant()
+//     {
+//         if (HasAnyOccupants())
+//         {
+//             return _occupantList[0];
+//         }
+//         return null;
+//     }
+//}

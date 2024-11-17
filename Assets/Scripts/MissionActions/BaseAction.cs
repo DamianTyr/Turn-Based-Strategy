@@ -2,13 +2,14 @@ using System;
 using System.Collections.Generic;
 using Animancer;
 using UnityEngine;
+using Mission;
 
 public abstract class BaseAction : MonoBehaviour
 {
     public static event EventHandler OnAnyActionStarted;
     public static event EventHandler OnAnyActionCompleted;
     
-    protected Combat.Unit Unit;
+    protected Unit unit;
     protected bool IsActive;
     protected Action OnActionComplete;
     
@@ -16,7 +17,7 @@ public abstract class BaseAction : MonoBehaviour
     
     protected virtual void Awake()
     {
-        Unit = GetComponent<Combat.Unit>();
+        unit = GetComponent<Unit>();
         AnimancerComponent = GetComponent<AnimancerComponent>();
     }
     
@@ -32,7 +33,7 @@ public abstract class BaseAction : MonoBehaviour
 
     public abstract List<GridPosition> GetValidActionGridPositionList();
 
-    public virtual int GetActionPointsCost()
+    public virtual int GetCost()
     {
         return 1;
     }
@@ -53,24 +54,24 @@ public abstract class BaseAction : MonoBehaviour
         OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
     }
 
-    public Combat.Unit GetUnit()
+    public UnityEngine.Transform GetHolderTransform()
     {
-        return Unit;
+        return ((Component)this).transform;
     }
 
-    public EnemyAIAction GetBestEnemyAIAction()
+    public AIAction GetBestAIAction()
     {
-        List<EnemyAIAction> enemyAIActionList = new List<EnemyAIAction>();
+        List<AIAction> enemyAIActionList = new List<AIAction>();
         List<GridPosition> validActionGridPositionList = GetValidActionGridPositionList();
 
         foreach (GridPosition gridPosition in validActionGridPositionList)
         {
-            EnemyAIAction enemyAIAction = GetEnemyAIAction(gridPosition);
-            enemyAIActionList.Add(enemyAIAction);
+            AIAction aiAction = GetAIAction(gridPosition);
+            enemyAIActionList.Add(aiAction);
         }
         if (enemyAIActionList.Count > 0)
         {
-            enemyAIActionList.Sort((EnemyAIAction a, EnemyAIAction b) => b.ActionValue - a.ActionValue);
+            enemyAIActionList.Sort((AIAction a, AIAction b) => b.ActionValue - a.ActionValue);
             return enemyAIActionList[0];
         }
         else
@@ -79,6 +80,6 @@ public abstract class BaseAction : MonoBehaviour
         }
     }
 
-    public abstract EnemyAIAction GetEnemyAIAction(GridPosition gridPosition);
+    public abstract AIAction GetAIAction(GridPosition gridPosition);
     
 }

@@ -1,8 +1,9 @@
 using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
-namespace Combat
+namespace Mission
 {
     public class UnitActionSystem : MonoBehaviour
     {
@@ -13,7 +14,7 @@ namespace Combat
         public event EventHandler<bool> OnBusyChange;
         public event EventHandler OnActionStarted;
     
-        [SerializeField] private Unit selectedUnit;
+        [FormerlySerializedAs("selectedTransform")] [SerializeField] private Unit selectedUnit;
         [SerializeField] private LayerMask unitLayerMask;
     
         private BaseAction _selectedAction; 

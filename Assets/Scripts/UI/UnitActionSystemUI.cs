@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using TMPro;
-using Combat;
+using Mission;
 using UnityEngine;
 
 public class UnitActionSystemUI : MonoBehaviour
 {
-    [SerializeField] private Transform actionButtonPrefab;
-    [SerializeField] private Transform actionButtonContainerTransform;
+    [SerializeField] private UnityEngine.Transform actionButtonPrefab;
+    [SerializeField] private UnityEngine.Transform actionButtonContainerTransform;
     [SerializeField] private TextMeshProUGUI actionPointsText;
 
     private List<ActionButtonUI> actionButtonList;
@@ -68,17 +68,17 @@ public class UnitActionSystemUI : MonoBehaviour
 
     private void CreateUnitActionButtons()
     {
-        foreach (Transform buttonTransform in actionButtonContainerTransform)
+        foreach (UnityEngine.Transform buttonTransform in actionButtonContainerTransform)
         {
             Destroy(buttonTransform.gameObject);
         }
         
         actionButtonList.Clear();
         
-        Combat.Unit selectedUnit =  UnitActionSystem.Instance.GetSelectedUnit();
+        Mission.Unit selectedUnit =  UnitActionSystem.Instance.GetSelectedUnit();
         foreach (BaseAction baseAction in selectedUnit.GetBaseActionList())
         {
-            Transform actionButtonTransform = Instantiate(actionButtonPrefab, actionButtonContainerTransform);
+            UnityEngine.Transform actionButtonTransform = Instantiate(actionButtonPrefab, actionButtonContainerTransform);
             ActionButtonUI actionButtonUI = actionButtonTransform.GetComponent<ActionButtonUI>();
             actionButtonUI.SetBaseAction(baseAction);
             actionButtonList.Add(actionButtonUI);
@@ -95,7 +95,7 @@ public class UnitActionSystemUI : MonoBehaviour
 
     private void UpdateActionPoints()
     {
-        Combat.Unit selctedUnit = UnitActionSystem.Instance.GetSelectedUnit();
+        Mission.Unit selctedUnit = UnitActionSystem.Instance.GetSelectedUnit();
         actionPointsText.text = "Action Points: " + selctedUnit.GetActionPoints();
     }
 }

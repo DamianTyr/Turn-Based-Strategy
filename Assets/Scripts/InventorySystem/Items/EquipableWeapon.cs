@@ -1,7 +1,8 @@
 
 using GameDevTV.Inventories;
-using Combat;
+using Mission;
 using UnityEngine;
+using Transform = UnityEngine.Transform;
 
 public abstract class EquipableWeapon : EquipableItem
 {
@@ -22,7 +23,7 @@ public abstract class EquipableWeapon : EquipableItem
       moveAction.SetAnimationClips(idleAnimationClip, runAnimationClip);
    }
    
-   public override void RemoveFromUnit(Combat.Unit unit)
+   public override void RemoveFromUnit(Mission.Unit unit)
    {
       UnitEquipmentVisuals unitEquipmentVisuals = unit.transform.GetComponent<UnitEquipmentVisuals>();
       unitEquipmentVisuals.DestroyWeaponVisual();
