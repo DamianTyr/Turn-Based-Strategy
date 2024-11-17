@@ -1729,63 +1729,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6d17528cb960494d9fefe011a87f9a5, type: 3}
---- !u!1 &237777575
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 237777577}
-  - component: {fileID: 237777578}
-  m_Layer: 0
-  m_Name: BaseGridSystemVisual
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &237777577
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237777575}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 525508824}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &237777578
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 237777575}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c02d43f3f64b4c543a1dfdec4b5a9a27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  gridSystemVisualSinglePrefab: {fileID: 6710394038607392821, guid: 01362fbfb1d8dbe479c6943224449437,
-    type: 3}
-  gridVisualTypeMaterialList:
-  - gridVisualType: 0
-    material: {fileID: 2100000, guid: 10f4f53488b66bd4bb924a5aba2a20da, type: 2}
-  - gridVisualType: 1
-    material: {fileID: 2100000, guid: f85606476d5dec241a4f28025e9c872e, type: 2}
-  - gridVisualType: 2
-    material: {fileID: 2100000, guid: 836e5916b2f151b48b806e3080932776, type: 2}
-  - gridVisualType: 4
-    material: {fileID: 2100000, guid: 3323cd28e1e8262408bfa588123d3862, type: 2}
-  - gridVisualType: 3
-    material: {fileID: 2100000, guid: 40f92994e8117a94f8f9cc4b05f9857f, type: 2}
 --- !u!4 &262843684 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4916107836367038432, guid: e6d17528cb960494d9fefe011a87f9a5,
@@ -3830,7 +3773,6 @@ Transform:
   - {fileID: 1785144464}
   - {fileID: 1316221525}
   - {fileID: 2059425036}
-  - {fileID: 237777577}
   - {fileID: 2113611693}
   - {fileID: 1106978219}
   - {fileID: 1854674240}
@@ -14221,6 +14163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2059425036}
   - component: {fileID: 2059425037}
+  - component: {fileID: 2059425038}
   m_Layer: 0
   m_Name: ColonyGrid
   m_TagString: Untagged
@@ -14260,6 +14203,31 @@ MonoBehaviour:
   cellSize: 2
   gridDebugObjectPrefab: {fileID: 894995705320571869, guid: 60266934e6221214292053c8201c47b6,
     type: 3}
+--- !u!114 &2059425038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2059425035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c02d43f3f64b4c543a1dfdec4b5a9a27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gridSystemVisualSinglePrefab: {fileID: 6710394038607392821, guid: 01362fbfb1d8dbe479c6943224449437,
+    type: 3}
+  gridVisualTypeMaterialList:
+  - gridVisualType: 0
+    material: {fileID: 2100000, guid: 10f4f53488b66bd4bb924a5aba2a20da, type: 2}
+  - gridVisualType: 1
+    material: {fileID: 2100000, guid: f85606476d5dec241a4f28025e9c872e, type: 2}
+  - gridVisualType: 2
+    material: {fileID: 2100000, guid: 836e5916b2f151b48b806e3080932776, type: 2}
+  - gridVisualType: 4
+    material: {fileID: 2100000, guid: 3323cd28e1e8262408bfa588123d3862, type: 2}
+  - gridVisualType: 3
+    material: {fileID: 2100000, guid: 40f92994e8117a94f8f9cc4b05f9857f, type: 2}
 --- !u!1001 &2069375081
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19099,7 +19067,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10c7057e1d86d444898e3b54e74dc5fc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveAction: {fileID: 9204942897676273580}
+  colonyMoveAction: {fileID: 9204942897676273580}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

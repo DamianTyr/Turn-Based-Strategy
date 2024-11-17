@@ -1,17 +1,16 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ColonyGridObject : IGridObject
+public class ColonyGridObject
 {
-    protected GridPosition _gridPosition;
-    protected GridSystem<IGridObject> _gridSystem;
-    protected List<Transform> _occupantList;
+    protected GridPosition gridPosition;
+    protected GridSystem<ColonyGridObject> gridSystem;
+    protected readonly List<Transform> _occupantList;
     
-    public ColonyGridObject(GridSystem<IGridObject> gridSystem, GridPosition gridPosition) 
+    public ColonyGridObject(GridSystem<ColonyGridObject> gridSystem, GridPosition gridPosition) 
     {
-        _gridSystem = gridSystem;
-        _gridPosition = gridPosition;
+        this.gridSystem = gridSystem;
+        this.gridPosition = gridPosition;
         _occupantList = new List<Transform>();
     }
     
@@ -22,7 +21,7 @@ public class ColonyGridObject : IGridObject
         {
             occupantString += occupant + "\n";
         }
-        return _gridPosition.ToString() + "\n" + occupantString;
+        return gridPosition.ToString() + "\n" + occupantString;
     }
 
     public void AddOccupant(Transform occupant)

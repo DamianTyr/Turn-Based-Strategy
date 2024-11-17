@@ -10,12 +10,12 @@ public class ColonyMoveAction : BaseAction
     private int _currentPositionIndex;
     [SerializeField] private AnimationClip _idleAnimationClip;
     [SerializeField] private AnimationClip _runAnimationClip;
-    private BaseGrid _baseGrid;
+    private ColonyGrid _baseGrid;
     
     private void Start()
     {
         AnimancerComponent.Play(_idleAnimationClip);
-        _baseGrid = FindObjectOfType<BaseGrid>();
+        _baseGrid = FindObjectOfType<ColonyGrid>();
     }
 
     void Update()
@@ -26,13 +26,13 @@ public class ColonyMoveAction : BaseAction
         Vector3 moveDirection = (targetPosition - ((Component)this).transform.position).normalized;
         
         float rotateSpeed = 10f;
-        ((Component)this).transform.forward = Vector3.Lerp(((Component)this).transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        transform.forward = Vector3.Lerp(((Component)this).transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
         
         float stoppingDistance = 0.1f;
-        if (Vector3.Distance(((Component)this).transform.position, targetPosition) > stoppingDistance)
+        if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
         {
             float moveSpeed = 4f;
-            ((Component)this).transform.position += moveDirection * (moveSpeed * Time.deltaTime);
+            transform.position += moveDirection * (moveSpeed * Time.deltaTime);
         }
         else
         {

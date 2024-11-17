@@ -1,17 +1,15 @@
-using System.Collections;
 using System.Collections.Generic;
-using Mission;
 using UnityEngine;
 
 public class MissionGridObject : IGridObject
 {
     protected GridPosition _gridPosition;
-    protected GridSystem<IGridObject> _gridSystem;
+    protected GridSystem<MissionGridObject> _gridSystem;
     protected List<Transform> _occupantList;
 
     private IInteractable _interactable;
     
-    public MissionGridObject(GridSystem<IGridObject> gridSystem, GridPosition gridPosition)
+    public MissionGridObject(GridSystem<MissionGridObject> gridSystem, GridPosition gridPosition)
     {
         _gridSystem = gridSystem;
         _gridPosition = gridPosition;

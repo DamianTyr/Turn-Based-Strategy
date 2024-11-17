@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Grid;
 using UnityEngine;
 
 public class Pathfinding : MonoBehaviour
@@ -16,7 +17,7 @@ public class Pathfinding : MonoBehaviour
    private int _height;
    private float _cellSize;
    private GridSystem<PathNode> _gridSystem;
-   private BaseGrid _baseGrid;
+   private IGrid _baseGrid;
 
    private void Awake()
    {
@@ -28,7 +29,7 @@ public class Pathfinding : MonoBehaviour
       else Instance = this;
    }
    
-   public void Setup(int width, int height, float cellSize, BaseGrid baseGrid)
+   public void Setup(int width, int height, float cellSize, IGrid baseGrid)
    {
       _width = width;
       _height = height;

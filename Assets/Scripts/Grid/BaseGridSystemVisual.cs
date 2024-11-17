@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Grid;
 using UnityEngine;
 
 public class BaseGridSystemVisual : MonoBehaviour
@@ -27,7 +28,7 @@ public class BaseGridSystemVisual : MonoBehaviour
     
     protected virtual void Start()
     {
-        BaseGrid baseGrid = GameObject.FindObjectOfType<BaseGrid>();
+        IGrid baseGrid = GetComponent<IGrid>();
         
         int width = baseGrid.GetWidth();
         int height = baseGrid.GetHeight();
