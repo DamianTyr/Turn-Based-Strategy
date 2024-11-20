@@ -1,14 +1,27 @@
 using System;
+using System.Collections.Generic;
+using Colony;
 using UnityEngine;
 
 public class Colonist : MonoBehaviour
 {
     private GridPosition _gridPosition;
     [SerializeField] private ColonyMoveAction colonyMoveAction;
+    [SerializeField] private ColonyWanderAction colonyWanderAction;
+    [SerializeField] private ColonyMiningAction colonyMiningAction;
+    [SerializeField] private bool isBusy;
+
+    private ColonyTasksManager _colonyTasksManager;
+    private ColonyTask currentTask;
+    private BaseAction[] colonyActions;
+
+    private float taskCheckTimer = 2f;
     
     private void Start()
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        _colonyTasksManager = FindObjectOfType<ColonyTasksManager>();
+        colonyActions = GetComponents<BaseAction>();
     }
     
     private void Update()
@@ -18,25 +31,55 @@ public class Colonist : MonoBehaviour
         {
             GridPosition oldGridPosition = _gridPosition;
             _gridPosition = newGridPosition;
-            //ColonyGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
+            ColonyGrid.Instance.OccupantMovedGridPosition(transform, oldGridPosition, newGridPosition);
+        }
+
+        taskCheckTimer -= Time.deltaTime;
+        if (taskCheckTimer <= 0)
+        {
+            taskCheckTimer = 2f;
+            if (isBusy) return;
+            CheckForColonyTasks();
         }
     }
-    
-    
-    public void MoveTo(GridPosition gridPosition, Action onActionComplete)
+
+    private void CheckForColonyTasks()
     {
-       colonyMoveAction.TakeAction(_gridPosition, gridPosition, OnActionComplete);
+        List<ColonyTask> colonyTaskList = _colonyTasksManager.GetColonyTaskList();
+        foreach (ColonyTask colonyTask in colonyTaskList)
+        {
+            if (colonyTask.AssignedColonist != null) continue;
+            
+            switch (colonyTask.ActionType)
+            {
+                case ColonyActionType.Mining:
+                    colonyMiningAction.TakeAction(_gridPosition, colonyTask.GridPosition, OnActionComplete);
+                    colonyTask.AssignedColonist = this;
+                    isBusy = true;
+                    return;
+            }
+        }
+        
+        if (!isBusy)
+        {
+            colonyWanderAction.TakeAction(_gridPosition, _gridPosition, OnActionComplete);
+            isBusy = true;
+        }
+    }
+
+    public void Test(GridPosition gridPosition, Action onActionComplete)
+    {
+
     }
 
     private void OnActionComplete()
     {
-        Debug.Log("Action Complete");
+        isBusy = false;
+        Debug.Log("Colonist Action Finished");
     }
 
     private GridPosition GetGridPosition()
     {
         return _gridPosition;
     }
-    
-
 }

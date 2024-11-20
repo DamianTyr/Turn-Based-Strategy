@@ -134,4 +134,17 @@ public class ColonyGrid : MonoBehaviour, IGrid
         ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
         return gridObject.GetOccupant();
     }
+
+    public void SetMinableAtPosition(GridPosition gridPosition, Mineable mineable)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        gridObject.SetMineable(mineable);
+    }
+
+    public Mineable GetMineableAtGridPosition(GridPosition gridPosition)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        return gridObject.GetMineable();
+    }
+
 }

@@ -6,6 +6,8 @@ public class ColonyGridObject
     protected GridPosition gridPosition;
     protected GridSystem<ColonyGridObject> gridSystem;
     protected readonly List<Transform> _occupantList;
+    protected Mineable _mineable;
+    
     
     public ColonyGridObject(GridSystem<ColonyGridObject> gridSystem, GridPosition gridPosition) 
     {
@@ -51,5 +53,15 @@ public class ColonyGridObject
             return _occupantList[0];
         }
         return null;
+    }
+
+    public void SetMineable(Mineable mineable)
+    {
+        _mineable = mineable;
+    }
+
+    public Mineable GetMineable()
+    {
+        return _mineable;
     }
 }

@@ -13,7 +13,7 @@ public class Testing : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            colonist.MoveTo(new GridPosition(1,1), OnActionComplete);
+            colonist.Test(new GridPosition(1,1), OnActionComplete);
         }
     }
 

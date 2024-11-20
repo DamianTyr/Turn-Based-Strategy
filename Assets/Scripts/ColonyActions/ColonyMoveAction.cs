@@ -1,9 +1,13 @@
 using System;
 using System.Collections.Generic;
+using Colony;
 using UnityEngine;
 
 public class ColonyMoveAction : BaseAction
 {
+ 
+    private ColonyActionType _colonyActionType = ColonyActionType.Mining;
+    
     private List<Vector3> _positionList;
     [SerializeField] private int maxMoveDistance;
     
@@ -66,7 +70,6 @@ public class ColonyMoveAction : BaseAction
         return "ColonyMoveAction";
     }
     
-
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();

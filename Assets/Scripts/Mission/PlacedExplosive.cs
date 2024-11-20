@@ -22,7 +22,6 @@ public class PlacedExplosive : MonoBehaviour
         
         ScreenShake.Instance.Shake(5f);
         Instantiate(explosionVFXPrefab, transform.position + Vector3.up * 1f, Quaternion.identity);
-
         Destructible destructible = GetComponent<Destructible>();
         destructible.Damage(25, explosionPoint);
     }

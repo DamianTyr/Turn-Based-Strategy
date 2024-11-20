@@ -41,7 +41,7 @@ public class Destructible : MonoBehaviour, IDamageable
                 childRigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRange);
             }
             
-            ApplyExplosionToChildren(child, explosionForce, explosionPosition, explosionRange);
+            ApplyExplosionToChildren(child,  explosionForce, explosionPosition,  explosionRange);
         }
     }
 }
