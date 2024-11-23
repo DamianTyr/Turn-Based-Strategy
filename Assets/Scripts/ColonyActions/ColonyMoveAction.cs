@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Colony;
 using UnityEngine;
 
 public class ColonyMoveAction : BaseAction
@@ -73,22 +72,22 @@ public class ColonyMoveAction : BaseAction
     public override List<GridPosition> GetValidActionGridPositionList()
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
-        GridPosition unitGridPosition = unit.GetGridPosition();
-
+        GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        
         for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
         {
             for (int z = -maxMoveDistance; z <= maxMoveDistance; z++)
             {
                 GridPosition offsetGridPosition = new GridPosition(x, z);
-                GridPosition testGridPosition = unitGridPosition + offsetGridPosition;
+                GridPosition testGridPosition = colonistGridPosition + offsetGridPosition;
 
                 if (!ColonyGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                if (unitGridPosition == testGridPosition) continue;
+                if (colonistGridPosition == testGridPosition) continue;
                 //if (ColonyGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
                 if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition)) continue;
-                if (!Pathfinding.Instance.HasPath(unitGridPosition,testGridPosition)) continue;
+                if (!Pathfinding.Instance.HasPath(colonistGridPosition,testGridPosition)) continue;
                 int pathfindingDistanceMultiplier = 10;
-                if (Pathfinding.Instance.GetPathLenght(unitGridPosition, testGridPosition) > maxMoveDistance * pathfindingDistanceMultiplier) continue;
+                if (Pathfinding.Instance.GetPathLenght(colonistGridPosition, testGridPosition) > maxMoveDistance * pathfindingDistanceMultiplier) continue;
                 validGridPositionList.Add(testGridPosition);
             }
         }

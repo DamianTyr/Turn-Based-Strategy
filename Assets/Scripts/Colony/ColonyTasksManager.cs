@@ -5,10 +5,18 @@ namespace Colony
 {
     public class ColonyTasksManager: MonoBehaviour
     {
+        public static ColonyTasksManager Instance;
+        
         [SerializeField] private List<ColonyTask> colonyTaskList = new();
         
         private void Awake()
         {
+            if (Instance != null)
+            {
+                Debug.LogError("There is more then one Colony Grid!" + transform + " - " + Instance);
+                Destroy(gameObject);
+            }
+            Instance = this;
             Mineable.OnAnyMineableSpawned += OnAnyMineableSpawned;
         }
         
@@ -20,6 +28,21 @@ namespace Colony
         public List<ColonyTask> GetColonyTaskList()
         {
             return colonyTaskList;
+        }
+
+        public List<ColonyTask> GetColonyTaskListOfType(ColonyActionType colonyActionType)
+        {
+            List<ColonyTask> colonyTasksOfTypeList = new List<ColonyTask>();
+
+            foreach (ColonyTask colonyTask in colonyTaskList)
+            {
+                if (colonyTask.ActionType == colonyActionType)
+                {
+                    colonyTasksOfTypeList.Add(colonyTask);
+                }
+            }
+
+            return colonyTasksOfTypeList;
         }
     }
 }

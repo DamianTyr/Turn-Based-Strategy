@@ -10,7 +10,7 @@ public class Colonist : MonoBehaviour
     [SerializeField] private ColonyWanderAction colonyWanderAction;
     [SerializeField] private ColonyMiningAction colonyMiningAction;
     [SerializeField] private bool isBusy;
-
+    
     private ColonyTasksManager _colonyTasksManager;
     private ColonyTask currentTask;
     private BaseAction[] colonyActions;
@@ -33,7 +33,7 @@ public class Colonist : MonoBehaviour
             _gridPosition = newGridPosition;
             ColonyGrid.Instance.OccupantMovedGridPosition(transform, oldGridPosition, newGridPosition);
         }
-
+        
         taskCheckTimer -= Time.deltaTime;
         if (taskCheckTimer <= 0)
         {
@@ -53,7 +53,10 @@ public class Colonist : MonoBehaviour
             switch (colonyTask.ActionType)
             {
                 case ColonyActionType.Mining:
-                    colonyMiningAction.TakeAction(_gridPosition, colonyTask.GridPosition, OnActionComplete);
+                    
+                    if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
+                    GridPosition validMiningSpot = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
+                    colonyMiningAction.TakeAction(_gridPosition, validMiningSpot, OnActionComplete, colonyTask);
                     colonyTask.AssignedColonist = this;
                     isBusy = true;
                     return;

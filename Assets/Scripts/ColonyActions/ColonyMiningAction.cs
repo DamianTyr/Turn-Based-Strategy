@@ -4,7 +4,7 @@ using Animancer;
 using Colony;
 using UnityEngine;
 
-public class ColonyMiningAction : BaseAction, IColonyAction
+public class ColonyMiningAction : BaseColonyAction
 {
     private ColonyActionType _colonyActionType = ColonyActionType.Mining;
     private ColonyMoveAction _colonyMoveAction;
@@ -18,6 +18,7 @@ public class ColonyMiningAction : BaseAction, IColonyAction
     private float mineTimer = 0;
 
     private Mineable _currentMineable;
+    
     
     private void Start()
     {
@@ -40,12 +41,10 @@ public class ColonyMiningAction : BaseAction, IColonyAction
     {
         return "Mining Action";
     }
-
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
+    
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition miningSpot, Action onActionComplete, ColonyTask colonyTask)
     {
-        mineableGridPosition = gridPosition;
-        _currentMineable = ColonyGrid.Instance.GetMineableAtGridPosition(mineableGridPosition);
-        GridPosition miningSpot =  ColonyGrid.Instance.GetSqaureAroundGridPosition(gridPosition, 1)[0];
+        _currentMineable = ColonyGrid.Instance.GetMineableAtGridPosition(colonyTask.GridPosition);
         _colonyMoveAction.TakeAction(callerGridPosition, miningSpot, OnMovementComplete);
         ActionStart(onActionComplete);
     }
@@ -66,9 +65,22 @@ public class ColonyMiningAction : BaseAction, IColonyAction
         OnActionComplete();
     }
 
-    public override List<GridPosition> GetValidActionGridPositionList()
+    public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
-        return new List<GridPosition>();
+        List<GridPosition> validGridPositionList = new List<GridPosition>();
+        GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        
+        List<GridPosition> testMiningSpots = ColonyGrid.Instance.GetSqaureAroundGridPosition(colonyTask.GridPosition, 1);
+        foreach (GridPosition testGridPosition in testMiningSpots)
+        {
+            if (!ColonyGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+            if (colonistGridPosition == testGridPosition) continue;
+            if (ColonyGrid.Instance.HasAnyOccupantOnGridPosition(testGridPosition))continue;
+            if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition)) continue;
+            if (!Pathfinding.Instance.HasPath(colonistGridPosition,testGridPosition)) continue;
+            validGridPositionList.Add(testGridPosition);
+        }
+        return validGridPositionList;
     }
 
     public override AIAction GetAIAction(GridPosition gridPosition)

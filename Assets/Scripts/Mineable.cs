@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class Mineable : MonoBehaviour
 {
+    
     public static Action<GridPosition> OnAnyMineableSpawned;
     [SerializeField] private int health = 100;
     [SerializeField] private Transform minebleVisual;
     [SerializeField] private Transform mineableVisualShattered;
     [SerializeField] private float explosionForce;
     [SerializeField] private float explosionRange;
-    
+    private GridPosition _gridPosition;
 
     private void Start()
     {
-        GridPosition gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
-        OnAnyMineableSpawned?.Invoke(gridPosition);
-        StartCoroutine(SetupIsWalkable(gridPosition));
-        ColonyGrid.Instance.SetMinableAtPosition(gridPosition, this);
+        _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        OnAnyMineableSpawned?.Invoke(_gridPosition);
+        StartCoroutine(SetupIsWalkable());
+        ColonyGrid.Instance.SetMinableAtPosition(_gridPosition, this);
     }
 
-    private IEnumerator SetupIsWalkable(GridPosition gridPosition)
+    private IEnumerator SetupIsWalkable()
     {
         yield return null;
-        Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, false);
+        Pathfinding.Instance.SetIsWalkableGridPosition(_gridPosition, false);
     }
 
     public void Mine(int mineAmount, Action onBlockMined)
@@ -32,10 +33,11 @@ public class Mineable : MonoBehaviour
         Debug.Log(health);
         if (health <= 0)
         {
-            onBlockMined();
             minebleVisual.gameObject.SetActive(false);
             mineableVisualShattered.gameObject.SetActive(true);
             ApplyExplosionToChildren(this.transform, transform.position);
+            Pathfinding.Instance.SetIsWalkableGridPosition(_gridPosition, true);
+            onBlockMined();
         }
     }
     
