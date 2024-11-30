@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     private const float MinFollowYOffset = 2f;
-    private const float MaxFollowYOffset = 12f;
+    private const float MaxFollowYOffset = 36f;
     
     [SerializeField] private CinemachineVirtualCamera _cinemachineVirtualCamera;
 

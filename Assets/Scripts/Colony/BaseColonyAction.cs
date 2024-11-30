@@ -24,12 +24,6 @@ namespace Colony
    
         public abstract void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition,
             Action onActionComplete, ColonyTask colonyTask);
-        
-        // public bool IsValidActionGridPosition(GridPosition gridPosition)
-        // {
-        //     List<GridPosition> validGridPositionList = GetValidActionGridPositionList();
-        //     return validGridPositionList.Contains(gridPosition);
-        // }
 
         public abstract List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask);
 
@@ -54,32 +48,11 @@ namespace Colony
             OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
         }
 
-        public UnityEngine.Transform GetHolderTransform()
+        public Transform GetHolderTransform()
         {
-            return ((Component)this).transform;
+            return transform;
         }
-
-        // public AIAction GetBestAIAction()
-        // {
-        //     List<AIAction> enemyAIActionList = new List<AIAction>();
-        //     List<GridPosition> validActionGridPositionList = GetValidActionGridPositionList();
-        //
-        //     foreach (GridPosition gridPosition in validActionGridPositionList)
-        //     {
-        //         AIAction aiAction = GetAIAction(gridPosition);
-        //         enemyAIActionList.Add(aiAction);
-        //     }
-        //     if (enemyAIActionList.Count > 0)
-        //     {
-        //         enemyAIActionList.Sort((AIAction a, AIAction b) => b.ActionValue - a.ActionValue);
-        //         return enemyAIActionList[0];
-        //     }
-        //     else
-        //     {
-        //         return null;
-        //     }
-        // }
-
+        
         public abstract AIAction GetAIAction(GridPosition gridPosition);
     }
 }

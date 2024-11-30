@@ -83,7 +83,7 @@ public class MissionGrid : MonoBehaviour, IGrid
         return new GridPosition(5, 5);
     }
 
-    public List<GridPosition> GetSqaureAroundGridPosition(GridPosition gridPosition, int size)
+    public List<GridPosition> GetSquareAroundGridPosition(GridPosition gridPosition, int size)
     {
         List<GridPosition> gridPositions = new List<GridPosition>();
         

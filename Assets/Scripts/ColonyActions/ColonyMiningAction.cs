@@ -8,17 +8,19 @@ public class ColonyMiningAction : BaseColonyAction
 {
     private ColonyActionType _colonyActionType = ColonyActionType.Mining;
     private ColonyMoveAction _colonyMoveAction;
+    
     [SerializeField] private AnimationClip miningAnimationClip;
     private AnimancerComponent animancerComponent;
     private AnimancerState _animancerState;
+    
     private GridPosition mineableGridPosition;
+    private GridPosition actionSpotGridPosition;
 
     private bool isMining;
     private float mineSwingDuration = 1.5f;
     private float mineTimer = 0;
 
     private Mineable _currentMineable;
-    
     
     private void Start()
     {
@@ -45,7 +47,10 @@ public class ColonyMiningAction : BaseColonyAction
     public override void TakeAction(GridPosition callerGridPosition, GridPosition miningSpot, Action onActionComplete, ColonyTask colonyTask)
     {
         _currentMineable = ColonyGrid.Instance.GetMineableAtGridPosition(colonyTask.GridPosition);
-        _colonyMoveAction.TakeAction(callerGridPosition, miningSpot, OnMovementComplete);
+        actionSpotGridPosition = miningSpot;
+        ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
+        
+        _colonyMoveAction.TakeAction(callerGridPosition, actionSpotGridPosition, OnMovementComplete, colonyTask);
         ActionStart(onActionComplete);
     }
 
@@ -62,6 +67,7 @@ public class ColonyMiningAction : BaseColonyAction
         isMining = false;
         _currentMineable = null;
         animancerComponent.Play(_animancerState, .4f);
+        ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
         OnActionComplete();
     }
 
@@ -70,12 +76,13 @@ public class ColonyMiningAction : BaseColonyAction
         List<GridPosition> validGridPositionList = new List<GridPosition>();
         GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
         
-        List<GridPosition> testMiningSpots = ColonyGrid.Instance.GetSqaureAroundGridPosition(colonyTask.GridPosition, 1);
+        List<GridPosition> testMiningSpots = ColonyGrid.Instance.GetSquareAroundGridPosition(colonyTask.GridPosition, 1);
         foreach (GridPosition testGridPosition in testMiningSpots)
         {
             if (!ColonyGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
             if (colonistGridPosition == testGridPosition) continue;
             if (ColonyGrid.Instance.HasAnyOccupantOnGridPosition(testGridPosition))continue;
+            if (ColonyGrid.Instance.GetIsReservedAtGridPosition(testGridPosition)) continue;
             if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition)) continue;
             if (!Pathfinding.Instance.HasPath(colonistGridPosition,testGridPosition)) continue;
             validGridPositionList.Add(testGridPosition);
@@ -96,6 +103,4 @@ public class ColonyMiningAction : BaseColonyAction
     {
         return _colonyActionType;
     }
-    
-   
 }

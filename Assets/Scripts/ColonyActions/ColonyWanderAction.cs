@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Colony;
 
-public class ColonyWanderAction : BaseAction, IColonyAction
+public class ColonyWanderAction : BaseColonyAction, IColonyAction
 {
     private ColonyMoveAction _colonyMoveAction;
     private ColonyActionType _colonyActionType = ColonyActionType.Wandering;
@@ -17,10 +17,10 @@ public class ColonyWanderAction : BaseAction, IColonyAction
         return "Colony Wander Action";
     }
 
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete, ColonyTask colonyTask)
     {
         GridPosition wanderPosition = ColonyGrid.Instance.GetRandomGridPositionInSquare(callerGridPosition);
-        _colonyMoveAction.TakeAction(callerGridPosition, wanderPosition, OnMovementCompleted);
+        _colonyMoveAction.TakeAction(callerGridPosition, wanderPosition, OnMovementCompleted, colonyTask);
         ActionStart(onActionComplete);
     }
 
@@ -29,7 +29,7 @@ public class ColonyWanderAction : BaseAction, IColonyAction
         ActionComplete();
     }
 
-    public override List<GridPosition> GetValidActionGridPositionList()
+    public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
         return new List<GridPosition>();
     }

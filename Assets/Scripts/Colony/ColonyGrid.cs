@@ -34,28 +34,6 @@ public class ColonyGrid : MonoBehaviour, IGrid
     private void Start()
     {
         Pathfinding.Instance.Setup(width, height, cellSize, this);
-        
-        for (int x = 0; x < width; x++)
-        {
-            for (int z = 0; z < height; z++)
-            {
-                // GridPosition gridPosition = new GridPosition(x, z);
-                // Vector3 worldPosition = Instance.GetWorldPosition(gridPosition);
-                //
-                // float raycastOffsetDistance = 5f;
-                //
-                // Ray ray = new Ray(worldPosition + Vector3.down * raycastOffsetDistance, Vector3.up);
-                // if (Physics.Raycast(ray, out RaycastHit hitInfo))
-                // {
-                //     if (hitInfo.transform.parent == null) continue;
-                //     if (hitInfo.transform.parent.TryGetComponent(out IInteractable interactable))
-                //     {
-                //         interactable.AddToGridPositionList(gridPosition);
-                //         _gridSystem.GetGridObject(gridPosition).SetInteractable(interactable);                   
-                //     }
-                // }
-            }
-        }
     }
     
     public GridPosition GetGridPosition(Vector3 worldPosition) => _gridSystem.GetGridPosition(worldPosition);
@@ -71,7 +49,7 @@ public class ColonyGrid : MonoBehaviour, IGrid
             GridPosition random = new GridPosition(Random.Range(-2,3), Random.Range(-2,3));
 
             GridPosition testGridPosition = gridPosition + random;
-            if (IsValidGridPosition(testGridPosition) && Pathfinding.Instance.IsWalkableGridPosition(testGridPosition))
+            if (IsValidGridPosition(testGridPosition) && Pathfinding.Instance.IsWalkableGridPosition(testGridPosition) && Pathfinding.Instance.HasPath(gridPosition, testGridPosition))
             {
                 return testGridPosition;
             }
@@ -79,7 +57,7 @@ public class ColonyGrid : MonoBehaviour, IGrid
         return new GridPosition(5, 5);
     }
 
-    public List<GridPosition> GetSqaureAroundGridPosition(GridPosition gridPosition, int size)
+    public List<GridPosition> GetSquareAroundGridPosition(GridPosition gridPosition, int size)
     {
         List<GridPosition> gridPositions = new List<GridPosition>();
         
@@ -147,4 +125,21 @@ public class ColonyGrid : MonoBehaviour, IGrid
         return gridObject.GetMineable();
     }
 
+    public void ReserveActionSpot(GridPosition gridPosition)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        gridObject.SetReserved(true);
+    }
+
+    public void RemoveReserveActionSpot(GridPosition gridPosition)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        gridObject.SetReserved(false);
+    }
+
+    public bool GetIsReservedAtGridPosition(GridPosition gridPosition)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        return gridObject.GetIsReseved();
+    }
 }

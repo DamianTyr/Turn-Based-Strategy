@@ -7,7 +7,7 @@ public class ColonyGridObject
     protected GridSystem<ColonyGridObject> gridSystem;
     protected readonly List<Transform> _occupantList;
     protected Mineable _mineable;
-    
+    protected bool isReserved = false;
     
     public ColonyGridObject(GridSystem<ColonyGridObject> gridSystem, GridPosition gridPosition) 
     {
@@ -63,5 +63,15 @@ public class ColonyGridObject
     public Mineable GetMineable()
     {
         return _mineable;
+    }
+
+    public void SetReserved(bool isReserved)
+    {
+        this.isReserved = isReserved;
+    }
+
+    public bool GetIsReseved()
+    {
+        return isReserved;
     }
 }

@@ -1,18 +1,16 @@
 using System;
 using System.Collections.Generic;
+using Colony;
 using UnityEngine;
 
-public class ColonyMoveAction : BaseAction
+public class ColonyMoveAction : BaseColonyAction
 {
- 
-    private ColonyActionType _colonyActionType = ColonyActionType.Mining;
-    
-    private List<Vector3> _positionList;
-    [SerializeField] private int maxMoveDistance;
-    
-    private int _currentPositionIndex;
     [SerializeField] private AnimationClip _idleAnimationClip;
     [SerializeField] private AnimationClip _runAnimationClip;
+    
+    private List<Vector3> _positionList;
+    private int _currentPositionIndex;
+    
     private ColonyGrid _baseGrid;
     
     private void Start()
@@ -26,10 +24,10 @@ public class ColonyMoveAction : BaseAction
         if (!IsActive) return;
 
         Vector3 targetPosition = _positionList[_currentPositionIndex];
-        Vector3 moveDirection = (targetPosition - ((Component)this).transform.position).normalized;
+        Vector3 moveDirection = (targetPosition - transform.position).normalized;
         
         float rotateSpeed = 10f;
-        transform.forward = Vector3.Lerp(((Component)this).transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
+        transform.forward = Vector3.Lerp(transform.forward, moveDirection, Time.deltaTime * rotateSpeed);
         
         float stoppingDistance = 0.1f;
         if (Vector3.Distance(transform.position, targetPosition) > stoppingDistance)
@@ -48,13 +46,19 @@ public class ColonyMoveAction : BaseAction
         }
     }
     
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete)
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete, ColonyTask colonyTask)
     {
         List<GridPosition> pathGridPostionList = Pathfinding.Instance.FindPath(callerGridPosition, gridPosition, out int pathLenght);
-        
+        if (pathGridPostionList == null)
+        {
+            Debug.Log("Aborted Action, Path count 0");
+            ActionComplete();
+            return;
+        }
+
         _currentPositionIndex = 0;
         _positionList = new List<Vector3>();
-
+        
         foreach (GridPosition pathGridPosition in pathGridPostionList)
         {
             _positionList.Add(_baseGrid.GetWorldPosition(pathGridPosition));
@@ -69,30 +73,12 @@ public class ColonyMoveAction : BaseAction
         return "ColonyMoveAction";
     }
     
-    public override List<GridPosition> GetValidActionGridPositionList()
+    public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
-        List<GridPosition> validGridPositionList = new List<GridPosition>();
-        GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
-        
-        for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
-        {
-            for (int z = -maxMoveDistance; z <= maxMoveDistance; z++)
-            {
-                GridPosition offsetGridPosition = new GridPosition(x, z);
-                GridPosition testGridPosition = colonistGridPosition + offsetGridPosition;
-
-                if (!ColonyGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                if (colonistGridPosition == testGridPosition) continue;
-                //if (ColonyGrid.Instance.HasAnyUnitOnGridPosition(testGridPosition)) continue;
-                if (!Pathfinding.Instance.IsWalkableGridPosition(testGridPosition)) continue;
-                if (!Pathfinding.Instance.HasPath(colonistGridPosition,testGridPosition)) continue;
-                int pathfindingDistanceMultiplier = 10;
-                if (Pathfinding.Instance.GetPathLenght(colonistGridPosition, testGridPosition) > maxMoveDistance * pathfindingDistanceMultiplier) continue;
-                validGridPositionList.Add(testGridPosition);
-            }
-        }
-        return validGridPositionList;
+        List<GridPosition> gridPositions = new List<GridPosition>();
+        return gridPositions;
     }
+    
 
     public override AIAction GetAIAction(GridPosition gridPosition)
     {

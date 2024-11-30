@@ -53,7 +53,6 @@ public class Colonist : MonoBehaviour
             switch (colonyTask.ActionType)
             {
                 case ColonyActionType.Mining:
-                    
                     if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
                     GridPosition validMiningSpot = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
                     colonyMiningAction.TakeAction(_gridPosition, validMiningSpot, OnActionComplete, colonyTask);
@@ -65,7 +64,7 @@ public class Colonist : MonoBehaviour
         
         if (!isBusy)
         {
-            colonyWanderAction.TakeAction(_gridPosition, _gridPosition, OnActionComplete);
+            colonyWanderAction.TakeAction(_gridPosition, _gridPosition, OnActionComplete, null);
             isBusy = true;
         }
     }

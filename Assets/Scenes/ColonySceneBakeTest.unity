@@ -38,6 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 0
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 410087040}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 0}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +98,8 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_LightingSettings: {fileID: 0}
+  m_LightingSettings: {fileID: 4890085278179872738, guid: ad83bc97a49b40545bcdee18e361ecf5,
+    type: 2}
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -401,6 +403,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -485,6 +492,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (117)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -522,6 +534,67 @@ Transform:
   - {fileID: 223443761}
   m_Father: {fileID: 261450021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &32736612
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Concrete_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2751999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
 --- !u!1 &35043077
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,6 +699,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (136)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1120,6 +1198,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 850559708}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &65195360 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1953068498}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &69327930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1214,6 +1298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac53f38ddf585d4b8a4bb5f44e8cb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMoveDistance: 0
   _idleAnimationClip: {fileID: 7400000, guid: 47eed3c9adae4d94496daac8b628526e, type: 3}
   _runAnimationClip: {fileID: 7400000, guid: dfdda8bdacaef024db1a5ab08c45cb17, type: 3}
 --- !u!114 &69327936
@@ -1420,6 +1505,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (34)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1430,6 +1520,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4675009436353091181, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
     type: 3}
   m_PrefabInstance: {fileID: 73464293}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &74215402
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1185782197154820, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Curved_Concrete_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7751
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2102518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+--- !u!4 &74215403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 74215402}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &78057410
 GameObject:
@@ -1609,6 +1766,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (53)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1693,6 +1855,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (24)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1771,6 +1938,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (60)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1848,6 +2020,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (120)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1933,6 +2110,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (82)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2016,6 +2198,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2140,6 +2327,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 516691668}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &105594947 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 758157716}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &108948768 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4066493025558900, guid: 633a1ece618a55a4f9a3782705e15f2a,
@@ -2230,6 +2423,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (49)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2410,6 +2608,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (113)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2559,6 +2762,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (142)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2676,6 +2884,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (78)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2830,6 +3043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (156)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2913,6 +3131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2998,6 +3221,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (121)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3075,6 +3303,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (69)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3242,6 +3475,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (83)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3325,6 +3563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (44)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3515,6 +3758,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3631,6 +3879,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3740,6 +3993,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (122)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3965,6 +4223,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (67)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4054,6 +4317,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (143)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -4270,6 +4538,223 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 85.52081, z: -0.8454952}
     m_Extent: {x: 102.7469, y: 93.28432, z: 16.079613}
   m_DirtyAABB: 0
+--- !u!1 &243145688
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 243145689}
+  - component: {fileID: 243145693}
+  - component: {fileID: 243145692}
+  - component: {fileID: 243145691}
+  - component: {fileID: 243145690}
+  m_Layer: 0
+  m_Name: Point Light (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &243145689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243145688}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7087584, y: -0, z: -0, w: 0.7054513}
+  m_LocalPosition: {x: 17, y: 4.13, z: 25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 90.268005, y: 0, z: 0}
+--- !u!114 &243145690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243145688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39f0f7e17f11f2448932da58e9b63d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.173
+  size: 0.0025
+  direction: 0
+  velocity: {x: 0, y: 0, z: 0.4}
+  speed: 0.03
+  density: 8
+  spawnDistanceRange:
+    m_MinValue: 0
+    m_MaxValue: 0.7
+  spawnMinDistance: 0
+  spawnMaxDistance: 0.7
+  cullingEnabled: 0
+  cullingMaxDistance: 10
+  m_AlphaAdditionalRuntime: 1
+--- !u!114 &243145691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243145688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b0a6142b2b0b449a62558873544363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pluginVersion: 20202
+  m_ColorFromLight: 1
+  m_ColorMode: 0
+  m_ColorFlat: {r: 0.8867924, g: 0.87173367, b: 0.8156817, a: 1}
+  m_ColorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_BlendingMode: 0
+  m_Intensity: 0.06
+  m_IntensityMultiplier: 1
+  m_HDRPExposureWeight: 0
+  m_SpotAngle: 90.5
+  m_SpotAngleMultiplier: 1
+  m_ConeRadiusStart: 0.1
+  m_Scalable: 1
+  m_FallOffStart: 0
+  m_FallOffEnd: 4.53
+  m_FallOffEndMultiplier: 1
+  m_AttenuationEquation: 1
+  m_SideSoftness: 4.19
+  m_RaymarchingQualityID: 3
+  m_JitteringFactor: 0
+  m_JitteringFrameRate: 60
+  m_JitteringLerpRange:
+    m_MinValue: 0
+    m_MaxValue: 0.33
+  m_NoiseMode: 2
+  m_NoiseIntensity: 0.401
+  m_NoiseScaleUseGlobal: 1
+  m_NoiseScaleLocal: 0.5
+  m_NoiseVelocityUseGlobal: 1
+  m_NoiseVelocityLocal: {x: 0.07, y: 0.18, z: 0.05}
+--- !u!114 &243145692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243145688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &243145693
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243145688}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.8862746, g: 0.8705883, b: 0.81568635, a: 1}
+  m_Intensity: 8
+  m_Range: 120
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &247276052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4811,6 +5296,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (45)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -4994,60 +5484,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (100)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfcb8962e0b1f24682a68b1f85aadd3, type: 3}
---- !u!1 &296175424
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 296175425}
-  - component: {fileID: 296175426}
-  m_Layer: 0
-  m_Name: Radiant GI
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &296175425
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296175424}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1019542578}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &296175426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 296175424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IsGlobal: 1
-  priority: 0
-  blendDistance: 0
-  weight: 1
-  sharedProfile: {fileID: 11400000, guid: 444a779d1223e704b8ddd4f975d050c6, type: 2}
 --- !u!1001 &298389631
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5121,6 +5567,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (114)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5193,6 +5644,73 @@ Transform:
   - {fileID: 2031624518}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &303643077
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Concrete_01 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.71693707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6971379
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -271.604
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+--- !u!4 &303643078 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 303643077}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &306121346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5265,6 +5783,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5381,6 +5904,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (85)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5618,6 +6146,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (139)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5696,6 +6229,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (98)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5739,12 +6277,6 @@ Transform:
   - {fileID: 1830194830}
   m_Father: {fileID: 2089411964}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &333580453 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-    type: 3}
-  m_PrefabInstance: {fileID: 2180448227961961771}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &334990942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5817,6 +6349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (128)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -5939,6 +6476,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (134)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6016,6 +6558,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (125)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6265,6 +6812,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (106)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6612,6 +7164,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (32)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6623,6 +7180,124 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 370526325}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &372224762
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 372224763}
+  - component: {fileID: 372224765}
+  - component: {fileID: 372224764}
+  m_Layer: 0
+  m_Name: Point Light
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &372224763
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372224762}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3.1, y: 3.219, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372224764
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372224762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &372224765
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372224762}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.8
+  m_Range: 6.94
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!4 &375189284 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4066493025558900, guid: 633a1ece618a55a4f9a3782705e15f2a,
@@ -6789,6 +7464,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (41)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6823,7 +7503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!108 &410087040
 Light:
   m_ObjectHideFlags: 0
@@ -7066,6 +7746,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (137)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7149,6 +7834,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (153)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7266,6 +7956,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7376,6 +8071,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (71)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7401,7 +8101,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &446911148
 Transform:
@@ -7741,6 +8441,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (117)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7824,6 +8529,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (98)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7909,6 +8619,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (128)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -7992,6 +8707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (152)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8146,6 +8866,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (140)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8292,12 +9017,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633a1ece618a55a4f9a3782705e15f2a, type: 3}
---- !u!4 &486396125 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 3322684038843002110}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &489636917 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675009436353091181, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
@@ -8419,6 +9138,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (36)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8676,6 +9400,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (143)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -8759,6 +9488,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (118)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8894,7 +9628,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!64 &518394934
 MeshCollider:
@@ -9228,6 +9962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (72)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9312,6 +10051,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (103)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9357,7 +10101,6 @@ Transform:
   - {fileID: 2113611693}
   - {fileID: 1106978219}
   - {fileID: 1231158825}
-  - {fileID: 1877825335}
   - {fileID: 1854674240}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9648,6 +10391,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (105)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9687,7 +10435,6 @@ Transform:
   - {fileID: 1197557300}
   - {fileID: 979748990}
   - {fileID: 1908403663}
-  - {fileID: 680847458}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &556770885
@@ -9882,6 +10629,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9959,6 +10711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (48)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10044,6 +10801,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (47)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10121,6 +10883,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (146)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10401,6 +11168,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (119)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10478,6 +11250,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (146)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10569,6 +11346,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10652,6 +11434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10812,6 +11599,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (136)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10946,6 +11738,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (130)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -11023,6 +11820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (110)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11244,6 +12046,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (150)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11511,41 +12318,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1379457331}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &680847457
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 680847458}
-  m_Layer: 0
-  m_Name: Mineables
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &680847458
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 680847457}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1142710968}
-  - {fileID: 1846996242}
-  - {fileID: 1258394426}
-  - {fileID: 1581634220}
-  m_Father: {fileID: 554383960}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &682203411
 GameObject:
   m_ObjectHideFlags: 0
@@ -11925,6 +12697,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (28)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12114,6 +12891,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12197,6 +12979,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (126)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12371,6 +13158,124 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 691774855}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &732195244
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 732195245}
+  - component: {fileID: 732195247}
+  - component: {fileID: 732195246}
+  m_Layer: 0
+  m_Name: Point Light (5)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &732195245
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732195244}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.88, y: 3.219, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &732195246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732195244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &732195247
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 732195244}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.8
+  m_Range: 6.94
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &736067507
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12513,6 +13418,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (111)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12550,6 +13460,67 @@ Transform:
   - {fileID: 1665478408}
   m_Father: {fileID: 261450021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &758157716
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1185782197154820, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Curved_Concrete_01 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2102518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
 --- !u!1001 &762196824
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12622,6 +13593,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12701,6 +13677,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (103)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12778,6 +13759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -12863,6 +13849,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (137)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12940,6 +13931,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (148)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13025,6 +14021,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (97)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13049,7 +14050,6 @@ GameObject:
   - component: {fileID: 783281864}
   - component: {fileID: 783281863}
   - component: {fileID: 783281867}
-  - component: {fileID: 783281868}
   m_Layer: 0
   m_Name: MainCamera
   m_TagString: MainCamera
@@ -13095,12 +14095,12 @@ MonoBehaviour:
   m_RequiresColorTexture: 0
   m_Version: 2
   m_TaaSettings:
-    m_Quality: 3
-    m_FrameInfluence: 0.1
-    m_JitterScale: 1
-    m_MipBias: 0
-    m_VarianceClampScale: 0.9
-    m_ContrastAdaptiveSharpening: 0
+    quality: 3
+    frameInfluence: 0.1
+    jitterScale: 1
+    mipBias: 0
+    varianceClampScale: 0.9
+    contrastAdaptiveSharpening: 0
 --- !u!81 &783281864
 AudioListener:
   m_ObjectHideFlags: 0
@@ -13156,7 +14156,7 @@ Camera:
   m_HDR: 1
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
-  m_ForceIntoRT: 1
+  m_ForceIntoRT: 0
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
@@ -13168,8 +14168,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783281862}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.3006395, y: -0.000000023207779, z: 0.0000000073156112, w: 0.95373785}
-  m_LocalPosition: {x: 17, y: 7.000002, z: 14}
+  m_LocalRotation: {x: 0.09765047, y: 0.005097293, z: -0.0004987664, w: 0.99520767}
+  m_LocalPosition: {x: 4.0743756, y: 2.3021173, z: 0.38896474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13209,31 +14209,6 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &783281868
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 783281862}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7bb42831ee5422f409e7f24f9e7488ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  stage: 1
-  renderingStrategy: 0
-  renderingMode: 0
-  outlineLayerMask: -1
-  primaryBufferSizeMode: 0
-  primaryRendererScale: 0.75
-  primarySizeReference: 800
-  blurShift: 1
-  dilateShift: 1
-  dilateIterations: 1
-  dilateQuality: 0
-  blurIterations: 1
-  blurType: 1
 --- !u!1001 &784452170
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13306,6 +14281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (121)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -13853,6 +14833,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (122)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13864,7 +14849,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 680847458}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1235429290638654116, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -13894,7 +14879,7 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -13904,7 +14889,7 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -13921,12 +14906,72 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4219880293015696295, guid: 1a38461b02049c4448013b90f88ae25c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a38461b02049c4448013b90f88ae25c, type: 3}
+--- !u!1001 &813034075
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1185782197154820, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Curved_Concrete_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2102518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
 --- !u!1001 &821982776
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14002,6 +15047,73 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1959604419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &828428208
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1185782197154820, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Curved_Concrete_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2102518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+--- !u!4 &828428209 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 828428208}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &829639616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14074,6 +15186,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (140)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -14278,6 +15395,223 @@ Transform:
   - {fileID: 378207655}
   m_Father: {fileID: 1704644486}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &835869164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 835869165}
+  - component: {fileID: 835869169}
+  - component: {fileID: 835869168}
+  - component: {fileID: 835869167}
+  - component: {fileID: 835869166}
+  m_Layer: 0
+  m_Name: Point Light (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &835869165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835869164}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7087584, y: -0, z: -0, w: 0.7054513}
+  m_LocalPosition: {x: 17, y: 4.13, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 90.268005, y: 0, z: 0}
+--- !u!114 &835869166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835869164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39f0f7e17f11f2448932da58e9b63d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.173
+  size: 0.0025
+  direction: 0
+  velocity: {x: 0, y: 0, z: 0.4}
+  speed: 0.03
+  density: 8
+  spawnDistanceRange:
+    m_MinValue: 0
+    m_MaxValue: 0.7
+  spawnMinDistance: 0
+  spawnMaxDistance: 0.7
+  cullingEnabled: 0
+  cullingMaxDistance: 10
+  m_AlphaAdditionalRuntime: 1
+--- !u!114 &835869167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835869164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b0a6142b2b0b449a62558873544363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pluginVersion: 20202
+  m_ColorFromLight: 1
+  m_ColorMode: 0
+  m_ColorFlat: {r: 0.8867924, g: 0.87173367, b: 0.8156817, a: 1}
+  m_ColorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_BlendingMode: 0
+  m_Intensity: 0.06
+  m_IntensityMultiplier: 1
+  m_HDRPExposureWeight: 0
+  m_SpotAngle: 90.5
+  m_SpotAngleMultiplier: 1
+  m_ConeRadiusStart: 0.1
+  m_Scalable: 1
+  m_FallOffStart: 0
+  m_FallOffEnd: 4.53
+  m_FallOffEndMultiplier: 1
+  m_AttenuationEquation: 1
+  m_SideSoftness: 4.19
+  m_RaymarchingQualityID: 3
+  m_JitteringFactor: 0
+  m_JitteringFrameRate: 60
+  m_JitteringLerpRange:
+    m_MinValue: 0
+    m_MaxValue: 0.33
+  m_NoiseMode: 2
+  m_NoiseIntensity: 0.401
+  m_NoiseScaleUseGlobal: 1
+  m_NoiseScaleLocal: 0.5
+  m_NoiseVelocityUseGlobal: 1
+  m_NoiseVelocityLocal: {x: 0.07, y: 0.18, z: 0.05}
+--- !u!114 &835869168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835869164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &835869169
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835869164}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.8862746, g: 0.8705883, b: 0.81568635, a: 1}
+  m_Intensity: 8
+  m_Range: 120
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1001 &839040174
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14351,6 +15685,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (75)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14388,7 +15727,7 @@ Transform:
   m_GameObject: {fileID: 849343894}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 17, y: 0, z: 24}
+  m_LocalPosition: {x: 18, y: 0, z: 14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14741,6 +16080,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (114)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14819,6 +16163,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -14896,6 +16245,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (123)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15156,6 +16510,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (149)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15239,6 +16598,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (66)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15361,6 +16725,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (147)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15438,6 +16807,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (70)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15523,6 +16897,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (18)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -15606,6 +16985,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (96)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15808,6 +17192,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (133)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16024,6 +17413,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (84)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16108,6 +17502,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (118)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16185,6 +17584,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16282,6 +17686,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (89)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16365,6 +17774,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (54)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16541,6 +17955,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (141)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -16630,6 +18049,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (80)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -16867,6 +18291,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17089,6 +18518,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (113)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17230,6 +18664,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (148)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17342,6 +18781,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (90)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -17533,6 +18977,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (116)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -17688,6 +19137,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (95)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18051,6 +19505,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (109)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18128,6 +19587,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (145)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18251,6 +19715,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18329,6 +19798,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (125)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18364,7 +19838,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 410087041}
-  - {fileID: 296175425}
+  - {fileID: 243145689}
+  - {fileID: 1361073424}
+  - {fileID: 835869165}
+  - {fileID: 372224763}
+  - {fileID: 1705794551}
+  - {fileID: 732195245}
+  - {fileID: 1671801863}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1020392053
@@ -18471,6 +19951,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (155)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -18554,6 +20039,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (42)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -18899,6 +20389,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (63)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19013,6 +20508,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (51)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19480,6 +20980,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (19)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19563,6 +21068,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (76)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19751,6 +21261,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (129)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -19834,6 +21349,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19958,6 +21478,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (91)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20042,6 +21567,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (62)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20119,6 +21649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (79)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20415,12 +21950,6 @@ Transform:
   - {fileID: 881717107}
   m_Father: {fileID: 2603353}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1142710968 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2130579178279767178}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1147863323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20493,6 +22022,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (127)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20705,6 +22239,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (25)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21056,6 +22595,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (138)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21323,6 +22867,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (21)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21511,6 +23060,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (35)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21723,6 +23277,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -21806,6 +23365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (81)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -21897,17 +23461,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (30)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfcb8962e0b1f24682a68b1f85aadd3, type: 3}
---- !u!4 &1214467005 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-    type: 3}
-  m_PrefabInstance: {fileID: 2099205915}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1217955155
 GameObject:
   m_ObjectHideFlags: 0
@@ -22014,6 +23577,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (88)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22037,7 +23605,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 680847458}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1235429290638654116, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -22067,7 +23635,7 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -22077,7 +23645,7 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -22094,8 +23662,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4219880293015696295, guid: 1a38461b02049c4448013b90f88ae25c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -22514,6 +24081,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (123)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22589,12 +24161,67 @@ Transform:
   - {fileID: 1253007058}
   m_Father: {fileID: 261450021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1258394426 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1911463096}
-  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1269564836
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1185782197154820, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Curved_Concrete_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7751
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 23
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2102518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
 --- !u!1001 &1270068299
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22749,6 +24376,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (78)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -22838,6 +24470,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (154)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -22955,6 +24592,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (39)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23032,6 +24674,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (109)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23168,6 +24815,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (68)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -23251,6 +24903,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (101)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -23341,6 +24998,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (87)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24012,6 +25674,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (20)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24055,6 +25722,223 @@ Transform:
   - {fileID: 501670641}
   m_Father: {fileID: 1800004397}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1361073423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1361073424}
+  - component: {fileID: 1361073428}
+  - component: {fileID: 1361073427}
+  - component: {fileID: 1361073426}
+  - component: {fileID: 1361073425}
+  m_Layer: 0
+  m_Name: Point Light (4)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1361073424
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361073423}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.7087584, y: -0, z: -0, w: 0.7054513}
+  m_LocalPosition: {x: 3.47, y: 4.13, z: 25}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 90.268005, y: 0, z: 0}
+--- !u!114 &1361073425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361073423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e39f0f7e17f11f2448932da58e9b63d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alpha: 0.173
+  size: 0.0025
+  direction: 0
+  velocity: {x: 0, y: 0, z: 0.4}
+  speed: 0.03
+  density: 8
+  spawnDistanceRange:
+    m_MinValue: 0
+    m_MaxValue: 0.7
+  spawnMinDistance: 0
+  spawnMaxDistance: 0.7
+  cullingEnabled: 0
+  cullingMaxDistance: 10
+  m_AlphaAdditionalRuntime: 1
+--- !u!114 &1361073426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361073423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92b0a6142b2b0b449a62558873544363, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pluginVersion: 20202
+  m_ColorFromLight: 1
+  m_ColorMode: 0
+  m_ColorFlat: {r: 0.8867924, g: 0.87173367, b: 0.8156817, a: 1}
+  m_ColorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: -1
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  m_BlendingMode: 0
+  m_Intensity: 0.06
+  m_IntensityMultiplier: 1
+  m_HDRPExposureWeight: 0
+  m_SpotAngle: 90.5
+  m_SpotAngleMultiplier: 1
+  m_ConeRadiusStart: 0.1
+  m_Scalable: 1
+  m_FallOffStart: 0
+  m_FallOffEnd: 4.53
+  m_FallOffEndMultiplier: 1
+  m_AttenuationEquation: 1
+  m_SideSoftness: 4.19
+  m_RaymarchingQualityID: 3
+  m_JitteringFactor: 0
+  m_JitteringFrameRate: 60
+  m_JitteringLerpRange:
+    m_MinValue: 0
+    m_MaxValue: 0.33
+  m_NoiseMode: 2
+  m_NoiseIntensity: 0.401
+  m_NoiseScaleUseGlobal: 1
+  m_NoiseScaleLocal: 0.5
+  m_NoiseVelocityUseGlobal: 1
+  m_NoiseVelocityLocal: {x: 0.07, y: 0.18, z: 0.05}
+--- !u!114 &1361073427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361073423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &1361073428
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1361073423}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 0.8862746, g: 0.8705883, b: 0.81568635, a: 1}
+  m_Intensity: 8
+  m_Range: 120
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1361480031
 GameObject:
   m_ObjectHideFlags: 0
@@ -24159,6 +26043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (130)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24236,6 +26125,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (119)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24326,6 +26220,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (22)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24548,6 +26447,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (55)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -24631,6 +26535,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (82)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24721,6 +26630,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (142)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -24939,6 +26853,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (33)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25160,6 +27079,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 633a1ece618a55a4f9a3782705e15f2a, type: 3}
+--- !u!4 &1410603449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901502925}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1416987498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4525097069974648, guid: 2020c42effb3bff4a98f3cda26076b3b,
@@ -25238,6 +27163,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (59)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25386,6 +27316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (46)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25463,6 +27398,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (139)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25587,6 +27527,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (105)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25677,6 +27622,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (120)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25755,6 +27705,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (43)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -25832,6 +27787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (124)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -25943,6 +27903,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (86)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26026,6 +27991,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (108)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26137,6 +28107,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (52)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26214,6 +28189,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (29)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26376,6 +28356,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (56)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26459,6 +28444,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (135)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -26712,6 +28702,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (65)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26897,6 +28892,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (138)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -26980,6 +28980,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (93)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -27283,6 +29288,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (115)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27499,6 +29509,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (135)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27589,17 +29604,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (50)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfcb8962e0b1f24682a68b1f85aadd3, type: 3}
---- !u!4 &1581634220 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
-    type: 3}
-  m_PrefabInstance: {fileID: 811117683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1582894842
 GameObject:
   m_ObjectHideFlags: 0
@@ -27768,6 +29782,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (127)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28261,6 +30280,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (110)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28345,6 +30369,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (31)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28422,6 +30451,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (37)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28512,6 +30546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (89)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28646,6 +30685,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1351957789}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1671801862
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1671801863}
+  m_Layer: 0
+  m_Name: RadiantGI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1671801863
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1671801862}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1672945267 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675009436353091181, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
@@ -28724,6 +30794,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (83)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -28815,6 +30890,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (73)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -28892,6 +30972,124 @@ Transform:
   - {fileID: 47538890}
   m_Father: {fileID: 1131709443}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1705794550
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1705794551}
+  - component: {fileID: 1705794553}
+  - component: {fileID: 1705794552}
+  m_Layer: 0
+  m_Name: Point Light (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &1705794551
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705794550}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 9.75, y: 3.219, z: 15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1019542578}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705794552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705794550}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 3
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_RenderingLayers: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_ShadowRenderingLayers: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
+  m_SoftShadowQuality: 0
+--- !u!108 &1705794553
+Light:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705794550}
+  m_Enabled: 1
+  serializedVersion: 10
+  m_Type: 2
+  m_Shape: 0
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 1.8
+  m_Range: 6.94
+  m_SpotAngle: 30
+  m_InnerSpotAngle: 21.80208
+  m_CookieSize: 10
+  m_Shadows:
+    m_Type: 0
+    m_Resolution: -1
+    m_CustomResolution: -1
+    m_Strength: 1
+    m_Bias: 0.05
+    m_NormalBias: 0.4
+    m_NearPlane: 0.2
+    m_CullingMatrixOverride:
+      e00: 1
+      e01: 0
+      e02: 0
+      e03: 0
+      e10: 0
+      e11: 1
+      e12: 0
+      e13: 0
+      e20: 0
+      e21: 0
+      e22: 1
+      e23: 0
+      e30: 0
+      e31: 0
+      e32: 0
+      e33: 1
+    m_UseCullingMatrixOverride: 0
+  m_Cookie: {fileID: 0}
+  m_DrawHalo: 0
+  m_Flare: {fileID: 0}
+  m_RenderMode: 0
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RenderingLayerMask: 1
+  m_Lightmapping: 4
+  m_LightShadowCasterMode: 0
+  m_AreaSize: {x: 1, y: 1}
+  m_BounceIntensity: 1
+  m_ColorTemperature: 6570
+  m_UseColorTemperature: 0
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_UseBoundingSphereOverride: 0
+  m_UseViewFrustumForShadowCasterCull: 1
+  m_ShadowRadius: 0
+  m_ShadowAngle: 0
 --- !u!1 &1707819125
 GameObject:
   m_ObjectHideFlags: 0
@@ -29029,6 +31227,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (93)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29113,6 +31316,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (144)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29196,6 +31404,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (129)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29312,6 +31525,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (132)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29395,6 +31613,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (26)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29480,6 +31703,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -29563,6 +31791,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (99)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29710,6 +31943,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (77)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -29899,6 +32137,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (102)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30036,6 +32279,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (133)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30359,6 +32607,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (96)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30375,6 +32628,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4675009436353091181, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
     type: 3}
   m_PrefabInstance: {fileID: 857193593}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1829677705 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1951672601}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1829873886
 PrefabInstance:
@@ -30448,6 +32707,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (23)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30559,6 +32823,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (99)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30601,12 +32870,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1830194830}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &1846996242 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
-    type: 3}
-  m_PrefabInstance: {fileID: 1227732588}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1850858833
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30679,6 +32942,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (131)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30764,6 +33032,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (145)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -30847,6 +33120,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (134)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -30975,8 +33253,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1870658249}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.30063948, y: -0.000000023207777, z: 0.000000007315609, w: 0.9537379}
-  m_LocalPosition: {x: 17, y: 7.000002, z: 14}
+  m_LocalRotation: {x: 0.30063948, y: 0.000000023207777, z: -0.000000007315609, w: 0.9537379}
+  m_LocalPosition: {x: 18, y: 7.000002, z: 4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31085,67 +33363,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (131)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfcb8962e0b1f24682a68b1f85aadd3, type: 3}
---- !u!1 &1877825334
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1877825335}
-  - component: {fileID: 1877825336}
-  m_Layer: 0
-  m_Name: MouseInputHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1877825335
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877825334}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 525508824}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1877825336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1877825334}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 608443d757eca964a88ef59f9c01d4ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cursorMappings:
-  - type: 0
-    texture: {fileID: 2800000, guid: 5988a2020badc834c96521b52b6a08f5, type: 3}
-    hotspot: {x: 0, y: 0}
-  - type: 10
-    texture: {fileID: 2800000, guid: 0138ff996cf7410479c3dfffa5472ee1, type: 3}
-    hotspot: {x: 0, y: 0}
-  raycastRadius: 0.25
-  raycastTarget: {fileID: 0}
-  layersToIgnoreForComponent:
-    serializedVersion: 2
-    m_Bits: 0
 --- !u!1001 &1878210839
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -31218,6 +33445,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (97)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31405,6 +33637,67 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 695048043}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1901502925
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Concrete_01 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.923088
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
 --- !u!4 &1904364874 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675009436353091181, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
@@ -31484,6 +33777,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (80)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -31524,9 +33822,17 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 333580453}
-  - {fileID: 486396125}
-  - {fileID: 1214467005}
+  - {fileID: 2022902340}
+  - {fileID: 74215403}
+  - {fileID: 1829677705}
+  - {fileID: 105594947}
+  - {fileID: 828428209}
+  - {fileID: 2001718595}
+  - {fileID: 65195360}
+  - {fileID: 303643078}
+  - {fileID: 2105642656}
+  - {fileID: 1993966675}
+  - {fileID: 1410603449}
   m_Father: {fileID: 554383960}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1911463096
@@ -31535,7 +33841,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 680847458}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1235429290638654116, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -31565,7 +33871,7 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -31575,7 +33881,7 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -31592,8 +33898,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 4219880293015696295, guid: 1a38461b02049c4448013b90f88ae25c, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -31670,6 +33975,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (84)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31937,6 +34247,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (57)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32021,6 +34336,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (81)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32032,6 +34352,128 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1950987383}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1951672601
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1185782197154820, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Curved_Concrete_01 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.7751
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.2102518
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a4faa5d02dfd21f4eb943a3aaf455f48, type: 3}
+--- !u!1001 &1953068498
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Concrete_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2752
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.71693707
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.6971379
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -271.604
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
 --- !u!1001 &1957843415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32104,6 +34546,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (144)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32183,6 +34630,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (107)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32260,6 +34712,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (124)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32489,6 +34946,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (106)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32572,6 +35034,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (58)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32668,6 +35135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (147)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -32828,6 +35300,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (74)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -32944,6 +35421,73 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993737321}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1001 &1993966674
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1908403663}
+    m_Modifications:
+    - target: {fileID: 1399205497852904, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_Name
+      value: SM_Bld_Bunker_Beam_Concrete_01 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2751999
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: -90
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 3d10472407ff94041bdc429c2e43e7a7, type: 3}
+--- !u!4 &1993966675 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1993966674}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1997126523
 GameObject:
   m_ObjectHideFlags: 0
@@ -33038,6 +35582,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac53f38ddf585d4b8a4bb5f44e8cb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMoveDistance: 0
   _idleAnimationClip: {fileID: 7400000, guid: 47eed3c9adae4d94496daac8b628526e, type: 3}
   _runAnimationClip: {fileID: 7400000, guid: dfdda8bdacaef024db1a5ab08c45cb17, type: 3}
 --- !u!114 &1997126529
@@ -33133,6 +35678,12 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.60113424, y: 1.6315451, z: 0.51095563}
   m_Center: {x: 0.00372836, y: 0.81577253, z: -0.042248726}
+--- !u!4 &2001718595 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 813034075}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2002120630 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4066493025558900, guid: 633a1ece618a55a4f9a3782705e15f2a,
@@ -33293,6 +35844,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (64)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33377,11 +35933,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (104)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfcb8962e0b1f24682a68b1f85aadd3, type: 3}
+--- !u!4 &2022902340 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4738885622727094, guid: a4faa5d02dfd21f4eb943a3aaf455f48,
+    type: 3}
+  m_PrefabInstance: {fileID: 1269564836}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2023651320
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -33454,6 +36021,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (151)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -33646,6 +36218,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (61)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -33798,6 +36375,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (27)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34150,6 +36732,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (100)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34233,6 +36820,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (40)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34413,6 +37005,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (94)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -34456,94 +37053,6 @@ Transform:
   - {fileID: 1286087209}
   m_Father: {fileID: 578095219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2099205915
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1908403663}
-    m_Modifications:
-    - target: {fileID: 70568428847814623, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Name
-      value: RoofSpine_6 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.8718418
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.759434
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a4bf91ded50479144b2415bb108e35a6, type: 3}
 --- !u!1 &2103786693
 GameObject:
   m_ObjectHideFlags: 0
@@ -34662,6 +37171,12 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!4 &2105642656 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4908249253592044, guid: 3d10472407ff94041bdc429c2e43e7a7,
+    type: 3}
+  m_PrefabInstance: {fileID: 32736612}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2107168614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34734,6 +37249,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (115)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35038,6 +37558,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (126)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35217,6 +37742,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (92)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35300,6 +37830,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (149)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -35454,6 +37989,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (112)
       objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -35473,7 +38013,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &2141657658
 Transform:
@@ -35769,6 +38309,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SM_Bld_Bunker_Wall_Concrete_x1_01 (104)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233906316467043600, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -36700,7 +39245,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 680847458}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 1235429290638654116, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -36730,17 +39275,17 @@ PrefabInstance:
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8796827460433222115, guid: 1a38461b02049c4448013b90f88ae25c,
         type: 3}
@@ -38561,94 +41106,6 @@ Transform:
   - {fileID: 2147052880882379330}
   m_Father: {fileID: 2149442900727892610}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &2180448227961961771
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1908403663}
-    m_Modifications:
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2183758296117106270, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8107472516733384520, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8107472516733384520, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.8718418
-      objectReference: {fileID: 0}
-    - target: {fileID: 8107472516733384520, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.759434
-      objectReference: {fileID: 0}
-    - target: {fileID: 8107472516733384520, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9022957853011764837, guid: 71100f5fb2f0505488b6d9dba2d6b394,
-        type: 3}
-      propertyPath: m_Name
-      value: RoofSpine_5
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 71100f5fb2f0505488b6d9dba2d6b394, type: 3}
 --- !u!33 &2448515040348569090
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -38773,94 +41230,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
---- !u!1001 &3322684038843002110
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 1908403663}
-    m_Modifications:
-    - target: {fileID: 70568428847814623, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Name
-      value: RoofSpine_6
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.8718418
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.759434
-      objectReference: {fileID: 0}
-    - target: {fileID: 5809571875773406540, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 17
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 24
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9177828417667227224, guid: a4bf91ded50479144b2415bb108e35a6,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: a4bf91ded50479144b2415bb108e35a6, type: 3}
 --- !u!1 &4055662289206294681
 GameObject:
   m_ObjectHideFlags: 0
@@ -40171,6 +42540,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ac53f38ddf585d4b8a4bb5f44e8cb4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxMoveDistance: 0
   _idleAnimationClip: {fileID: 7400000, guid: 47eed3c9adae4d94496daac8b628526e, type: 3}
   _runAnimationClip: {fileID: 7400000, guid: dfdda8bdacaef024db1a5ab08c45cb17, type: 3}
 --- !u!114 &9204942897676273581
@@ -40226,3 +42596,7 @@ SceneRoots:
   - {fileID: 554383960}
   - {fileID: 525508824}
   - {fileID: 2081641566}
+  - {fileID: 2130579178279767178}
+  - {fileID: 1227732588}
+  - {fileID: 1911463096}
+  - {fileID: 811117683}
