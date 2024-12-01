@@ -7,17 +7,21 @@ namespace Colony
 {
     public abstract class BaseColonyAction : MonoBehaviour
     {
-        public static event EventHandler OnAnyActionStarted;
-        public static event EventHandler OnAnyActionCompleted;
+        [SerializeField] protected AnimationClip actionAnimationClip;
         
-        protected bool IsActive;
+        protected ColonyMoveAction colonyMoveAction;
+        protected GridPosition actionSpotGridPosition;
+        
+        protected bool isActive;
         protected Action OnActionComplete;
-
-        protected AnimancerComponent AnimancerComponent;
+        
+        protected AnimancerComponent animancerComponent;
+        protected AnimancerState animancerState;
 
         protected virtual void Awake()
         {
-            AnimancerComponent = GetComponent<AnimancerComponent>();
+            animancerComponent = GetComponent<AnimancerComponent>();
+            colonyMoveAction = GetComponent<ColonyMoveAction>();
         }
 
         public abstract string GetActionName();
@@ -34,18 +38,14 @@ namespace Colony
 
         protected void ActionStart(Action onActionComplete)
         {
-            IsActive = true;
+            isActive = true;
             OnActionComplete = onActionComplete;
-
-            OnAnyActionStarted?.Invoke(this, EventArgs.Empty);
         }
 
         protected void ActionComplete()
         {
-            IsActive = false;
+            isActive = false;
             OnActionComplete();
-
-            OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
         }
 
         public Transform GetHolderTransform()

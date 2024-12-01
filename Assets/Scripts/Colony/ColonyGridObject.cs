@@ -3,16 +3,17 @@ using UnityEngine;
 
 public class ColonyGridObject
 {
-    protected GridPosition gridPosition;
-    protected GridSystem<ColonyGridObject> gridSystem;
-    protected readonly List<Transform> _occupantList;
-    protected Mineable _mineable;
-    protected bool isReserved = false;
+    private GridPosition _gridPosition;
+    private GridSystem<ColonyGridObject> _gridSystem;
+    private readonly List<Transform> _occupantList;
+    private Mineable _mineable;
+    private PlacedFurnitureGhost _furnitureGhost;
+    private bool _isReserved;
     
     public ColonyGridObject(GridSystem<ColonyGridObject> gridSystem, GridPosition gridPosition) 
     {
-        this.gridSystem = gridSystem;
-        this.gridPosition = gridPosition;
+        _gridSystem = gridSystem;
+        _gridPosition = gridPosition;
         _occupantList = new List<Transform>();
     }
     
@@ -23,7 +24,7 @@ public class ColonyGridObject
         {
             occupantString += occupant + "\n";
         }
-        return gridPosition.ToString() + "\n" + occupantString;
+        return _gridPosition.ToString() + "\n" + occupantString;
     }
 
     public void AddOccupant(Transform occupant)
@@ -67,11 +68,22 @@ public class ColonyGridObject
 
     public void SetReserved(bool isReserved)
     {
-        this.isReserved = isReserved;
+        _isReserved = isReserved;
     }
 
     public bool GetIsReseved()
     {
-        return isReserved;
+        return _isReserved;
     }
+
+    public void SetFurnitureGhost(PlacedFurnitureGhost placedFurnitureGhost)
+    {
+        _furnitureGhost = placedFurnitureGhost;
+    }
+
+    public PlacedFurnitureGhost GetFurnitureGhost()
+    {
+        return _furnitureGhost;
+    }
+
 }

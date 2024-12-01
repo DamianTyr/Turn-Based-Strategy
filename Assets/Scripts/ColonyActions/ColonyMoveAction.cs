@@ -15,13 +15,13 @@ public class ColonyMoveAction : BaseColonyAction
     
     private void Start()
     {
-        AnimancerComponent.Play(_idleAnimationClip);
+        animancerComponent.Play(_idleAnimationClip);
         _baseGrid = FindObjectOfType<ColonyGrid>();
     }
 
     void Update()
     {
-        if (!IsActive) return;
+        if (!isActive) return;
 
         Vector3 targetPosition = _positionList[_currentPositionIndex];
         Vector3 moveDirection = (targetPosition - transform.position).normalized;
@@ -40,7 +40,7 @@ public class ColonyMoveAction : BaseColonyAction
             _currentPositionIndex++;
             if (_currentPositionIndex >= _positionList.Count)
             {
-                AnimancerComponent.Play(_idleAnimationClip, .3f);
+                animancerComponent.Play(_idleAnimationClip, .3f);
                 ActionComplete();
             }
         }
@@ -64,7 +64,7 @@ public class ColonyMoveAction : BaseColonyAction
             _positionList.Add(_baseGrid.GetWorldPosition(pathGridPosition));
         }
         
-        AnimancerComponent.Play(_runAnimationClip, 0.3f);
+        animancerComponent.Play(_runAnimationClip, 0.3f);
         ActionStart(onActionComplete);
     }
     

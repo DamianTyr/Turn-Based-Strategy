@@ -6,14 +6,13 @@ using UnityEngine;
 public class Colonist : MonoBehaviour
 {
     private GridPosition _gridPosition;
-    [SerializeField] private ColonyMoveAction colonyMoveAction;
     [SerializeField] private ColonyWanderAction colonyWanderAction;
     [SerializeField] private ColonyMiningAction colonyMiningAction;
+    [SerializeField] private ColonyBuildingAction colonyBuildingAction;
     [SerializeField] private bool isBusy;
     
     private ColonyTasksManager _colonyTasksManager;
     private ColonyTask currentTask;
-    private BaseAction[] colonyActions;
 
     private float taskCheckTimer = 2f;
     
@@ -21,7 +20,6 @@ public class Colonist : MonoBehaviour
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
         _colonyTasksManager = FindObjectOfType<ColonyTasksManager>();
-        colonyActions = GetComponents<BaseAction>();
     }
     
     private void Update()
@@ -54,11 +52,18 @@ public class Colonist : MonoBehaviour
             {
                 case ColonyActionType.Mining:
                     if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
-                    GridPosition validMiningSpot = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
-                    colonyMiningAction.TakeAction(_gridPosition, validMiningSpot, OnActionComplete, colonyTask);
+                    GridPosition validActionGridPosition = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
+                    colonyMiningAction.TakeAction(_gridPosition, validActionGridPosition, OnActionComplete, colonyTask);
                     colonyTask.AssignedColonist = this;
                     isBusy = true;
-                    return;
+                    break;
+                case ColonyActionType.Building:
+                    if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
+                    GridPosition validActionGridPosition1 = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
+                    colonyBuildingAction.TakeAction(_gridPosition, validActionGridPosition1, OnActionComplete, colonyTask);
+                    colonyTask.AssignedColonist = this;
+                    isBusy = true;
+                    break;
             }
         }
         
@@ -68,20 +73,9 @@ public class Colonist : MonoBehaviour
             isBusy = true;
         }
     }
-
-    public void Test(GridPosition gridPosition, Action onActionComplete)
-    {
-
-    }
-
+    
     private void OnActionComplete()
     {
         isBusy = false;
-        Debug.Log("Colonist Action Finished");
-    }
-
-    private GridPosition GetGridPosition()
-    {
-        return _gridPosition;
     }
 }

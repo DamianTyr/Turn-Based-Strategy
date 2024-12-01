@@ -34,6 +34,7 @@ public class ColonyGrid : MonoBehaviour, IGrid
     private void Start()
     {
         Pathfinding.Instance.Setup(width, height, cellSize, this);
+        Mineable.OnAnyMineableSpawned += SetMinableAtPosition;
     }
     
     public GridPosition GetGridPosition(Vector3 worldPosition) => _gridSystem.GetGridPosition(worldPosition);
@@ -41,22 +42,7 @@ public class ColonyGrid : MonoBehaviour, IGrid
     public bool IsValidGridPosition(GridPosition gridPosition) => _gridSystem.IsValidGridPosition(gridPosition);
     public int GetWidth() => _gridSystem.GetWidth();
     public int GetHeight() => _gridSystem.GetHeight();
-
-    public GridPosition GetRandomGridPositionInSquare(GridPosition gridPosition)
-    {
-        for (int i = 0; i < 5; i++)
-        {
-            GridPosition random = new GridPosition(Random.Range(-2,3), Random.Range(-2,3));
-
-            GridPosition testGridPosition = gridPosition + random;
-            if (IsValidGridPosition(testGridPosition) && Pathfinding.Instance.IsWalkableGridPosition(testGridPosition) && Pathfinding.Instance.HasPath(gridPosition, testGridPosition))
-            {
-                return testGridPosition;
-            }
-        }
-        return new GridPosition(5, 5);
-    }
-
+    
     public List<GridPosition> GetSquareAroundGridPosition(GridPosition gridPosition, int size)
     {
         List<GridPosition> gridPositions = new List<GridPosition>();
@@ -142,4 +128,17 @@ public class ColonyGrid : MonoBehaviour, IGrid
         ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
         return gridObject.GetIsReseved();
     }
+
+    public PlacedFurnitureGhost GetFurnitureGhostAtGridPosition(GridPosition gridPosition)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        return gridObject.GetFurnitureGhost();
+    }
+
+    public void SetFurnitureGhostAtGridPosition(GridPosition gridPosition, PlacedFurnitureGhost furnitureGhost)
+    {
+        ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
+        gridObject.SetFurnitureGhost(furnitureGhost);
+    }
+
 }

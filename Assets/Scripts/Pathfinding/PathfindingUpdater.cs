@@ -7,6 +7,12 @@ public class PathfindingUpdater : MonoBehaviour
     {
         Destructible.OnAnyDestroyed += DestructibleCrate_OnOnAnyDestroyed;
         Mineable.OnAnyMined += OnAnyMined;
+        Mineable.OnAnyMineableSpawned += OnAnyMineableSpawned;
+    }
+
+    private void OnAnyMineableSpawned(GridPosition gridPosition, Mineable mineable)
+    {
+        Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, false);
     }
 
     private void OnAnyMined(GridPosition gridPosition)

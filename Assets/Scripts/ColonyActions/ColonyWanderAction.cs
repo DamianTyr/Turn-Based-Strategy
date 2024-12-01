@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Colony;
+using Random = UnityEngine.Random;
 
 public class ColonyWanderAction : BaseColonyAction, IColonyAction
 {
@@ -19,9 +20,27 @@ public class ColonyWanderAction : BaseColonyAction, IColonyAction
 
     public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete, ColonyTask colonyTask)
     {
-        GridPosition wanderPosition = ColonyGrid.Instance.GetRandomGridPositionInSquare(callerGridPosition);
-        _colonyMoveAction.TakeAction(callerGridPosition, wanderPosition, OnMovementCompleted, colonyTask);
+        List<GridPosition> validGridPositions = ColonyGrid.Instance.GetSquareAroundGridPosition(callerGridPosition, 2);
+        List<GridPosition> reachableGridPositions = new List<GridPosition>();
+        foreach (GridPosition validGridPosition in validGridPositions)
+        {
+            if (ColonyGrid.Instance.HasAnyOccupantOnGridPosition(validGridPosition)) continue;
+            if (ColonyGrid.Instance.GetIsReservedAtGridPosition(validGridPosition)) continue;
+            if (!Pathfinding.Instance.HasPath(callerGridPosition, validGridPosition)) continue;
+            reachableGridPositions.Add(validGridPosition);
+        }
+
+        if (reachableGridPositions.Count == 0)
+        {
+            ActionStart(onActionComplete);
+            ActionComplete();
+            return;
+        }
+
+        int randomIndex = Random.Range(0, reachableGridPositions.Count);
+        GridPosition wanderGridPosition = reachableGridPositions[randomIndex];
         ActionStart(onActionComplete);
+        _colonyMoveAction.TakeAction(callerGridPosition, wanderGridPosition, OnMovementCompleted, colonyTask);
     }
 
     private void OnMovementCompleted()

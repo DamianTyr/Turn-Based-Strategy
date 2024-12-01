@@ -49,4 +49,9 @@ public class InputManager : MonoBehaviour
     {
         return _playerInputActions.Player.Inventory.WasPressedThisFrame();
     }
+
+    public bool IsBuildingButtonPressedThisFrame()
+    {
+        return _playerInputActions.Player.ColonyBuild.WasPressedThisFrame();
+    }
 }

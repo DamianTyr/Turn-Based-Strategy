@@ -17,7 +17,6 @@ namespace PlayerInput
 
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float raycastRadius = 1f;
-        [SerializeField] Transform raycastTarget;
         [SerializeField] LayerMask layersToIgnoreForComponent;
         
         static IRaycastable currentRaycastTarget;
@@ -124,11 +123,6 @@ namespace PlayerInput
         {
             Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.GetMouseScreenPosition());
             return ray;
-        }
-
-        public static void ClearCurrentRaycastTarget()
-        {
-            currentRaycastTarget = null;
         }
     }
 }

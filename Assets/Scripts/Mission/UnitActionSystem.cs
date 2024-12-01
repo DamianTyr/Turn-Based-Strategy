@@ -1,5 +1,4 @@
 using System;
-using PlayerInput;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -15,7 +14,7 @@ namespace Mission
         public event EventHandler<bool> OnBusyChange;
         public event EventHandler OnActionStarted;
     
-        [FormerlySerializedAs("selectedTransform")] [SerializeField] private Unit selectedUnit;
+        [SerializeField] private Unit selectedUnit;
         [SerializeField] private LayerMask unitLayerMask;
     
         private BaseAction _selectedAction; 

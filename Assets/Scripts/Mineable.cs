@@ -9,40 +9,42 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider), typeof(Outlinable))]
 public class Mineable : MonoBehaviour, IRaycastable
 {
-    public static Action<GridPosition> OnAnyMineableSpawned;
     [SerializeField] private int health = 100;
+    [Header("Visuals")]
     [SerializeField] private GameObject minebleVisual;
     [SerializeField] private GameObject mineableVisualShattered;
+    [Header("Shatter Options")]
     [SerializeField] private float explosionForce;
     [SerializeField] private float explosionRange;
-    private GridPosition _gridPosition;
-    private BoxCollider _boxCollider;
-    
+    [Header("Outlines")]
     [SerializeField] private Outlinable mouseOverOutlinable;
     [SerializeField] private Outlinable mouseClickedOutlineble;
     
+    private GridPosition _gridPosition;
+    private BoxCollider _boxCollider;
     public static Action<GridPosition> OnAnyMined;
+    public static Action<GridPosition, Mineable> OnAnyMineableSpawned;
     
     private void Start()
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
-        StartCoroutine(SetupIsWalkable());
-        ColonyGrid.Instance.SetMinableAtPosition(_gridPosition, this);
         _boxCollider = GetComponent<BoxCollider>();
+
+        StartCoroutine(TriggerOnSpawnNextFrame());
+        
         mouseOverOutlinable.enabled = false;
         mouseClickedOutlineble.enabled = false;
     }
 
-    private IEnumerator SetupIsWalkable()
+    private IEnumerator TriggerOnSpawnNextFrame()
     {
-        yield return null;
-        Pathfinding.Instance.SetIsWalkableGridPosition(_gridPosition, false);
+        yield return new WaitForEndOfFrame();
+        OnAnyMineableSpawned?.Invoke(_gridPosition, this);
     }
 
     public void Mine(int mineAmount, Action onBlockMined)
     {
         health -= mineAmount;
-        Debug.Log(health);
         if (health <= 0)
         {
             minebleVisual.SetActive(false);

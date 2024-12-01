@@ -3,56 +3,57 @@ using System.Collections.Generic;
 using Colony;
 using UnityEngine;
 
-public class ColonyMiningAction : BaseColonyAction
+public class ColonyBuildingAction : BaseColonyAction
 {
-    private bool _isPerformingAction;
+    private PlacedFurnitureGhost _placedFurnitureGhost;
     private float _actionAnimationDuration = 1.5f;
+    private bool _isPerformingAction;
     private float _timer;
-
-    private Mineable _currentMineable;
     
-    private void Update()
+    void Update()
     {
         if (!_isPerformingAction) return;
         _timer += Time.deltaTime;
         if (_timer > _actionAnimationDuration)
         {
             _timer = 0;
-            _currentMineable.Mine(10, OnMiningCompleted);
+            _placedFurnitureGhost.ProgressTask(10, OnBuildingCompleted);
         }
     }
 
     public override string GetActionName()
     {
-        return "Mining Action";
+        return "Building Action";
     }
     
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition miningSpot, Action onActionComplete, ColonyTask colonyTask)
+
+    public override void TakeAction(GridPosition callerGridPosition, GridPosition buildingSpot, Action onActionComplete, ColonyTask colonyTask)
     {
-        _currentMineable = ColonyGrid.Instance.GetMineableAtGridPosition(colonyTask.GridPosition);
-        actionSpotGridPosition = miningSpot;
+        _placedFurnitureGhost = ColonyGrid.Instance.GetFurnitureGhostAtGridPosition(colonyTask.GridPosition);
+        actionSpotGridPosition = buildingSpot;
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
         colonyMoveAction.TakeAction(callerGridPosition, actionSpotGridPosition, OnMovementComplete, colonyTask);
         ActionStart(onActionComplete);
     }
-
+    
     private void OnMovementComplete()
     {
         _isPerformingAction = true;
-        transform.LookAt(_currentMineable.transform);
+        transform.LookAt(_placedFurnitureGhost.transform);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
 
-    private void OnMiningCompleted()
+    private void OnBuildingCompleted()
     {
         _isPerformingAction = false;
-        _currentMineable = null;
+        _placedFurnitureGhost = null;
         animancerComponent.Play(animancerState, .4f);
         ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
-        OnActionComplete();
+        ActionComplete();
     }
+    
 
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {

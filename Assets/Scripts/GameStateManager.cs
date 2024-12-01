@@ -17,7 +17,13 @@ public class GameStateManager : MonoBehaviour
         }
         else Instance = this;
     }
-    
+
+    private void Update()
+    {
+        
+    }
+
+
     public GameState GetGameState()
     {
         return _currentGameState;
@@ -28,10 +34,17 @@ public class GameStateManager : MonoBehaviour
         _currentGameState = gameState;
         OnGameStateChanged?.Invoke(_currentGameState);
     }
+    
+    
 }
 
 public enum GameState{
     TurnBased, 
     Armory, 
     RealTime
+}
+
+public enum ColonyGameState
+{
+    PlacingFurniture,
 }

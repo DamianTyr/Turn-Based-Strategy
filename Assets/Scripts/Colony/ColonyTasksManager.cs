@@ -17,14 +17,8 @@ namespace Colony
                 Destroy(gameObject);
             }
             Instance = this;
-            Mineable.OnAnyMineableSpawned += OnAnyMineableSpawned;
         }
         
-        private void OnAnyMineableSpawned(GridPosition gridPosition)
-        {
-            colonyTaskList.Add(new ColonyTask(gridPosition, ColonyActionType.Mining));
-        }
-
         public List<ColonyTask> GetColonyTaskList()
         {
             return colonyTaskList;

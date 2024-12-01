@@ -14,9 +14,7 @@ namespace Grid
         public int GetWidth();
 
         public int GetHeight();
-
-        public GridPosition GetRandomGridPositionInSquare(GridPosition gridPosition);
-
+        
         public List<GridPosition> GetSquareAroundGridPosition(GridPosition gridPosition, int size);
 
         public void AddOccupantAtGridPosition(GridPosition gridPosition, Transform transform);
