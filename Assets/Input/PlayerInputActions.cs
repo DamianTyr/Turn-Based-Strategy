@@ -80,6 +80,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ColonyRotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""0f9f05ee-1201-4900-9b9c-c717aa4c1637"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -214,6 +223,17 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""ColonyBuild"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""75d4e650-3966-4058-8afa-92540285b2e8"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ColonyRotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -228,6 +248,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Player_Click = m_Player.FindAction("Click", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_ColonyBuild = m_Player.FindAction("ColonyBuild", throwIfNotFound: true);
+        m_Player_ColonyRotate = m_Player.FindAction("ColonyRotate", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -295,6 +316,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Click;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_ColonyBuild;
+    private readonly InputAction m_Player_ColonyRotate;
     public struct PlayerActions
     {
         private @PlayerInputActions m_Wrapper;
@@ -305,6 +327,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         public InputAction @Click => m_Wrapper.m_Player_Click;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @ColonyBuild => m_Wrapper.m_Player_ColonyBuild;
+        public InputAction @ColonyRotate => m_Wrapper.m_Player_ColonyRotate;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -332,6 +355,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ColonyBuild.started += instance.OnColonyBuild;
             @ColonyBuild.performed += instance.OnColonyBuild;
             @ColonyBuild.canceled += instance.OnColonyBuild;
+            @ColonyRotate.started += instance.OnColonyRotate;
+            @ColonyRotate.performed += instance.OnColonyRotate;
+            @ColonyRotate.canceled += instance.OnColonyRotate;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -354,6 +380,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @ColonyBuild.started -= instance.OnColonyBuild;
             @ColonyBuild.performed -= instance.OnColonyBuild;
             @ColonyBuild.canceled -= instance.OnColonyBuild;
+            @ColonyRotate.started -= instance.OnColonyRotate;
+            @ColonyRotate.performed -= instance.OnColonyRotate;
+            @ColonyRotate.canceled -= instance.OnColonyRotate;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -379,5 +408,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         void OnClick(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnColonyBuild(InputAction.CallbackContext context);
+        void OnColonyRotate(InputAction.CallbackContext context);
     }
 }

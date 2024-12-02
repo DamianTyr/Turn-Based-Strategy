@@ -18,7 +18,7 @@ namespace GameDevTV.UI
         // Update is called once per frame
         void Update()
         {
-            if (_inputManager.IsInventoryButtonPressedThisFrame())
+            if (_inputManager.IsInventoryButtonDownThisFrame())
             {
                 uiContainer.SetActive(!uiContainer.activeSelf);
             }

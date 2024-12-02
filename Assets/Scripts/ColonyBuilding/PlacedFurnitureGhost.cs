@@ -1,45 +1,37 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Colony;
 using UnityEngine;
 
 public class PlacedFurnitureGhost : MonoBehaviour
 {
     public static Action<PlacedFurnitureGhost> OnAnySpawned;
-    private GridPosition GridPosition;
-    private int health = 100;
+    private GridPosition _gridPosition;
+    private int _health = 20;
+
+    private FurnitureSO _furnitureSO;
     
-    // Start is called before the first frame update
     void Start()
     {
         OnAnySpawned?.Invoke(this);
 
-        GridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
-        ColonyGrid.Instance.SetFurnitureGhostAtGridPosition(GridPosition, this);
-        ColonyTasksManager.Instance.RegisterTask(GridPosition, ColonyActionType.Building);
-        Debug.Log("Placed Furniture Ghost Spawned");
+        _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        ColonyGrid.Instance.SetFurnitureGhostAtGridPosition(_gridPosition, this);
+        ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Building);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)
     {
-        health -= progressAmount;
-        Debug.Log("Progressing Task");
-        if (health <= 0)
+        _health -= progressAmount;
+        if (_health <= 0)
         {
-            Debug.Log("Finished Building Task");
+            Instantiate(_furnitureSO.furniture, transform.position, transform.rotation);
+            gameObject.SetActive(false);
             onTaskCompleted();
         }
     }
-    
-    //HaveMethod Where it gets constructed
-    
-    //Once Constructed, spawn Furniture and self destruct
+
+    public void SetFurnitureSO(FurnitureSO furnitureSO)
+    {
+        _furnitureSO = furnitureSO;
+    }
 }

@@ -24131,6 +24131,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dcfcb8962e0b1f24682a68b1f85aadd3, type: 3}
+--- !u!1 &1393240741
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1393240742}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1393240742
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393240741}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 37.4, y: -2.0731747, z: 22.17}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1393331226 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4675009436353091181, guid: dcfcb8962e0b1f24682a68b1f85aadd3,
@@ -28207,12 +28238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ec44399df25f6b44995f553444e10f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  furnitureTransform: {fileID: 0}
-  testGhostTransform: {fileID: 238250242447751776, guid: 3e4f051803cea5243bccaee4cf412206,
-    type: 3}
-  testPlacedGhostTransform: {fileID: 6837794919234856379, guid: 247378d1a77288141b79fb33d59311f6,
-    type: 3}
-  selectedFurnitureGhost: {fileID: 0}
+  furnitureSO: {fileID: 11400000, guid: 3cb53f4507f40a745978003d65010c7d, type: 2}
+  spawnedGhostTransform: {fileID: 0}
 --- !u!1 &1679052053
 GameObject:
   m_ObjectHideFlags: 0
@@ -34164,8 +34191,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84628e8ef7faf9b489f966493c8e32b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  width: 20
-  height: 17
+  width: 30
+  height: 18
   cellSize: 2
   gridDebugObjectPrefab: {fileID: 894995705320571869, guid: 60266934e6221214292053c8201c47b6,
     type: 3}
@@ -40323,3 +40350,4 @@ SceneRoots:
   - {fileID: 554383960}
   - {fileID: 525508824}
   - {fileID: 2081641566}
+  - {fileID: 1393240742}

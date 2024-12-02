@@ -22,7 +22,7 @@ public class CameraManager : MonoBehaviour
 
     private void Update()
     {
-        if (_inputManager.IsInventoryButtonPressedThisFrame())
+        if (_inputManager.IsInventoryButtonDownThisFrame())
         {
             if (_isShowingInvetory)
             {

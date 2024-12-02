@@ -45,13 +45,18 @@ public class InputManager : MonoBehaviour
         return _playerInputActions.Player.CameraZoom.ReadValue<float>();
     }
     
-    public bool IsInventoryButtonPressedThisFrame()
+    public bool IsInventoryButtonDownThisFrame()
     {
         return _playerInputActions.Player.Inventory.WasPressedThisFrame();
     }
 
-    public bool IsBuildingButtonPressedThisFrame()
+    public bool IsBuildingButtonDownThisFrame()
     {
         return _playerInputActions.Player.ColonyBuild.WasPressedThisFrame();
+    }
+
+    public bool IsColonyRotateButtonDownThisFrame()
+    {
+        return _playerInputActions.Player.ColonyRotate.WasPressedThisFrame();
     }
 }

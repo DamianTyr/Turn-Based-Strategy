@@ -1,62 +1,98 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class FurniturePlacer : MonoBehaviour
 {
-    [SerializeField] private Transform furnitureTransform;
-    [SerializeField] private Transform testGhostTransform;
-    [SerializeField] private Transform testPlacedGhostTransform;
+    [SerializeField] private FurnitureSO furnitureSO;
     
+    private Transform _spawnedGhostTransform;
+    private bool _isActive;
+    private GridPosition _mouseGridPosition;
     
-    [SerializeField] private Transform selectedFurnitureGhost;
-    private bool _isActive = false;
-
-    private GridPosition mouseGridPosition;
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    private Vector2 _rotatedDimensions;
+    private int _rotationIndex;
     
     void Update()
     {
-        CheckForToggle();
+        HandleIsActiveToggle();
         if (!_isActive) return;
         HandleMouseMovement();
+        HandleRotation();
+        HandleMouseClick();
+    }
 
+    private void HandleMouseClick()
+    {
         if (InputManager.Instance.IsMouseButtonDownThisFrame())
         {
-            Instantiate(testPlacedGhostTransform, ColonyGrid.Instance.GetWorldPosition(mouseGridPosition), Quaternion.identity);
+            PlacedFurnitureGhost placedFurnitureGhost = Instantiate(furnitureSO.placedFurnitureGhost, ColonyGrid.Instance.GetWorldPosition(_mouseGridPosition),
+                _spawnedGhostTransform.rotation);
+            placedFurnitureGhost.SetFurnitureSO(furnitureSO);
+        }
+    }
+
+    private void HandleRotation()
+    {
+        if (InputManager.Instance.IsColonyRotateButtonDownThisFrame())
+        {
+            _rotationIndex += 1;
+            _spawnedGhostTransform.eulerAngles += new Vector3(0, 90, 0);
+            if (_spawnedGhostTransform.eulerAngles.y >= 360)
+            {
+                _spawnedGhostTransform.eulerAngles = new Vector3(0, 0, 0);
+            }
+
+            switch (_rotationIndex)
+            {
+                case 0:
+                {
+                    _rotatedDimensions = furnitureSO.dimensions;
+                    break;
+                }
+                case 1:
+                {
+                    _rotatedDimensions = new Vector2(furnitureSO.dimensions.y, -furnitureSO.dimensions.x);
+                    break;
+                }
+                case 2:
+                {
+                    _rotatedDimensions = new Vector2(-furnitureSO.dimensions.x, furnitureSO.dimensions.y);
+                    break;
+                }
+                case 3:
+                {
+                    _rotatedDimensions = new Vector2(furnitureSO.dimensions.y, furnitureSO.dimensions.x);
+                    break;
+                }
+            }
+            Debug.Log("Rotated dimensions " + _rotatedDimensions);
         }
     }
 
     private void HandleMouseMovement()
     {
         GridPosition newGridPosition = ColonyGrid.Instance.GetGridPosition(MouseWorld.GetPosition());
-        if (newGridPosition != mouseGridPosition)
+        if (newGridPosition != _mouseGridPosition)
         {
-            mouseGridPosition = newGridPosition;
+            _mouseGridPosition = newGridPosition;
+            _spawnedGhostTransform.position = ColonyGrid.Instance.GetWorldPosition(_mouseGridPosition);
         }
-
-        selectedFurnitureGhost.position = ColonyGrid.Instance.GetWorldPosition(mouseGridPosition);
     }
 
-    private void CheckForToggle()
+    private void HandleIsActiveToggle()
     {
-        if (InputManager.Instance.IsBuildingButtonPressedThisFrame())
+        if (InputManager.Instance.IsBuildingButtonDownThisFrame())
         {
             if (_isActive)
             {
                 _isActive = false;
-                Destroy(selectedFurnitureGhost.gameObject);
-                selectedFurnitureGhost = null;
+                Destroy(_spawnedGhostTransform.gameObject);
+                _spawnedGhostTransform = null;
             }
             else
             {
-                mouseGridPosition = ColonyGrid.Instance.GetGridPosition(MouseWorld.GetPosition());
-                selectedFurnitureGhost = Instantiate(testGhostTransform, ColonyGrid.Instance.GetWorldPosition(mouseGridPosition), Quaternion.identity);
+                _mouseGridPosition = ColonyGrid.Instance.GetGridPosition(MouseWorld.GetPosition());
+                _spawnedGhostTransform = Instantiate(furnitureSO.furnitureGhost, ColonyGrid.Instance.GetWorldPosition(_mouseGridPosition), Quaternion.identity);
+                _rotationIndex = 0;
                 _isActive = true;
             }
         }
