@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PathfindingUpdater : MonoBehaviour
@@ -8,12 +9,16 @@ public class PathfindingUpdater : MonoBehaviour
         Destructible.OnAnyDestroyed += DestructibleCrate_OnOnAnyDestroyed;
         Mineable.OnAnyMined += OnAnyMined;
         Mineable.OnAnyMineableSpawned += OnAnyMineableSpawned;
-        Furniture.OnAnySpawned += OnAnySpawned;
+        Furniture.OnAnySpawned += OnAnyFurnitureSpawned;
     }
 
-    private void OnAnySpawned(Furniture obj)
+    private void OnAnyFurnitureSpawned(Furniture obj, List<GridPosition> occupiedGridPositionList)
     {
-        
+        Debug.Log("Pathfinding Updater on any spawned, position count: " + occupiedGridPositionList.Count);
+        foreach (GridPosition gridPosition in occupiedGridPositionList)
+        {
+            Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, false);
+        }
     }
 
     private void OnAnyMineableSpawned(GridPosition gridPosition, Mineable mineable)

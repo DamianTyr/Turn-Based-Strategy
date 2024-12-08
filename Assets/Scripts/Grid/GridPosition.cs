@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 
+[Serializable]
 public struct GridPosition : IEquatable<GridPosition>
 {
     public int X;

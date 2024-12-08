@@ -100,6 +100,7 @@ public class BaseGridSystemVisual : MonoBehaviour
     {
         foreach (GridPosition gridPosition in gridPositionList)
         {
+            if (!ColonyGrid.Instance.IsValidGridPosition(gridPosition)) return;
             _gridSystemVisualSingleArray[gridPosition.X, gridPosition.Z].Show(GetGridVisualTypeMaterial(gridVisualType));
         }
     }

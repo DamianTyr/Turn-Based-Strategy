@@ -1,20 +1,19 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Furniture : MonoBehaviour
 {
-    public static Action<Furniture> OnAnySpawned;
+    public static Action<Furniture, List<GridPosition>> OnAnySpawned;
     
-    // Start is called before the first frame update
-    void Start()
+    private FurnitureSO _furnitureSO;
+    private List<GridPosition> _occupiedGridPositionList;
+    
+    public void Setup(FurnitureSO furnitureSO, List<GridPosition> occupiedGridPositionList)
     {
-        OnAnySpawned?.Invoke(this);
-        Debug.Log("Furniture Spawned");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Debug.Log("Furniture Setup, count:" + occupiedGridPositionList.Count);
+        _furnitureSO = furnitureSO;
+        _occupiedGridPositionList = new List<GridPosition>(occupiedGridPositionList); 
+        OnAnySpawned?.Invoke(this, _occupiedGridPositionList);
     }
 }

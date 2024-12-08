@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Grid;
 using UnityEngine;
@@ -62,6 +63,25 @@ public class ColonyGrid : MonoBehaviour, IGrid
 
         return gridPositions;
     }
+    
+    public List<GridPosition> GetRectangleOfSizeGridPositions(GridPosition center, Vector2Int dimensions)
+    {
+        int startX = center.X - (dimensions.x > 0 ? 0 : Math.Abs(dimensions.x) -1);
+        int endX = center.X + (dimensions.x > 0 ? dimensions.x - 1 : 0);
+        int startZ = center.Z - (dimensions.y > 0 ? 0 : Math.Abs(dimensions.y) -1);
+        int endZ = center.Z + (dimensions.y > 0 ? dimensions.y - 1 : 0);
+        
+        List<GridPosition> gridPositionList = new List<GridPosition>();
+        for (int x = startX; x <= endX; x++)
+        {
+            for (int y = startZ; y <= endZ; y++)
+            {
+                gridPositionList.Add(new GridPosition(x, y));
+            }
+        }
+        return gridPositionList;
+    }
+    
     
     public void AddOccupantAtGridPosition(GridPosition gridPosition, Transform transform)
     {
@@ -140,5 +160,4 @@ public class ColonyGrid : MonoBehaviour, IGrid
         ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
         gridObject.SetFurnitureGhost(furnitureGhost);
     }
-
 }

@@ -56,14 +56,14 @@ public class Colonist : MonoBehaviour
                     colonyMiningAction.TakeAction(_gridPosition, validActionGridPosition, OnActionComplete, colonyTask);
                     colonyTask.AssignedColonist = this;
                     isBusy = true;
-                    break;
+                    return;
                 case ColonyActionType.Building:
                     if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
                     GridPosition validActionGridPosition1 = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
                     colonyBuildingAction.TakeAction(_gridPosition, validActionGridPosition1, OnActionComplete, colonyTask);
                     colonyTask.AssignedColonist = this;
                     isBusy = true;
-                    break;
+                    return;
             }
         }
         
