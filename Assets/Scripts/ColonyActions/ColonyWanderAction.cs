@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Colony;
 using Random = UnityEngine.Random;
 
-public class ColonyWanderAction : BaseColonyAction, IColonyAction
+public class ColonyWanderAction : BaseColonyAction
 {
     private ColonyMoveAction _colonyMoveAction;
     private ColonyActionType _colonyActionType = ColonyActionType.Wandering;

@@ -8,13 +8,12 @@ public class PathfindingUpdater : MonoBehaviour
     {
         Destructible.OnAnyDestroyed += DestructibleCrate_OnOnAnyDestroyed;
         Mineable.OnAnyMined += OnAnyMined;
-        Mineable.OnAnyMineableSpawned += OnAnyMineableSpawned;
+        Mineable.OnAnySpawned += OnAnyMineableSpawned;
         Furniture.OnAnySpawned += OnAnyFurnitureSpawned;
     }
 
     private void OnAnyFurnitureSpawned(Furniture obj, List<GridPosition> occupiedGridPositionList)
     {
-        Debug.Log("Pathfinding Updater on any spawned, position count: " + occupiedGridPositionList.Count);
         foreach (GridPosition gridPosition in occupiedGridPositionList)
         {
             Pathfinding.Instance.SetIsWalkableGridPosition(gridPosition, false);

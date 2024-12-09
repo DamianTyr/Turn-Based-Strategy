@@ -35,7 +35,7 @@ public class ColonyGrid : MonoBehaviour, IGrid
     private void Start()
     {
         Pathfinding.Instance.Setup(width, height, cellSize, this);
-        Mineable.OnAnyMineableSpawned += SetMinableAtPosition;
+        Mineable.OnAnySpawned += SetMinableAtPosition;
     }
     
     public GridPosition GetGridPosition(Vector3 worldPosition) => _gridSystem.GetGridPosition(worldPosition);

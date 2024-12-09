@@ -23,7 +23,7 @@ public class Mineable : MonoBehaviour, IRaycastable
     private GridPosition _gridPosition;
     private BoxCollider _boxCollider;
     public static Action<GridPosition> OnAnyMined;
-    public static Action<GridPosition, Mineable> OnAnyMineableSpawned;
+    public static Action<GridPosition, Mineable> OnAnySpawned;
     
     private void Start()
     {
@@ -39,7 +39,7 @@ public class Mineable : MonoBehaviour, IRaycastable
     private IEnumerator TriggerOnSpawnNextFrame()
     {
         yield return new WaitForEndOfFrame();
-        OnAnyMineableSpawned?.Invoke(_gridPosition, this);
+        OnAnySpawned?.Invoke(_gridPosition, this);
     }
 
     public void Mine(int mineAmount, Action onBlockMined)

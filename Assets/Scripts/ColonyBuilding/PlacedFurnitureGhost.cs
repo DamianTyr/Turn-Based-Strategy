@@ -24,7 +24,6 @@ public class PlacedFurnitureGhost : MonoBehaviour
         if (_health <= 0)
         {
             Furniture furniture = Instantiate(_furnitureSO.furniture, transform.position, transform.rotation);
-            Debug.Log(this._occupiedGridPositionList.Count);
             furniture.Setup(_furnitureSO, _occupiedGridPositionList);
             gameObject.SetActive(false);
             onTaskCompleted();
@@ -35,6 +34,5 @@ public class PlacedFurnitureGhost : MonoBehaviour
     {
         _furnitureSO = furnitureSO;
         _occupiedGridPositionList = new List<GridPosition>(occupiedGridPositionList);
-        Debug.Log(_occupiedGridPositionList.Count);
     }
 }
