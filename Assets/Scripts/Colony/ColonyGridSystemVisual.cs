@@ -33,9 +33,4 @@ public class ColonyGridSystemVisual : BaseGridSystemVisual
         UpdateGridVisual();
         ShowGridPositionList(gridPositions, GridVisualType.Blue);
     }
-
-    private void UpdateGridVisual()
-    {
-        HideAllGridPosition();
-    }
 }

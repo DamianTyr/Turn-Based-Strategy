@@ -5,11 +5,10 @@ using UnityEngine;
 
 public class ColonyMiningAction : BaseColonyAction
 {
+    private IColonyActionTarget _colonyActionTarget;
     private bool _isPerformingAction;
     private float _actionAnimationDuration = 1.5f;
     private float _timer;
-
-    private Mineable _currentMineable;
     
     private void Update()
     {
@@ -18,7 +17,7 @@ public class ColonyMiningAction : BaseColonyAction
         if (_timer > _actionAnimationDuration)
         {
             _timer = 0;
-            _currentMineable.Mine(10, OnMiningCompleted);
+            _colonyActionTarget.ProgressTask(10, OnMiningCompleted);
         }
     }
 
@@ -29,7 +28,7 @@ public class ColonyMiningAction : BaseColonyAction
     
     public override void TakeAction(GridPosition callerGridPosition, GridPosition miningSpot, Action onActionComplete, ColonyTask colonyTask)
     {
-        _currentMineable = ColonyGrid.Instance.GetMineableAtGridPosition(colonyTask.GridPosition);
+        _colonyActionTarget = colonyTask.colonyActionTarget;
         actionSpotGridPosition = miningSpot;
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
@@ -40,7 +39,9 @@ public class ColonyMiningAction : BaseColonyAction
     private void OnMovementComplete()
     {
         _isPerformingAction = true;
-        transform.LookAt(_currentMineable.transform);
+        
+        //TODO: FIX THIS!
+        //transform.LookAt(_colonyActionTarget);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
@@ -48,7 +49,7 @@ public class ColonyMiningAction : BaseColonyAction
     private void OnMiningCompleted()
     {
         _isPerformingAction = false;
-        _currentMineable = null;
+        _colonyActionTarget = null;
         animancerComponent.Play(animancerState, .4f);
         ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
         OnActionComplete();

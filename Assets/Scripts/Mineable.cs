@@ -7,7 +7,7 @@ using PlayerInput;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider), typeof(Outlinable))]
-public class Mineable : MonoBehaviour, IRaycastable
+public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget
 {
     [SerializeField] private int health = 100;
     [Header("Visuals")]
@@ -40,22 +40,6 @@ public class Mineable : MonoBehaviour, IRaycastable
     {
         yield return new WaitForEndOfFrame();
         OnAnySpawned?.Invoke(_gridPosition, this);
-    }
-
-    public void Mine(int mineAmount, Action onBlockMined)
-    {
-        health -= mineAmount;
-        if (health <= 0)
-        {
-            minebleVisual.SetActive(false);
-            mineableVisualShattered.SetActive(true);
-            _boxCollider.enabled = false;
-            StartCoroutine(EnableMeshColliders(mineableVisualShattered.transform));
-            ApplyExplosionToChildren(mineableVisualShattered.transform, transform.position);
-            StartCoroutine(ShrinkAndRemoveDebris());
-            onBlockMined();
-            OnAnyMined?.Invoke(_gridPosition);
-        }
     }
     
     private void ApplyExplosionToChildren(Transform root, Vector3 explosionPosition)
@@ -111,7 +95,23 @@ public class Mineable : MonoBehaviour, IRaycastable
 
     public void HandleMouseClick()
     {
-        ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Mining);
+        ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Mining, this);
         mouseClickedOutlineble.enabled = true;
+    }
+
+    public void ProgressTask(int progressAmount, Action onTaskCompleted)
+    {
+        health -= progressAmount;
+        if (health <= 0)
+        {
+            minebleVisual.SetActive(false);
+            mineableVisualShattered.SetActive(true);
+            _boxCollider.enabled = false;
+            StartCoroutine(EnableMeshColliders(mineableVisualShattered.transform));
+            ApplyExplosionToChildren(mineableVisualShattered.transform, transform.position);
+            StartCoroutine(ShrinkAndRemoveDebris());
+            onTaskCompleted();
+            OnAnyMined?.Invoke(_gridPosition);
+        }
     }
 }

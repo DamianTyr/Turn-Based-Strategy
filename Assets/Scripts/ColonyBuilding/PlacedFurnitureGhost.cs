@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Colony;
 using UnityEngine;
 
-public class PlacedFurnitureGhost : MonoBehaviour
+public class PlacedFurnitureGhost : MonoBehaviour, IColonyActionTarget
 {
     private GridPosition _gridPosition;
     private int _health = 20;
@@ -15,7 +15,7 @@ public class PlacedFurnitureGhost : MonoBehaviour
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
         ColonyGrid.Instance.SetFurnitureGhostAtGridPosition(_gridPosition, this);
-        ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Building);
+        ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Building, this);
     }
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)

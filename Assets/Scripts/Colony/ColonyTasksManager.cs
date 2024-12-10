@@ -24,9 +24,9 @@ namespace Colony
             return colonyTaskList;
         }
 
-        public void RegisterTask(GridPosition gridPosition, ColonyActionType colonyActionType)
+        public void RegisterTask(GridPosition gridPosition, ColonyActionType colonyActionType, IColonyActionTarget colonyActionTarget)
         {
-            colonyTaskList.Add(new ColonyTask(gridPosition, colonyActionType));
+            colonyTaskList.Add(new ColonyTask(gridPosition, colonyActionType, colonyActionTarget));
         }
 
         public List<ColonyTask> GetColonyTaskListOfType(ColonyActionType colonyActionType)

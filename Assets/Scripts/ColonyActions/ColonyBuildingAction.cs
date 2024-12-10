@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class ColonyBuildingAction : BaseColonyAction
 {
-    private PlacedFurnitureGhost _placedFurnitureGhost;
-    private float _actionAnimationDuration = 1.5f;
+    private IColonyActionTarget _colonyActionTarget;
     private bool _isPerformingAction;
+    private float _actionAnimationDuration = 1.5f;
     private float _timer;
     
-    void Update()
+    private void Update()
     {
         if (!_isPerformingAction) return;
         _timer += Time.deltaTime;
         if (_timer > _actionAnimationDuration)
         {
             _timer = 0;
-            _placedFurnitureGhost.ProgressTask(10, OnBuildingCompleted);
+            _colonyActionTarget.ProgressTask(10, OnBuildingCompleted);
         }
     }
 
@@ -29,7 +29,7 @@ public class ColonyBuildingAction : BaseColonyAction
 
     public override void TakeAction(GridPosition callerGridPosition, GridPosition buildingSpot, Action onActionComplete, ColonyTask colonyTask)
     {
-        _placedFurnitureGhost = ColonyGrid.Instance.GetFurnitureGhostAtGridPosition(colonyTask.GridPosition);
+        _colonyActionTarget = colonyTask.colonyActionTarget as PlacedFurnitureGhost;
         actionSpotGridPosition = buildingSpot;
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
@@ -40,7 +40,7 @@ public class ColonyBuildingAction : BaseColonyAction
     private void OnMovementComplete()
     {
         _isPerformingAction = true;
-        transform.LookAt(_placedFurnitureGhost.transform);
+        //transform.LookAt(_colonyActionTarget.transform);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
@@ -48,7 +48,7 @@ public class ColonyBuildingAction : BaseColonyAction
     private void OnBuildingCompleted()
     {
         _isPerformingAction = false;
-        _placedFurnitureGhost = null;
+        _colonyActionTarget = null;
         animancerComponent.Play(animancerState, .4f);
         ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
         ActionComplete();
