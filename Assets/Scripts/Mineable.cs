@@ -25,10 +25,13 @@ public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget
     public static Action<GridPosition> OnAnyMined;
     public static Action<GridPosition, Mineable> OnAnySpawned;
     
+    public Vector3 transformPosition { get; set; }
+    
     private void Start()
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
         _boxCollider = GetComponent<BoxCollider>();
+        transformPosition = transform.position;
 
         StartCoroutine(TriggerOnSpawnNextFrame());
         
@@ -98,7 +101,7 @@ public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget
         ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Mining, this);
         mouseClickedOutlineble.enabled = true;
     }
-
+    
     public void ProgressTask(int progressAmount, Action onTaskCompleted)
     {
         health -= progressAmount;

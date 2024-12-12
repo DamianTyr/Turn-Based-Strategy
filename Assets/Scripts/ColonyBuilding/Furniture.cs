@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Colony;
 using EPOOutline;
 using PlayerInput;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class Furniture : MonoBehaviour, IRaycastable, IColonyActionTarget
     private Outlinable _outlinable;
     private CraftingSpot _craftingSpot;
     
+    public Vector3 transformPosition { get; set; }
     
     public void Setup(FurnitureSO furnitureSO, List<GridPosition> occupiedGridPositionList)
     {
@@ -22,6 +24,7 @@ public class Furniture : MonoBehaviour, IRaycastable, IColonyActionTarget
         _outlinable = GetComponent<Outlinable>();
         _outlinable.enabled = false;
         _craftingSpot = GetComponentInChildren<CraftingSpot>();
+        transformPosition = transform.position;
     }
 
     public CursorType GetCursorType()
@@ -42,7 +45,8 @@ public class Furniture : MonoBehaviour, IRaycastable, IColonyActionTarget
 
     public void HandleMouseClick()
     {
-        Debug.Log(_craftingSpot.craftingSpotGridPosition);
+        GridPosition gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        ColonyTasksManager.Instance.RegisterTask(gridPosition, ColonyActionType.Crafting, this);
     }
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)

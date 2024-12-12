@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using Colony;
 using UnityEngine;
@@ -9,6 +8,7 @@ public class Colonist : MonoBehaviour
     [SerializeField] private ColonyWanderAction colonyWanderAction;
     [SerializeField] private ColonyMiningAction colonyMiningAction;
     [SerializeField] private ColonyBuildingAction colonyBuildingAction;
+    [SerializeField] private ColonyCraftingAction colonyCraftingAction;
     [SerializeField] private bool isBusy;
     
     private ColonyTasksManager _colonyTasksManager;
@@ -58,12 +58,20 @@ public class Colonist : MonoBehaviour
                     isBusy = true;
                     return;
                 case ColonyActionType.Building:
-                    if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
-                    GridPosition validActionGridPosition1 = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
+                    if (colonyBuildingAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
+                    GridPosition validActionGridPosition1 = colonyBuildingAction.GetValidActionGridPositionList(colonyTask)[0];
                     colonyBuildingAction.TakeAction(_gridPosition, validActionGridPosition1, OnActionComplete, colonyTask);
                     colonyTask.AssignedColonist = this;
                     isBusy = true;
                     return;
+                case ColonyActionType.Crafting:
+                    if (colonyCraftingAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
+                    GridPosition validActionGridPosition2 = colonyCraftingAction.GetValidActionGridPositionList(colonyTask)[0];
+                    colonyCraftingAction.TakeAction(_gridPosition, validActionGridPosition2, OnActionComplete, colonyTask);
+                    colonyTask.AssignedColonist = this;
+                    isBusy = true;
+                    return;
+                
             }
         }
         

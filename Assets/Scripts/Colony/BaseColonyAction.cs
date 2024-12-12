@@ -9,7 +9,7 @@ namespace Colony
     {
         [SerializeField] protected AnimationClip actionAnimationClip;
         
-        protected ColonyMoveAction colonyMoveAction;
+        protected ColonistMovement colonistMovement;
         protected GridPosition actionSpotGridPosition;
         
         protected bool isActive;
@@ -21,7 +21,7 @@ namespace Colony
         protected virtual void Awake()
         {
             animancerComponent = GetComponent<AnimancerComponent>();
-            colonyMoveAction = GetComponent<ColonyMoveAction>();
+            colonistMovement = GetComponent<ColonistMovement>();
         }
 
         public abstract string GetActionName();
@@ -30,12 +30,7 @@ namespace Colony
             Action onActionComplete, ColonyTask colonyTask);
 
         public abstract List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask);
-
-        public virtual int GetCost()
-        {
-            return 1;
-        }
-
+        
         protected void ActionStart(Action onActionComplete)
         {
             isActive = true;
@@ -47,12 +42,5 @@ namespace Colony
             isActive = false;
             OnActionComplete();
         }
-
-        public Transform GetHolderTransform()
-        {
-            return transform;
-        }
-        
-        public abstract AIAction GetAIAction(GridPosition gridPosition);
     }
 }

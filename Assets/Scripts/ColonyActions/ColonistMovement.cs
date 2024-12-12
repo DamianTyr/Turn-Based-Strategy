@@ -1,21 +1,31 @@
 using System;
 using System.Collections.Generic;
-using Colony;
+using Animancer;
 using UnityEngine;
 
-public class ColonyMoveAction : BaseColonyAction
+public class ColonistMovement: MonoBehaviour
 {
-    [SerializeField] private AnimationClip _idleAnimationClip;
-    [SerializeField] private AnimationClip _runAnimationClip;
+    [SerializeField] private AnimationClip idleAnimationClip;
+    [SerializeField] private AnimationClip runAnimationClip;
     
     private List<Vector3> _positionList;
     private int _currentPositionIndex;
     
     private ColonyGrid _baseGrid;
     
+    protected bool isActive;
+    private Action _onMovementComplete;
+    
+    protected AnimancerComponent animancerComponent;
+
+    private void Awake()
+    {
+        animancerComponent = GetComponent<AnimancerComponent>();
+    }
+
     private void Start()
     {
-        animancerComponent.Play(_idleAnimationClip);
+        animancerComponent.Play(idleAnimationClip);
         _baseGrid = FindObjectOfType<ColonyGrid>();
     }
 
@@ -40,19 +50,19 @@ public class ColonyMoveAction : BaseColonyAction
             _currentPositionIndex++;
             if (_currentPositionIndex >= _positionList.Count)
             {
-                animancerComponent.Play(_idleAnimationClip, .3f);
-                ActionComplete();
+                animancerComponent.Play(idleAnimationClip, .3f);
+                MoveComplete();
             }
         }
     }
     
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete, ColonyTask colonyTask)
+    public void Move(GridPosition startGridPosition, GridPosition endGridPosition, Action onActionComplete)
     {
-        List<GridPosition> pathGridPostionList = Pathfinding.Instance.FindPath(callerGridPosition, gridPosition, out int pathLenght);
+        List<GridPosition> pathGridPostionList = Pathfinding.Instance.FindPath(startGridPosition, endGridPosition, out int pathLenght);
         if (pathGridPostionList == null)
         {
             Debug.Log("Aborted Action, Path count 0");
-            ActionComplete();
+            MoveComplete();
             return;
         }
 
@@ -64,28 +74,19 @@ public class ColonyMoveAction : BaseColonyAction
             _positionList.Add(_baseGrid.GetWorldPosition(pathGridPosition));
         }
         
-        animancerComponent.Play(_runAnimationClip, 0.3f);
-        ActionStart(onActionComplete);
+        animancerComponent.Play(runAnimationClip, 0.3f);
+        MoveStart(onActionComplete);
     }
     
-    public override string GetActionName()
+    protected void MoveStart(Action onMovementComplete)
     {
-        return "ColonyMoveAction";
+        isActive = true;
+        _onMovementComplete = onMovementComplete;
     }
-    
-    public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
-    {
-        List<GridPosition> gridPositions = new List<GridPosition>();
-        return gridPositions;
-    }
-    
 
-    public override AIAction GetAIAction(GridPosition gridPosition)
+    protected void MoveComplete()
     {
-        return new AIAction()
-        {
-            GridPosition = gridPosition,
-            ActionValue = 0
-        };
+        isActive = false;
+        _onMovementComplete();
     }
 }

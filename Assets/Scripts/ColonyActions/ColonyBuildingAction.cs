@@ -29,18 +29,18 @@ public class ColonyBuildingAction : BaseColonyAction
 
     public override void TakeAction(GridPosition callerGridPosition, GridPosition buildingSpot, Action onActionComplete, ColonyTask colonyTask)
     {
-        _colonyActionTarget = colonyTask.colonyActionTarget as PlacedFurnitureGhost;
+        _colonyActionTarget = colonyTask.colonyActionTarget;
         actionSpotGridPosition = buildingSpot;
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
-        colonyMoveAction.TakeAction(callerGridPosition, actionSpotGridPosition, OnMovementComplete, colonyTask);
+        colonistMovement.Move(callerGridPosition, actionSpotGridPosition, OnMovementComplete);
         ActionStart(onActionComplete);
     }
     
     private void OnMovementComplete()
     {
         _isPerformingAction = true;
-        //transform.LookAt(_colonyActionTarget.transform);
+        transform.LookAt(_colonyActionTarget.transformPosition);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
@@ -72,14 +72,5 @@ public class ColonyBuildingAction : BaseColonyAction
             validGridPositionList.Add(testGridPosition);
         }
         return validGridPositionList;
-    }
-
-    public override AIAction GetAIAction(GridPosition gridPosition)
-    {
-        return new AIAction
-        {
-            GridPosition = gridPosition,
-            ActionValue = 10
-        };
     }
 }

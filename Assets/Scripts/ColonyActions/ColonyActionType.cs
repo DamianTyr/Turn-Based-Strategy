@@ -7,5 +7,6 @@ public enum ColonyActionType
     Idle, 
     Wandering,
     Mining,
-    Building
+    Building,
+    Crafting
 }

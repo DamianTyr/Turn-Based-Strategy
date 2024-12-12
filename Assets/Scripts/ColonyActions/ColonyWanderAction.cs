@@ -5,12 +5,9 @@ using Random = UnityEngine.Random;
 
 public class ColonyWanderAction : BaseColonyAction
 {
-    private ColonyMoveAction _colonyMoveAction;
-    private ColonyActionType _colonyActionType = ColonyActionType.Wandering;
-    
     void Start()
     {
-        _colonyMoveAction = GetComponent<ColonyMoveAction>();
+        colonistMovement = GetComponent<ColonistMovement>();
     }
     
     public override string GetActionName()
@@ -40,7 +37,7 @@ public class ColonyWanderAction : BaseColonyAction
         int randomIndex = Random.Range(0, reachableGridPositions.Count);
         GridPosition wanderGridPosition = reachableGridPositions[randomIndex];
         ActionStart(onActionComplete);
-        _colonyMoveAction.TakeAction(callerGridPosition, wanderGridPosition, OnMovementCompleted, colonyTask);
+        colonistMovement.Move(callerGridPosition, wanderGridPosition, OnMovementCompleted);
     }
 
     private void OnMovementCompleted()
@@ -51,19 +48,5 @@ public class ColonyWanderAction : BaseColonyAction
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
         return new List<GridPosition>();
-    }
-
-    public override AIAction GetAIAction(GridPosition gridPosition)
-    {
-        return new AIAction
-        {
-            GridPosition = gridPosition,
-            ActionValue = 5
-        };
-    }
-
-    public ColonyActionType GetColonyActionType()
-    {
-        return _colonyActionType;
     }
 }

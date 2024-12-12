@@ -11,11 +11,14 @@ public class PlacedFurnitureGhost : MonoBehaviour, IColonyActionTarget
     private FurnitureSO _furnitureSO;
     [SerializeField] private List<GridPosition> _occupiedGridPositionList;
     
+    public Vector3 transformPosition { get; set; }
+    
     void Start()
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
         ColonyGrid.Instance.SetFurnitureGhostAtGridPosition(_gridPosition, this);
         ColonyTasksManager.Instance.RegisterTask(_gridPosition, ColonyActionType.Building, this);
+        transformPosition = transform.position;
     }
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)

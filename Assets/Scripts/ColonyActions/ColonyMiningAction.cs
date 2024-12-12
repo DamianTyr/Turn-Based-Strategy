@@ -32,16 +32,14 @@ public class ColonyMiningAction : BaseColonyAction
         actionSpotGridPosition = miningSpot;
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
-        colonyMoveAction.TakeAction(callerGridPosition, actionSpotGridPosition, OnMovementComplete, colonyTask);
+        colonistMovement.Move(callerGridPosition, actionSpotGridPosition, OnMovementComplete);
         ActionStart(onActionComplete);
     }
 
     private void OnMovementComplete()
     {
         _isPerformingAction = true;
-        
-        //TODO: FIX THIS!
-        //transform.LookAt(_colonyActionTarget);
+        transform.LookAt(_colonyActionTarget.transformPosition);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
@@ -72,14 +70,5 @@ public class ColonyMiningAction : BaseColonyAction
             validGridPositionList.Add(testGridPosition);
         }
         return validGridPositionList;
-    }
-
-    public override AIAction GetAIAction(GridPosition gridPosition)
-    {
-        return new AIAction
-        {
-            GridPosition = gridPosition,
-            ActionValue = 10
-        };
     }
 }
