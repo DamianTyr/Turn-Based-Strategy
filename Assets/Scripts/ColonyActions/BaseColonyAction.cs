@@ -8,7 +8,8 @@ namespace Colony
     public abstract class BaseColonyAction : MonoBehaviour
     {
         [SerializeField] protected AnimationClip actionAnimationClip;
-        
+
+        protected Colonist colonist;
         protected ColonistMovement colonistMovement;
         protected GridPosition actionSpotGridPosition;
         
@@ -18,16 +19,21 @@ namespace Colony
         protected AnimancerComponent animancerComponent;
         protected AnimancerState animancerState;
 
+        protected IColonyActionTarget colonyActionTarget;
+        protected bool isPerformingAction;
+        protected float actionAnimationDuration = 1.5f;
+        protected float timer;
+        
         protected virtual void Awake()
         {
-            animancerComponent = GetComponent<AnimancerComponent>();
+            colonist = GetComponent<Colonist>();
             colonistMovement = GetComponent<ColonistMovement>();
+            animancerComponent = GetComponent<AnimancerComponent>();
         }
 
         public abstract string GetActionName();
    
-        public abstract void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition,
-            Action onActionComplete, ColonyTask colonyTask);
+        public abstract void TakeAction(Action onActionComplete, ColonyTask colonyTask);
 
         public abstract List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask);
         
@@ -42,5 +48,12 @@ namespace Colony
             isActive = false;
             OnActionComplete();
         }
+
+        public bool CanPerformAction(ColonyTask colonyTask)
+        {
+            return GetValidActionGridPositionList(colonyTask).Count > 0;
+        }
+
+        public abstract ColonyActionType GetColonyActionType();
     }
 }

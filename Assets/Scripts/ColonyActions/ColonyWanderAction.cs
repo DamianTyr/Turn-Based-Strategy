@@ -15,18 +15,9 @@ public class ColonyWanderAction : BaseColonyAction
         return "Colony Wander Action";
     }
 
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition gridPosition, Action onActionComplete, ColonyTask colonyTask)
+    public override void TakeAction(Action onActionComplete, ColonyTask colonyTask)
     {
-        List<GridPosition> validGridPositions = ColonyGrid.Instance.GetSquareAroundGridPosition(callerGridPosition, 2);
-        List<GridPosition> reachableGridPositions = new List<GridPosition>();
-        foreach (GridPosition validGridPosition in validGridPositions)
-        {
-            if (ColonyGrid.Instance.HasAnyOccupantOnGridPosition(validGridPosition)) continue;
-            if (ColonyGrid.Instance.GetIsReservedAtGridPosition(validGridPosition)) continue;
-            if (!Pathfinding.Instance.HasPath(callerGridPosition, validGridPosition)) continue;
-            reachableGridPositions.Add(validGridPosition);
-        }
-
+        List<GridPosition> reachableGridPositions = GetValidActionGridPositionList(colonyTask);
         if (reachableGridPositions.Count == 0)
         {
             ActionStart(onActionComplete);
@@ -37,7 +28,7 @@ public class ColonyWanderAction : BaseColonyAction
         int randomIndex = Random.Range(0, reachableGridPositions.Count);
         GridPosition wanderGridPosition = reachableGridPositions[randomIndex];
         ActionStart(onActionComplete);
-        colonistMovement.Move(callerGridPosition, wanderGridPosition, OnMovementCompleted);
+        colonistMovement.Move(colonist.GetGridPosition(), wanderGridPosition, OnMovementCompleted);
     }
 
     private void OnMovementCompleted()
@@ -47,6 +38,21 @@ public class ColonyWanderAction : BaseColonyAction
 
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
-        return new List<GridPosition>();
+        GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        List<GridPosition> validGridPositions = ColonyGrid.Instance.GetSquareAroundGridPosition(colonistGridPosition, 2);
+        List<GridPosition> reachableGridPositions = new List<GridPosition>();
+        foreach (GridPosition validGridPosition in validGridPositions)
+        {
+            if (ColonyGrid.Instance.HasAnyOccupantOnGridPosition(validGridPosition)) continue;
+            if (ColonyGrid.Instance.GetIsReservedAtGridPosition(validGridPosition)) continue;
+            if (!Pathfinding.Instance.HasPath(colonistGridPosition, validGridPosition)) continue;
+            reachableGridPositions.Add(validGridPosition);
+        }
+        return reachableGridPositions;
+    }
+
+    public override ColonyActionType GetColonyActionType()
+    {
+        return ColonyActionType.Wandering;
     }
 }

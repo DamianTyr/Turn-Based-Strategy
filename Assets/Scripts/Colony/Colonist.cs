@@ -6,20 +6,20 @@ public class Colonist : MonoBehaviour
 {
     private GridPosition _gridPosition;
     [SerializeField] private ColonyWanderAction colonyWanderAction;
-    [SerializeField] private ColonyMiningAction colonyMiningAction;
-    [SerializeField] private ColonyBuildingAction colonyBuildingAction;
-    [SerializeField] private ColonyCraftingAction colonyCraftingAction;
     [SerializeField] private bool isBusy;
     
     private ColonyTasksManager _colonyTasksManager;
-    private ColonyTask currentTask;
+    private ColonyTask _currentTask;
+    
+    private float _taskCheckTimer = 2f;
 
-    private float taskCheckTimer = 2f;
+    private BaseColonyAction[] _baseColonyActionList; 
     
     private void Start()
     {
         _gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
         _colonyTasksManager = FindObjectOfType<ColonyTasksManager>();
+        _baseColonyActionList = GetComponents<BaseColonyAction>();
     }
     
     private void Update()
@@ -32,10 +32,10 @@ public class Colonist : MonoBehaviour
             ColonyGrid.Instance.OccupantMovedGridPosition(transform, oldGridPosition, newGridPosition);
         }
         
-        taskCheckTimer -= Time.deltaTime;
-        if (taskCheckTimer <= 0)
+        _taskCheckTimer -= Time.deltaTime;
+        if (_taskCheckTimer <= 0)
         {
-            taskCheckTimer = 2f;
+            _taskCheckTimer = 2f;
             if (isBusy) return;
             CheckForColonyTasks();
         }
@@ -46,38 +46,19 @@ public class Colonist : MonoBehaviour
         List<ColonyTask> colonyTaskList = _colonyTasksManager.GetColonyTaskList();
         foreach (ColonyTask colonyTask in colonyTaskList)
         {
-            if (colonyTask.AssignedColonist != null) continue;
-            
-            switch (colonyTask.ActionType)
+            foreach (BaseColonyAction baseColonyAction in _baseColonyActionList)
             {
-                case ColonyActionType.Mining:
-                    if (colonyMiningAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
-                    GridPosition validActionGridPosition = colonyMiningAction.GetValidActionGridPositionList(colonyTask)[0];
-                    colonyMiningAction.TakeAction(_gridPosition, validActionGridPosition, OnActionComplete, colonyTask);
-                    colonyTask.AssignedColonist = this;
-                    isBusy = true;
-                    return;
-                case ColonyActionType.Building:
-                    if (colonyBuildingAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
-                    GridPosition validActionGridPosition1 = colonyBuildingAction.GetValidActionGridPositionList(colonyTask)[0];
-                    colonyBuildingAction.TakeAction(_gridPosition, validActionGridPosition1, OnActionComplete, colonyTask);
-                    colonyTask.AssignedColonist = this;
-                    isBusy = true;
-                    return;
-                case ColonyActionType.Crafting:
-                    if (colonyCraftingAction.GetValidActionGridPositionList(colonyTask).Count == 0) continue;
-                    GridPosition validActionGridPosition2 = colonyCraftingAction.GetValidActionGridPositionList(colonyTask)[0];
-                    colonyCraftingAction.TakeAction(_gridPosition, validActionGridPosition2, OnActionComplete, colonyTask);
-                    colonyTask.AssignedColonist = this;
-                    isBusy = true;
-                    return;
-                
+                if (baseColonyAction.GetColonyActionType() != colonyTask.ActionType) continue;
+                if (!baseColonyAction.CanPerformAction(colonyTask)) continue;
+                baseColonyAction.TakeAction(OnActionComplete, colonyTask);
+                colonyTask.AssignedColonist = this;
+                isBusy = true;
             }
         }
         
         if (!isBusy)
         {
-            colonyWanderAction.TakeAction(_gridPosition, _gridPosition, OnActionComplete, null);
+            colonyWanderAction.TakeAction(OnActionComplete, null);
             isBusy = true;
         }
     }
@@ -85,5 +66,10 @@ public class Colonist : MonoBehaviour
     private void OnActionComplete()
     {
         isBusy = false;
+    }
+
+    public GridPosition GetGridPosition()
+    {
+        return _gridPosition;
     }
 }

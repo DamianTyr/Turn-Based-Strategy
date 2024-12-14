@@ -5,19 +5,14 @@ using UnityEngine;
 
 public class ColonyMiningAction : BaseColonyAction
 {
-    private IColonyActionTarget _colonyActionTarget;
-    private bool _isPerformingAction;
-    private float _actionAnimationDuration = 1.5f;
-    private float _timer;
-    
     private void Update()
     {
-        if (!_isPerformingAction) return;
-        _timer += Time.deltaTime;
-        if (_timer > _actionAnimationDuration)
+        if (!isPerformingAction) return;
+        timer += Time.deltaTime;
+        if (timer > actionAnimationDuration)
         {
-            _timer = 0;
-            _colonyActionTarget.ProgressTask(10, OnMiningCompleted);
+            timer = 0;
+            colonyActionTarget.ProgressTask(10, OnMiningCompleted);
         }
     }
 
@@ -26,28 +21,28 @@ public class ColonyMiningAction : BaseColonyAction
         return "Mining Action";
     }
     
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition miningSpot, Action onActionComplete, ColonyTask colonyTask)
+    public override void TakeAction(Action onActionComplete, ColonyTask colonyTask)
     {
-        _colonyActionTarget = colonyTask.colonyActionTarget;
-        actionSpotGridPosition = miningSpot;
+        colonyActionTarget = colonyTask.colonyActionTarget;
+        actionSpotGridPosition = GetValidActionGridPositionList(colonyTask)[0];
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
-        colonistMovement.Move(callerGridPosition, actionSpotGridPosition, OnMovementComplete);
+        colonistMovement.Move(colonist.GetGridPosition(), actionSpotGridPosition, OnMovementComplete);
         ActionStart(onActionComplete);
     }
 
     private void OnMovementComplete()
     {
-        _isPerformingAction = true;
-        transform.LookAt(_colonyActionTarget.transformPosition);
+        isPerformingAction = true;
+        transform.LookAt(colonyActionTarget.transformPosition);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
 
     private void OnMiningCompleted()
     {
-        _isPerformingAction = false;
-        _colonyActionTarget = null;
+        isPerformingAction = false;
+        colonyActionTarget = null;
         animancerComponent.Play(animancerState, .4f);
         ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
         OnActionComplete();
@@ -56,7 +51,7 @@ public class ColonyMiningAction : BaseColonyAction
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
-        GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        GridPosition colonistGridPosition = colonist.GetGridPosition();
         
         List<GridPosition> testMiningSpots = ColonyGrid.Instance.GetSquareAroundGridPosition(colonyTask.GridPosition, 1);
         foreach (GridPosition testGridPosition in testMiningSpots)
@@ -70,5 +65,10 @@ public class ColonyMiningAction : BaseColonyAction
             validGridPositionList.Add(testGridPosition);
         }
         return validGridPositionList;
+    }
+
+    public override ColonyActionType GetColonyActionType()
+    {
+        return ColonyActionType.Mining;
     }
 }

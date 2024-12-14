@@ -1,35 +1,28 @@
 using System;
 using System.Collections.Generic;
 using Colony;
-using UnityEngine;
 
 public class ColonyCraftingAction : BaseColonyAction
 {
-    private IColonyActionTarget _colonyActionTarget;
-    private bool _isPerformingAction;
-    private float _actionAnimationDuration = 1.5f;
-    private float _timer;
-    
     public override string GetActionName()
     {
         return "Craft Action";
     }
 
-    public override void TakeAction(GridPosition callerGridPosition, GridPosition actionSpot, Action onActionComplete,
-        ColonyTask colonyTask)
+    public override void TakeAction(Action onActionComplete, ColonyTask colonyTask)
     {
-        _colonyActionTarget = colonyTask.colonyActionTarget;
-        actionSpotGridPosition = actionSpot;
+        colonyActionTarget = colonyTask.colonyActionTarget;
+        actionSpotGridPosition = GetValidActionGridPositionList(colonyTask)[0];;;
         ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
         
-        colonistMovement.Move(callerGridPosition, actionSpotGridPosition, OnMovementComplete);
+        colonistMovement.Move(colonist.GetGridPosition(), actionSpotGridPosition, OnMovementComplete);
         ActionStart(onActionComplete);
     }
 
     private void OnMovementComplete()
     {
-        _isPerformingAction = true;
-        transform.LookAt(_colonyActionTarget.transformPosition);
+        isPerformingAction = true;
+        transform.LookAt(colonyActionTarget.transformPosition);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
     }
@@ -37,10 +30,10 @@ public class ColonyCraftingAction : BaseColonyAction
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();
-        GridPosition colonistGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+        GridPosition colonistGridPosition = colonist.GetGridPosition();
         
-        List<GridPosition> testMiningSpots = ColonyGrid.Instance.GetSquareAroundGridPosition(colonyTask.GridPosition, 1);
-        foreach (GridPosition testGridPosition in testMiningSpots)
+        List<GridPosition> testCraftingSpots = ColonyGrid.Instance.GetSquareAroundGridPosition(colonyTask.GridPosition, 1);
+        foreach (GridPosition testGridPosition in testCraftingSpots)
         {
             if (!ColonyGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
             if (colonistGridPosition == testGridPosition) continue;
@@ -51,5 +44,10 @@ public class ColonyCraftingAction : BaseColonyAction
             validGridPositionList.Add(testGridPosition);
         }
         return validGridPositionList;
+    }
+
+    public override ColonyActionType GetColonyActionType()
+    {
+        return ColonyActionType.Crafting;
     }
 }
