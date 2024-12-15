@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace GameDevTV.UI
+namespace InventorySystem.UI
 {
     public class ShowHideUI : MonoBehaviour
     {

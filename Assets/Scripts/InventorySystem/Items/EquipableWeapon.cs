@@ -1,5 +1,5 @@
 
-using GameDevTV.Inventories;
+using InventorySystem.Inventories;
 using Mission;
 using UnityEngine;
 using Transform = UnityEngine.Transform;

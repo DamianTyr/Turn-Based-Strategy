@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlacedFurnitureGhost : MonoBehaviour, IColonyActionTarget
 {
     private GridPosition _gridPosition;
-    private int _health = 20;
+    private int _requiredProgress = 20;
 
     private FurnitureSO _furnitureSO;
     [SerializeField] private List<GridPosition> _occupiedGridPositionList;
@@ -23,8 +23,8 @@ public class PlacedFurnitureGhost : MonoBehaviour, IColonyActionTarget
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)
     {
-        _health -= progressAmount;
-        if (_health <= 0)
+        _requiredProgress -= progressAmount;
+        if (_requiredProgress <= 0)
         {
             Furniture furniture = Instantiate(_furnitureSO.furniture, transform.position, transform.rotation);
             furniture.Setup(_furnitureSO, _occupiedGridPositionList);

@@ -1,4 +1,4 @@
-using GameDevTV.Inventories;
+using InventorySystem.Inventories;
 using Unity.VisualScripting;
 using UnityEngine;
 

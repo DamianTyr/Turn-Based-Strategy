@@ -50,9 +50,12 @@ public class Colonist : MonoBehaviour
             {
                 if (baseColonyAction.GetColonyActionType() != colonyTask.ActionType) continue;
                 if (!baseColonyAction.CanPerformAction(colonyTask)) continue;
+                if (colonyTask.AssignedColonist != null) continue;
                 baseColonyAction.TakeAction(OnActionComplete, colonyTask);
                 colonyTask.AssignedColonist = this;
+                _currentTask = colonyTask;
                 isBusy = true;
+                return;
             }
         }
         
@@ -65,6 +68,8 @@ public class Colonist : MonoBehaviour
     
     private void OnActionComplete()
     {
+        _colonyTasksManager.RemoveTask(_currentTask);
+        _currentTask = null;
         isBusy = false;
     }
 

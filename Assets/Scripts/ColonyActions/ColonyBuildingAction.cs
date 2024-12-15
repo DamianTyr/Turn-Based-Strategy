@@ -49,7 +49,6 @@ public class ColonyBuildingAction : BaseColonyAction
         ActionComplete();
     }
     
-
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();

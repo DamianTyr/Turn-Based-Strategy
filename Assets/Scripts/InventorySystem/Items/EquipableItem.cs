@@ -1,7 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 
-namespace GameDevTV.Inventories
+namespace InventorySystem.Inventories
 {
     /// <summary>
     /// An inventory item that can be equipped to the player. Weapons could be a

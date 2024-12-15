@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace GameDevTV.Core.UI.Dragging
+namespace InventorySystem.Core.UI.Dragging
 {
     /// <summary>
     /// Allows a UI element to be dragged and dropped from and to a container.

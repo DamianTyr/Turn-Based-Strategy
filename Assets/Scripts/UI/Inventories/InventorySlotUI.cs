@@ -1,23 +1,17 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using GameDevTV.Inventories;
-using GameDevTV.Core.UI.Dragging;
+using InventorySystem.Core.UI.Dragging;
+using InventorySystem.Inventories;
 
-namespace GameDevTV.UI.Inventories
+namespace InventorySystem.UI.Inventories
 {
     public class InventorySlotUI : MonoBehaviour, IItemHolder, IDragContainer<InventoryItem>
     {
-        // CONFIG DATA
         [SerializeField] InventoryItemIcon icon = null;
-
-        // STATE
+        
         int index;
         InventoryItem item;
         Inventory inventory;
-
-        // PUBLIC
-
+        
         public void Setup(Inventory inventory, int index)
         {
             this.inventory = inventory;

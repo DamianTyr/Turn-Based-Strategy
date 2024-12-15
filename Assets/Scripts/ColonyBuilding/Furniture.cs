@@ -2,17 +2,22 @@ using System;
 using System.Collections.Generic;
 using Colony;
 using EPOOutline;
+using InventorySystem.Inventories;
 using PlayerInput;
 using UnityEngine;
 
 public class Furniture : MonoBehaviour, IRaycastable, IColonyActionTarget
 {
+    [SerializeField] private InventoryItem testInventoryItem;
+    
     public static Action<Furniture, List<GridPosition>> OnAnySpawned;
     
     private FurnitureSO _furnitureSO;
     private List<GridPosition> _occupiedGridPositionList;
     private Outlinable _outlinable;
     private CraftingSpot _craftingSpot;
+
+    private int _requiredProgress = 20;
     
     public Vector3 transformPosition { get; set; }
     
@@ -51,6 +56,13 @@ public class Furniture : MonoBehaviour, IRaycastable, IColonyActionTarget
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)
     {
-        Debug.Log("Progress Task from Furniture");
+        _requiredProgress -= progressAmount;
+        if (_requiredProgress <= 0)
+        {
+            Inventory inventory = FindObjectOfType<Inventory>();
+            inventory.AddToFirstEmptySlot(testInventoryItem, 1);
+            Debug.Log("Added Item to Inventory");
+            onTaskCompleted();
+        }
     }
 }

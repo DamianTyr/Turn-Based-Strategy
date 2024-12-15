@@ -1,9 +1,21 @@
 using System;
 using System.Collections.Generic;
 using Colony;
+using UnityEngine;
 
 public class ColonyCraftingAction : BaseColonyAction
 {
+    private void Update()
+    {
+        if (!isPerformingAction) return;
+        timer += Time.deltaTime;
+        if (timer > actionAnimationDuration)
+        {
+            timer = 0;
+            colonyActionTarget.ProgressTask(10, OnTaskCopleted);
+        }
+    }
+    
     public override string GetActionName()
     {
         return "Craft Action";
@@ -25,6 +37,15 @@ public class ColonyCraftingAction : BaseColonyAction
         transform.LookAt(colonyActionTarget.transformPosition);
         animancerState = animancerComponent.States.Current;
         animancerComponent.Play(actionAnimationClip);
+    }
+
+    private void OnTaskCopleted()
+    {
+        isPerformingAction = false;
+        colonyActionTarget = null;
+        animancerComponent.Play(animancerState, .4f);
+        ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
+        ActionComplete();
     }
 
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)

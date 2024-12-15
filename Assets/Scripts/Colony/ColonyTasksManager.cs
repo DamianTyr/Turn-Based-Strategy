@@ -29,6 +29,11 @@ namespace Colony
             colonyTaskList.Add(new ColonyTask(gridPosition, colonyActionType, colonyActionTarget));
         }
 
+        public void RemoveTask(ColonyTask colonyTask)
+        {
+            colonyTaskList.Remove(colonyTask);
+        }
+
         public List<ColonyTask> GetColonyTaskListOfType(ColonyActionType colonyActionType)
         {
             List<ColonyTask> colonyTasksOfTypeList = new List<ColonyTask>();
