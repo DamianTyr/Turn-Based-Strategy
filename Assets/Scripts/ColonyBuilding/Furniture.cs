@@ -51,7 +51,7 @@ public class Furniture : MonoBehaviour, IRaycastable, IColonyActionTarget
     public void HandleMouseClick()
     {
         GridPosition gridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
-        ColonyTasksManager.Instance.RegisterTask(gridPosition, ColonyActionType.Crafting, this);
+        ColonyTasksManager.Instance.RegisterTask(_craftingSpot.craftingSpotGridPosition, ColonyActionType.Crafting, this);
     }
     
     public void ProgressTask(int progressAmount, Action onTaskCompleted)

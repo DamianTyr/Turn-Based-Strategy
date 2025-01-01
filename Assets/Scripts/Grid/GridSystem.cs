@@ -71,4 +71,10 @@ public class GridSystem<TGridObject>
     {
         return _height;
     }
+
+    public void Save()
+    {
+        Debug.Log("Test Save triggered");
+        ES3.Save("Test Array Save", _gridObjectArray);
+    }
 }

@@ -11,7 +11,6 @@ namespace Colony
 
         protected Colonist colonist;
         protected ColonistMovement colonistMovement;
-        protected GridPosition actionSpotGridPosition;
         
         protected bool isActive;
         protected Action OnActionComplete;
@@ -19,10 +18,12 @@ namespace Colony
         protected AnimancerComponent animancerComponent;
         protected AnimancerState animancerState;
 
-        protected IColonyActionTarget colonyActionTarget;
-        protected bool isPerformingAction;
         protected float actionAnimationDuration = 1.5f;
         protected float timer;
+        
+        protected IColonyActionTarget currentColonyActionTarget;
+        protected GridPosition actionSpotGridPosition;
+        protected bool isPerformingAction;
         
         protected virtual void Awake()
         {
@@ -32,8 +33,33 @@ namespace Colony
         }
 
         public abstract string GetActionName();
-   
-        public abstract void TakeAction(Action onActionComplete, ColonyTask colonyTask);
+
+        public virtual void TakeAction(Action onActionComplete, ColonyTask colonyTask)
+        {
+            currentColonyActionTarget = colonyTask.colonyActionTarget;
+            actionSpotGridPosition = GetValidActionGridPositionList(colonyTask)[0];;;
+            ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
+        
+            colonistMovement.Move(colonist.GetGridPosition(), actionSpotGridPosition, OnMovementComplete);
+            ActionStart(onActionComplete);
+        }
+        
+        protected virtual void OnMovementComplete()
+        {
+            isPerformingAction = true;
+            transform.LookAt(currentColonyActionTarget.transformPosition);
+            animancerState = animancerComponent.States.Current;
+            animancerComponent.Play(actionAnimationClip);
+        }
+
+        protected virtual void OnTaskCopleted()
+        {
+            isPerformingAction = false;
+            currentColonyActionTarget = null;
+            animancerComponent.Play(animancerState, .4f);
+            ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
+            ActionComplete();
+        }
 
         public abstract List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask);
         

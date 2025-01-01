@@ -3,11 +3,13 @@ using System.Collections;
 using Colony;
 using DG.Tweening;
 using EPOOutline;
+using InventorySystem.Saving;
 using PlayerInput;
+using Saving;
 using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider), typeof(Outlinable))]
-public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget
+public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget, ISaveable
 {
     [SerializeField] private int health = 100;
     [Header("Visuals")]
@@ -24,6 +26,8 @@ public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget
     private BoxCollider _boxCollider;
     public static Action<GridPosition> OnAnyMined;
     public static Action<GridPosition, Mineable> OnAnySpawned;
+
+    [SerializeField] private bool isMined;
     
     public Vector3 transformPosition { get; set; }
     
@@ -110,10 +114,27 @@ public class Mineable : MonoBehaviour, IRaycastable, IColonyActionTarget
             minebleVisual.SetActive(false);
             mineableVisualShattered.SetActive(true);
             _boxCollider.enabled = false;
+            isMined = true;
             StartCoroutine(EnableMeshColliders(mineableVisualShattered.transform));
             ApplyExplosionToChildren(mineableVisualShattered.transform, transform.position);
             StartCoroutine(ShrinkAndRemoveDebris());
             onTaskCompleted();
+            OnAnyMined?.Invoke(_gridPosition);
+        }
+    }
+
+    public void CaptureState(string guid)
+    {
+        ES3.Save(guid, isMined);
+    }
+
+    public void RestoreState(string guid)
+    {
+        isMined = ES3.Load<bool>(guid);
+        if (isMined)
+        {
+            minebleVisual.SetActive(false);
+            _boxCollider.enabled = false;
             OnAnyMined?.Invoke(_gridPosition);
         }
     }

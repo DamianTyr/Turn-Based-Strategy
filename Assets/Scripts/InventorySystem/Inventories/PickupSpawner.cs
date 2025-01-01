@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using InventorySystem.Saving;
+using Saving;
 
 namespace InventorySystem.Inventories
 {
@@ -55,24 +56,15 @@ namespace InventorySystem.Inventories
             }
         }
 
-        object ISaveable.CaptureState()
+
+        public void CaptureState(string guid)
         {
-            return isCollected();
+            
         }
 
-        void ISaveable.RestoreState(object state)
+        public void RestoreState(string guid)
         {
-            bool shouldBeCollected = (bool)state;
-
-            if (shouldBeCollected && !isCollected())
-            {
-                DestroyPickup();
-            }
-
-            if (!shouldBeCollected && isCollected())
-            {
-                SpawnPickup();
-            }
+            
         }
     }
 }

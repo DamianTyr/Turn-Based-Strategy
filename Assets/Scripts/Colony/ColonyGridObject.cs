@@ -17,6 +17,11 @@ public class ColonyGridObject
         _occupantList = new List<Transform>();
     }
     
+    public ColonyGridObject()
+    {
+        
+    }
+    
     public override string ToString()
     {
         string occupantString = "";
@@ -85,5 +90,4 @@ public class ColonyGridObject
     {
         return _furnitureGhost;
     }
-
 }

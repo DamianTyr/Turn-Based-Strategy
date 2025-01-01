@@ -1,10 +1,12 @@
 using System;
 using System.Collections.Generic;
 using Grid;
+using InventorySystem.Saving;
+using Saving;
 using UnityEngine;
 
 [RequireComponent(typeof(ColonyGridSystemVisual))]
-public class ColonyGrid : MonoBehaviour, IGrid
+public class ColonyGrid : MonoBehaviour, IGrid, ISaveable
 {
     public static ColonyGrid Instance { get; private set; }
     protected GridSystem<ColonyGridObject> _gridSystem;
@@ -159,5 +161,15 @@ public class ColonyGrid : MonoBehaviour, IGrid
     {
         ColonyGridObject gridObject = _gridSystem.GetGridObject(gridPosition);
         gridObject.SetFurnitureGhost(furnitureGhost);
+    }
+    
+    public void CaptureState(string guid)
+    {
+        _gridSystem.Save();
+    }
+
+    public void RestoreState(string guid)
+    {
+
     }
 }

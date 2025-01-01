@@ -91,4 +91,10 @@ public class CameraManager : MonoBehaviour
     {
         inventoryCameraGameObject.SetActive(false);
     }
+
+    private void OnDestroy()
+    {
+        BaseAction.OnAnyActionStarted -= BaseAction_OnOnAnyActionStarted; 
+        BaseAction.OnAnyActionCompleted -= BaseActionOnOnAnyActionCompleted;
+    }
 }

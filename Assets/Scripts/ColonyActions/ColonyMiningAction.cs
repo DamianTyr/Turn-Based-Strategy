@@ -12,7 +12,7 @@ public class ColonyMiningAction : BaseColonyAction
         if (timer > actionAnimationDuration)
         {
             timer = 0;
-            colonyActionTarget.ProgressTask(10, OnMiningCompleted);
+            currentColonyActionTarget.ProgressTask(10, OnTaskCopleted);
         }
     }
 
@@ -21,33 +21,6 @@ public class ColonyMiningAction : BaseColonyAction
         return "Mining Action";
     }
     
-    public override void TakeAction(Action onActionComplete, ColonyTask colonyTask)
-    {
-        colonyActionTarget = colonyTask.colonyActionTarget;
-        actionSpotGridPosition = GetValidActionGridPositionList(colonyTask)[0];
-        ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
-        
-        colonistMovement.Move(colonist.GetGridPosition(), actionSpotGridPosition, OnMovementComplete);
-        ActionStart(onActionComplete);
-    }
-
-    private void OnMovementComplete()
-    {
-        isPerformingAction = true;
-        transform.LookAt(colonyActionTarget.transformPosition);
-        animancerState = animancerComponent.States.Current;
-        animancerComponent.Play(actionAnimationClip);
-    }
-
-    private void OnMiningCompleted()
-    {
-        isPerformingAction = false;
-        colonyActionTarget = null;
-        animancerComponent.Play(animancerState, .4f);
-        ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
-        OnActionComplete();
-    }
-
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)
     {
         List<GridPosition> validGridPositionList = new List<GridPosition>();

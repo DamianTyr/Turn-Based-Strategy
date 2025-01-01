@@ -4,14 +4,6 @@ using UnityEngine;
 
 namespace InventorySystem.Inventories
 {
-    /// <summary>
-    /// A ScriptableObject that represents any item that can be put in an
-    /// inventory.
-    /// </summary>
-    /// <remarks>
-    /// In practice, you are likely to use a subclass such as `ActionItem` or
-    /// `EquipableItem`.
-    /// </remarks>
     public abstract class InventoryItem : ScriptableObject, ISerializationCallbackReceiver
     {
         // CONFIG DATA
@@ -30,18 +22,7 @@ namespace InventorySystem.Inventories
 
         // STATE
         static Dictionary<string, InventoryItem> itemLookupCache;
-
-        // PUBLIC
-
-        /// <summary>
-        /// Get the inventory item instance from its UUID.
-        /// </summary>
-        /// <param name="itemID">
-        /// String UUID that persists between game instances.
-        /// </param>
-        /// <returns>
-        /// Inventory item instance corresponding to the ID.
-        /// </returns>
+        
         public static InventoryItem GetFromID(string itemID)
         {
             if (itemLookupCache == null)

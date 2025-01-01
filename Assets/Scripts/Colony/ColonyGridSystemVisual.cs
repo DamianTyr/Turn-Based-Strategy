@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -32,5 +33,11 @@ public class ColonyGridSystemVisual : BaseGridSystemVisual
     {
         UpdateGridVisual();
         ShowGridPositionList(gridPositions, GridVisualType.Blue);
+    }
+
+    private void OnDestroy()
+    {
+        FurniturePlacer.OnAnyGhostManipulated -= FurniturePlacerOnOnAnyGhostManipulated;
+        FurniturePlacer.OnPlacingFurnitureDisabled -= FurniturePlacerOnOnPlacingFurnitureDisabled;
     }
 }

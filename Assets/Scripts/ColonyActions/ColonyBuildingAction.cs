@@ -12,41 +12,13 @@ public class ColonyBuildingAction : BaseColonyAction
         if (timer > actionAnimationDuration)
         {
             timer = 0;
-            colonyActionTarget.ProgressTask(10, OnBuildingCompleted);
+            currentColonyActionTarget.ProgressTask(10, OnTaskCopleted);
         }
     }
 
     public override string GetActionName()
     {
         return "Building Action";
-    }
-    
-    public override void TakeAction(Action onActionComplete, ColonyTask colonyTask)
-    {
-        colonyActionTarget = colonyTask.colonyActionTarget;
-        actionSpotGridPosition = GetValidActionGridPositionList(colonyTask)[0];;
-        
-        ColonyGrid.Instance.ReserveActionSpot(actionSpotGridPosition);
-        
-        colonistMovement.Move(colonist.GetGridPosition(), actionSpotGridPosition, OnMovementComplete);
-        ActionStart(onActionComplete);
-    }
-    
-    private void OnMovementComplete()
-    {
-        isPerformingAction = true;
-        transform.LookAt(colonyActionTarget.transformPosition);
-        animancerState = animancerComponent.States.Current;
-        animancerComponent.Play(actionAnimationClip);
-    }
-
-    private void OnBuildingCompleted()
-    {
-        isPerformingAction = false;
-        colonyActionTarget = null;
-        animancerComponent.Play(animancerState, .4f);
-        ColonyGrid.Instance.RemoveReserveActionSpot(actionSpotGridPosition);
-        ActionComplete();
     }
     
     public override List<GridPosition> GetValidActionGridPositionList(ColonyTask colonyTask)

@@ -68,17 +68,17 @@ public class UnitActionSystemUI : MonoBehaviour
 
     private void CreateUnitActionButtons()
     {
-        foreach (UnityEngine.Transform buttonTransform in actionButtonContainerTransform)
+        foreach (Transform buttonTransform in actionButtonContainerTransform)
         {
             Destroy(buttonTransform.gameObject);
         }
         
         actionButtonList.Clear();
         
-        Mission.Unit selectedUnit =  UnitActionSystem.Instance.GetSelectedUnit();
+        Unit selectedUnit =  UnitActionSystem.Instance.GetSelectedUnit();
         foreach (BaseAction baseAction in selectedUnit.GetBaseActionList())
         {
-            UnityEngine.Transform actionButtonTransform = Instantiate(actionButtonPrefab, actionButtonContainerTransform);
+            Transform actionButtonTransform = Instantiate(actionButtonPrefab, actionButtonContainerTransform);
             ActionButtonUI actionButtonUI = actionButtonTransform.GetComponent<ActionButtonUI>();
             actionButtonUI.SetBaseAction(baseAction);
             actionButtonList.Add(actionButtonUI);
@@ -95,7 +95,17 @@ public class UnitActionSystemUI : MonoBehaviour
 
     private void UpdateActionPoints()
     {
-        Mission.Unit selctedUnit = UnitActionSystem.Instance.GetSelectedUnit();
+        Unit selctedUnit = UnitActionSystem.Instance.GetSelectedUnit();
         actionPointsText.text = "Action Points: " + selctedUnit.GetActionPoints();
+    }
+
+    private void OnDestroy()
+    {
+        UnitActionSystem.Instance.OnSelectedUnitChanged -= UnitActionSystem_OnOnSelectedUnitChanged;
+        UnitActionSystem.Instance.OnSelectedActionChanged -= UnitActionSystem_OnOnSelectedActionChanged;
+        UnitActionSystem.Instance.OnActionStarted -= UnitActionSystem_OnActionStarted;
+        TurnSystem.Instance.OnTurnChange -= TurnSystem_OnTurnChange;
+        Unit.OnAnyActionPointChange -= Unit_OnAnyActionPointChange; 
+        Unit.OnAnyActionListChanged -= Unit_OnOnAnyActionListChanged;
     }
 }

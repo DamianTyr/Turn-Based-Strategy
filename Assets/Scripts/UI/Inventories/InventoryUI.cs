@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using InventorySystem.Inventories;
 
 namespace InventorySystem.UI.Inventories
@@ -32,6 +33,11 @@ namespace InventorySystem.UI.Inventories
                 var itemUI = Instantiate(InventoryItemPrefab, transform);
                 itemUI.Setup(_inventory, i);
             }
+        }
+
+        private void OnDestroy()
+        {
+            _inventory.inventoryUpdated -= Redraw;
         }
     }
 }

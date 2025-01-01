@@ -1,6 +1,8 @@
 ﻿using System;
 using UnityEngine;
 using InventorySystem.Saving;
+using Saving;
+using UnityEngine.SceneManagement;
 
 namespace InventorySystem.Inventories
 {
@@ -19,6 +21,8 @@ namespace InventorySystem.Inventories
         
       
         public event Action inventoryUpdated;
+        
+        
 
         public bool HasSpaceFor(InventoryItem item)
         {
@@ -156,6 +160,11 @@ namespace InventorySystem.Inventories
             return -1;
         }
 
+        public void TestInventorySave()
+        {
+            ES3.Save("InventoryTest", slots);
+        }
+
         [System.Serializable]
         private struct InventorySlotRecord
         {
@@ -163,28 +172,13 @@ namespace InventorySystem.Inventories
             public int number;
         }
     
-        object ISaveable.CaptureState()
+        public void CaptureState(string guid)
         {
-            var slotStrings = new InventorySlotRecord[inventorySize];
-            for (int i = 0; i < inventorySize; i++)
-            {
-                if (slots[i].item != null)
-                {
-                    slotStrings[i].itemID = slots[i].item.GetItemID();
-                    slotStrings[i].number = slots[i].number;
-                }
-            }
-            return slotStrings;
+            
         }
 
-        void ISaveable.RestoreState(object state)
+        public void RestoreState(string guid)
         {
-            var slotStrings = (InventorySlotRecord[])state;
-            for (int i = 0; i < inventorySize; i++)
-            {
-                slots[i].item = InventoryItem.GetFromID(slotStrings[i].itemID);
-                slots[i].number = slotStrings[i].number;
-            }
             if (inventoryUpdated != null)
             {
                 inventoryUpdated();

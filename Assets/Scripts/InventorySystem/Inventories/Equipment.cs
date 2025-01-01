@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using InventorySystem.Saving;
+using Saving;
 
 namespace InventorySystem.Inventories
 {
@@ -42,30 +43,14 @@ namespace InventorySystem.Inventories
             return equippedItems.Keys;
         }
         
-        object ISaveable.CaptureState()
+        public void CaptureState(string guid)
         {
-            var equippedItemsForSerialization = new Dictionary<EquipLocation, string>();
-            foreach (var pair in equippedItems)
-            {
-                equippedItemsForSerialization[pair.Key] = pair.Value.GetItemID();
-            }
-            return equippedItemsForSerialization;
+           
         }
 
-        void ISaveable.RestoreState(object state)
+        public void RestoreState(string guid)
         {
-            equippedItems = new Dictionary<EquipLocation, EquipableItem>();
-
-            var equippedItemsForSerialization = (Dictionary<EquipLocation, string>)state;
-
-            foreach (var pair in equippedItemsForSerialization)
-            {
-                var item = (EquipableItem)InventoryItem.GetFromID(pair.Value);
-                if (item != null)
-                {
-                    equippedItems[pair.Key] = item;
-                }
-            }
+            
         }
     }
 }
