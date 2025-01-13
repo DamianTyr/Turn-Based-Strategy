@@ -1,10 +1,17 @@
-using InventorySystem.Saving;
 using UnityEngine;
 
 namespace Saving
 {
     public class SavingSystem : MonoBehaviour
     {
+        [SerializeField] SceneChanger sceneChanger;
+
+        private void Start()
+        {
+            sceneChanger.onBeforeSceneChange += Save;
+            sceneChanger.onAfterSceneChange += Load;
+        }
+
         public void Save()
         {
             CaptureState();

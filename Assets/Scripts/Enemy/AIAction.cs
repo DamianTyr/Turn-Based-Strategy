@@ -1,5 +1,10 @@
-public class AIAction
+using Grid;
+
+namespace Enemy
 {
-    public GridPosition GridPosition;
-    public int ActionValue;
+    public class AIAction
+    {
+        public GridPosition GridPosition;
+        public int ActionValue;
+    }
 }

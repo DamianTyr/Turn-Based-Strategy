@@ -1,46 +1,49 @@
 using UnityEngine;
 
-public class UnitRagdoll : MonoBehaviour
+namespace Mission
 {
-    [SerializeField] private Transform ragdollRootBone;
-
-    public void Setup(Transform originalRootBone, Transform damageDealerTransform)
+    public class UnitRagdoll : MonoBehaviour
     {
-        MatchAllChildTransforms(originalRootBone, ragdollRootBone);
-        
-        Vector3 damageDirection = (damageDealerTransform.position - transform.position).normalized;
-        Vector3 explosionPosition = transform.position + new Vector3(0, 1f, 0);
-        explosionPosition += damageDirection;
-        
-        
-        ApplyExplosiionToRagdoll(ragdollRootBone, 700f,explosionPosition, 10f);
-    }
+        [SerializeField] private Transform ragdollRootBone;
 
-    private void MatchAllChildTransforms(Transform root, Transform clone)
-    {
-        foreach (Transform child in root)
+        public void Setup(Transform originalRootBone, Transform damageDealerTransform)
         {
-            Transform cloneChild = clone.Find(child.name);
-            if (cloneChild != null)
+            MatchAllChildTransforms(originalRootBone, ragdollRootBone);
+        
+            Vector3 damageDirection = (damageDealerTransform.position - transform.position).normalized;
+            Vector3 explosionPosition = transform.position + new Vector3(0, 1f, 0);
+            explosionPosition += damageDirection;
+        
+        
+            ApplyExplosiionToRagdoll(ragdollRootBone, 700f,explosionPosition, 10f);
+        }
+
+        private void MatchAllChildTransforms(Transform root, Transform clone)
+        {
+            foreach (Transform child in root)
             {
-                cloneChild.position = child.position;
-                cloneChild.rotation = child.rotation;
+                Transform cloneChild = clone.Find(child.name);
+                if (cloneChild != null)
+                {
+                    cloneChild.position = child.position;
+                    cloneChild.rotation = child.rotation;
                 
-                MatchAllChildTransforms(child, cloneChild);
+                    MatchAllChildTransforms(child, cloneChild);
+                }
             }
         }
-    }
 
-    private void ApplyExplosiionToRagdoll(Transform root, float explosionForce, Vector3 explosionPosition, float explosionRange)
-    {
-        foreach (Transform child in root)
+        private void ApplyExplosiionToRagdoll(Transform root, float explosionForce, Vector3 explosionPosition, float explosionRange)
         {
-            if (child.TryGetComponent(out Rigidbody childRigidbody))
+            foreach (Transform child in root)
             {
-                childRigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRange);
-            }
+                if (child.TryGetComponent(out Rigidbody childRigidbody))
+                {
+                    childRigidbody.AddExplosionForce(explosionForce, explosionPosition, explosionRange);
+                }
             
-            ApplyExplosiionToRagdoll(child, explosionForce, explosionPosition, explosionRange);
+                ApplyExplosiionToRagdoll(child, explosionForce, explosionPosition, explosionRange);
+            }
         }
     }
 }

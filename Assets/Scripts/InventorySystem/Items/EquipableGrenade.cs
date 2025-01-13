@@ -1,4 +1,5 @@
 using InventorySystem.Inventories;
+using Mission;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -13,9 +14,9 @@ public class EquipableGrenade : EquipableItem
         grenadeAction.SetGrenadeProjectilePrefab(grenadeProjectilePrefab);
     }
 
-    public override void RemoveFromUnit(Mission.Unit unit)
+    public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
     {
-        unit.transform.TryGetComponent(out GrenadeAction grenadeAction);
+        equipmentSetupManager.transform.TryGetComponent(out GrenadeAction grenadeAction);
         if (grenadeAction)
         {
             Destroy(grenadeAction);

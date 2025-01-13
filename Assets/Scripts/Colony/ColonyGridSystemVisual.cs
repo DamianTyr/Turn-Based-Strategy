@@ -1,43 +1,47 @@
-using System;
 using System.Collections.Generic;
+using ColonyBuilding;
+using Grid;
 using UnityEngine;
 
-public class ColonyGridSystemVisual : BaseGridSystemVisual
+namespace Colony
 {
-    private static ColonyGridSystemVisual Instance { get; set; }
-
-    private void Awake()
+    public class ColonyGridSystemVisual : BaseGridSystemVisual
     {
-        if (Instance != null)
+        private static ColonyGridSystemVisual Instance { get; set; }
+
+        private void Awake()
         {
-            Debug.LogError("There is more then one Grid System Visual!" + transform + " - " + Instance);
-            Destroy(gameObject);
+            if (Instance != null)
+            {
+                Debug.LogError("There is more then one Grid System Visual!" + transform + " - " + Instance);
+                Destroy(gameObject);
+            }
+
+            Instance = this;
         }
 
-        Instance = this;
-    }
+        protected override void Start()
+        {
+            base.Start();
+            FurniturePlacer.OnAnyGhostManipulated += FurniturePlacerOnOnAnyGhostManipulated;
+            FurniturePlacer.OnPlacingFurnitureDisabled += FurniturePlacerOnOnPlacingFurnitureDisabled;
+        }
 
-    protected override void Start()
-    {
-        base.Start();
-        FurniturePlacer.OnAnyGhostManipulated += FurniturePlacerOnOnAnyGhostManipulated;
-        FurniturePlacer.OnPlacingFurnitureDisabled += FurniturePlacerOnOnPlacingFurnitureDisabled;
-    }
+        private void FurniturePlacerOnOnPlacingFurnitureDisabled()
+        {
+            HideAllGridPosition();
+        }
 
-    private void FurniturePlacerOnOnPlacingFurnitureDisabled()
-    {
-        HideAllGridPosition();
-    }
+        private void FurniturePlacerOnOnAnyGhostManipulated(List<GridPosition> gridPositions)
+        {
+            UpdateGridVisual();
+            ShowGridPositionList(gridPositions, GridVisualType.Blue);
+        }
 
-    private void FurniturePlacerOnOnAnyGhostManipulated(List<GridPosition> gridPositions)
-    {
-        UpdateGridVisual();
-        ShowGridPositionList(gridPositions, GridVisualType.Blue);
-    }
-
-    private void OnDestroy()
-    {
-        FurniturePlacer.OnAnyGhostManipulated -= FurniturePlacerOnOnAnyGhostManipulated;
-        FurniturePlacer.OnPlacingFurnitureDisabled -= FurniturePlacerOnOnPlacingFurnitureDisabled;
+        private void OnDestroy()
+        {
+            FurniturePlacer.OnAnyGhostManipulated -= FurniturePlacerOnOnAnyGhostManipulated;
+            FurniturePlacer.OnPlacingFurnitureDisabled -= FurniturePlacerOnOnPlacingFurnitureDisabled;
+        }
     }
 }

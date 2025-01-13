@@ -12,8 +12,8 @@ public class EquipableGun : EquipableWeapon
    public override void Setup(Transform transform)
    {
       base.Setup(transform);
-      UnitEquipmentVisuals unitEquipmentVisuals = transform.GetComponent<UnitEquipmentVisuals>();
-      GameObject spawnedWeaponVisual = unitEquipmentVisuals.SpawnWeaponVisual(weaponVisualPrefab);
+      EquipmentVisuals equipmentVisuals = transform.GetComponent<EquipmentVisuals>();
+      GameObject spawnedWeaponVisual = equipmentVisuals.SpawnWeaponVisual(weaponVisualPrefab);
       WeaponShootPoint weaponShootPoint = spawnedWeaponVisual.GetComponentInChildren<WeaponShootPoint>();
 
       ShootAction shootAction = transform.AddComponent<ShootAction>();
@@ -21,10 +21,10 @@ public class EquipableGun : EquipableWeapon
       shootAction.SetShootPointTransform(weaponShootPoint.transform);
    }
 
-   public override void RemoveFromUnit(Mission.Unit unit)
+   public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
    {
-      base.RemoveFromUnit(unit);
-      unit.transform.TryGetComponent(out ShootAction shootAction);
+      base.RemoveFromUnit(equipmentSetupManager);
+      equipmentSetupManager.transform.TryGetComponent(out ShootAction shootAction);
       if (shootAction)
       {
          Destroy(shootAction);

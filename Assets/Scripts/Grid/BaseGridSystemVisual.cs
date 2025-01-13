@@ -1,125 +1,128 @@
 using System;
 using System.Collections.Generic;
-using Grid;
+using Colony;
+using Mission;
 using UnityEngine;
 
-public class BaseGridSystemVisual : MonoBehaviour
+namespace Grid
 {
-    [Serializable]
-    public struct GridVisualTypeMaterial
+    public class BaseGridSystemVisual : MonoBehaviour
     {
-        public GridVisualType gridVisualType;
-        public Material material;
-    }
-    
-    public enum GridVisualType
-    {
-        White,
-        Blue, 
-        Red, 
-        RedSoft,
-        Yellow 
-    }
-    
-    [SerializeField] private Transform gridSystemVisualSinglePrefab;
-    [SerializeField] protected List<GridVisualTypeMaterial> gridVisualTypeMaterialList;
-    
-    private GridSystemVisualSingle[,] _gridSystemVisualSingleArray;
-    
-    protected virtual void Start()
-    {
-        IGrid baseGrid = GetComponent<IGrid>();
-        
-        int width = baseGrid.GetWidth();
-        int height = baseGrid.GetHeight();
-
-        _gridSystemVisualSingleArray = new GridSystemVisualSingle[width, height];
-        
-        for (int x = 0; x < width; x++)
+        [Serializable]
+        public struct GridVisualTypeMaterial
         {
-            for (int z = 0; z < height; z++)
+            public GridVisualType gridVisualType;
+            public Material material;
+        }
+    
+        public enum GridVisualType
+        {
+            White,
+            Blue, 
+            Red, 
+            RedSoft,
+            Yellow 
+        }
+    
+        [SerializeField] private Transform gridSystemVisualSinglePrefab;
+        [SerializeField] protected List<GridVisualTypeMaterial> gridVisualTypeMaterialList;
+    
+        private GridSystemVisualSingle[,] _gridSystemVisualSingleArray;
+    
+        protected virtual void Start()
+        {
+            IGrid baseGrid = GetComponent<IGrid>();
+        
+            int width = baseGrid.GetWidth();
+            int height = baseGrid.GetHeight();
+
+            _gridSystemVisualSingleArray = new GridSystemVisualSingle[width, height];
+        
+            for (int x = 0; x < width; x++)
             {
-                GridPosition gridPosition = new GridPosition(x, z);
-                Transform gridSystemVisualSingleTransform = Instantiate(gridSystemVisualSinglePrefab,baseGrid.GetWorldPosition(gridPosition), Quaternion.identity);
-                gridSystemVisualSingleTransform.parent = transform;
-                _gridSystemVisualSingleArray[x, z] = gridSystemVisualSingleTransform.GetComponent<GridSystemVisualSingle>();
+                for (int z = 0; z < height; z++)
+                {
+                    GridPosition gridPosition = new GridPosition(x, z);
+                    Transform gridSystemVisualSingleTransform = Instantiate(gridSystemVisualSinglePrefab,baseGrid.GetWorldPosition(gridPosition), Quaternion.identity);
+                    gridSystemVisualSingleTransform.parent = transform;
+                    _gridSystemVisualSingleArray[x, z] = gridSystemVisualSingleTransform.GetComponent<GridSystemVisualSingle>();
+                }
+            }
+        
+            UpdateGridVisual();
+        }
+    
+        protected void HideAllGridPosition()
+        {
+            for (int x = 0; x < _gridSystemVisualSingleArray.GetLength(0); x++)
+            {
+                for (int z = 0; z < _gridSystemVisualSingleArray.GetLength(1); z++)
+                {
+                    _gridSystemVisualSingleArray[x,z].Hide();
+                }
             }
         }
-        
-        UpdateGridVisual();
-    }
-    
-    protected void HideAllGridPosition()
-    {
-        for (int x = 0; x < _gridSystemVisualSingleArray.GetLength(0); x++)
-        {
-            for (int z = 0; z < _gridSystemVisualSingleArray.GetLength(1); z++)
-            {
-                _gridSystemVisualSingleArray[x,z].Hide();
-            }
-        }
-    }
 
-    protected void ShowGridPositionRange(GridPosition gridPosition, int range, GridVisualType gridVisualType)
-    {
-        List<GridPosition> gridPositionList = new List<GridPosition>();
-        
-        for (int x = -range; x <= range; x++)
+        protected void ShowGridPositionRange(GridPosition gridPosition, int range, GridVisualType gridVisualType)
         {
-            for (int z = -range; z <=+ range; z++)
+            List<GridPosition> gridPositionList = new List<GridPosition>();
+        
+            for (int x = -range; x <= range; x++)
             {
-                GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
-                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                for (int z = -range; z <=+ range; z++)
+                {
+                    GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
+                    if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
                 
-                int testDistance = Math.Abs(x) + Math.Abs(z);
-                if (testDistance > range) continue;
+                    int testDistance = Math.Abs(x) + Math.Abs(z);
+                    if (testDistance > range) continue;
                 
-                gridPositionList.Add(testGridPosition);
+                    gridPositionList.Add(testGridPosition);
+                }
             }
+            ShowGridPositionList(gridPositionList, GridVisualType.RedSoft);
         }
-        ShowGridPositionList(gridPositionList, GridVisualType.RedSoft);
-    }
 
-    protected void ShowGridPositionRangeSquare(GridPosition gridPosition, int range, GridVisualType gridVisualType)
-    {
-        List<GridPosition> gridPositionList = new List<GridPosition>();
+        protected void ShowGridPositionRangeSquare(GridPosition gridPosition, int range, GridVisualType gridVisualType)
+        {
+            List<GridPosition> gridPositionList = new List<GridPosition>();
         
-        for (int x = -range; x <= range; x++)
-        {
-            for (int z = -range; z <=+ range; z++)
+            for (int x = -range; x <= range; x++)
             {
-                GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
-                if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
-                gridPositionList.Add(testGridPosition);
+                for (int z = -range; z <=+ range; z++)
+                {
+                    GridPosition testGridPosition = gridPosition + new GridPosition(x, z);
+                    if (!MissionGrid.Instance.IsValidGridPosition(testGridPosition)) continue;
+                    gridPositionList.Add(testGridPosition);
+                }
+            }
+            ShowGridPositionList(gridPositionList, GridVisualType.RedSoft);
+        }
+
+        protected void ShowGridPositionList(List<GridPosition> gridPositionList, GridVisualType gridVisualType)
+        {
+            foreach (GridPosition gridPosition in gridPositionList)
+            {
+                _gridSystemVisualSingleArray[gridPosition.X, gridPosition.Z].Show(GetGridVisualTypeMaterial(gridVisualType));
             }
         }
-        ShowGridPositionList(gridPositionList, GridVisualType.RedSoft);
-    }
 
-    protected void ShowGridPositionList(List<GridPosition> gridPositionList, GridVisualType gridVisualType)
-    {
-        foreach (GridPosition gridPosition in gridPositionList)
+        protected virtual void UpdateGridVisual()
         {
-            if (!ColonyGrid.Instance.IsValidGridPosition(gridPosition)) return;
-            _gridSystemVisualSingleArray[gridPosition.X, gridPosition.Z].Show(GetGridVisualTypeMaterial(gridVisualType));
+            HideAllGridPosition();
         }
-    }
 
-    protected virtual void UpdateGridVisual()
-    {
-        HideAllGridPosition();
-    }
-
-    private Material GetGridVisualTypeMaterial(GridVisualType gridVisualType)
-    {
-        foreach (GridVisualTypeMaterial gridVisualTypeMaterial in gridVisualTypeMaterialList)
+        private Material GetGridVisualTypeMaterial(GridVisualType gridVisualType)
         {
-            if (gridVisualTypeMaterial.gridVisualType == gridVisualType)
+            foreach (GridVisualTypeMaterial gridVisualTypeMaterial in gridVisualTypeMaterialList)
             {
-                return gridVisualTypeMaterial.material;
+                if (gridVisualTypeMaterial.gridVisualType == gridVisualType)
+                {
+                    return gridVisualTypeMaterial.material;
+                }
             }
+            Debug.LogError("Could not find appropriate grid visual type material");
+            return null;
         }
-        Debug.LogError("Could not find appropriate grid visual type material");
-        return null;
     }
 }

@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Animancer;
+using Enemy;
+using Grid;
 using Mission;
 using UnityEngine;
 
@@ -61,7 +63,7 @@ public class ShootAction : BaseAction
 
     private void Shoot()
     {
-        _targetUnit.Damage(_equipableGun.GetDamage(), ((Component)this).transform);
+        _targetUnit.TakeDamage(_equipableGun.GetDamage(), ((Component)this).transform);
         
         BulletProjectile bulletProjectile = Instantiate(_equipableGun.GetBulletProjectile(), _shootPointTransform.position,Quaternion.identity);
         Vector3 targetUnitShootAtPosition = _targetUnit.GetWorldPosition();

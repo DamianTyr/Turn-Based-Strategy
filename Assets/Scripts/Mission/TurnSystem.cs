@@ -1,40 +1,43 @@
 using System;
 using UnityEngine;
 
-public class TurnSystem : MonoBehaviour
+namespace Mission
 {
-    public static TurnSystem Instance  { get; private set; }
-
-    public event EventHandler OnTurnChange;
-    
-    private int _turnNumber = 1;
-    
-    private bool isPlayerTurn = true;
-    
-    private void Awake()
+    public class TurnSystem : MonoBehaviour
     {
-        if (Instance != null)
+        public static TurnSystem Instance  { get; private set; }
+
+        public event EventHandler OnTurnChange;
+    
+        private int _turnNumber = 1;
+    
+        private bool isPlayerTurn = true;
+    
+        private void Awake()
         {
-            Debug.Log("There is more than one Turn System");
-            Destroy(gameObject);
+            if (Instance != null)
+            {
+                Debug.Log("There is more than one Turn System");
+                Destroy(gameObject);
+            }
+            else Instance = this;
         }
-        else Instance = this;
-    }
     
-    public void NextTurn()
-    {
-        _turnNumber++;
-        isPlayerTurn = !isPlayerTurn;
-        OnTurnChange(this, EventArgs.Empty);
-    }
+        public void NextTurn()
+        {
+            _turnNumber++;
+            isPlayerTurn = !isPlayerTurn;
+            OnTurnChange(this, EventArgs.Empty);
+        }
 
-    public int GetTurnNumber()
-    {
-        return _turnNumber;
-    }
+        public int GetTurnNumber()
+        {
+            return _turnNumber;
+        }
 
-    public bool IsPlayerTurn()
-    {
-        return isPlayerTurn;
+        public bool IsPlayerTurn()
+        {
+            return isPlayerTurn;
+        }
     }
 }

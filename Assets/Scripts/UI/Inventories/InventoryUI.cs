@@ -12,12 +12,14 @@ namespace InventorySystem.UI.Inventories
         
         private void Awake()
         {
-            _inventory = FindObjectOfType<Inventory>();
-            _inventory.inventoryUpdated += Redraw;
+            // _inventory = FindObjectOfType<Inventory>();
+            // _inventory.inventoryUpdated += Redraw;
         }
 
         private void Start()
         {
+            _inventory = FindObjectOfType<Inventory>();
+            _inventory.inventoryUpdated += Redraw;
             Redraw();
         }
         

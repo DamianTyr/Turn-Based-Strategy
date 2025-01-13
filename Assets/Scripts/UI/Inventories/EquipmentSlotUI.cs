@@ -13,32 +13,20 @@ namespace InventorySystem.UI.Inventories
         
         private Equipment _selectedEquipment;
         private UnitActionSystem _unitActionSystem;
+
+        private SelectedEquipmentTracker _selectedEquipmentTracker;
         
-        private void Awake() 
+        private void Start()
         {
-            _unitActionSystem = UnitActionSystem.Instance;
-            _unitActionSystem.OnSelectedUnitChanged += UnitActionSystem_OnOnSelectedUnitChanged;
-
-            Unit selectedUnit = _unitActionSystem.GetSelectedUnit();
-            _selectedEquipment = selectedUnit.GetComponent<Equipment>();
+            _selectedEquipmentTracker = FindObjectOfType<SelectedEquipmentTracker>();
+            _selectedEquipmentTracker.OnSelectedEquipmentChanged += OnSelectedEquipmentChanged;
             Equipment.OnAnyEquipmentUpdated += RedrawUI;
-        }
-
-        private void UnitActionSystem_OnOnSelectedUnitChanged(object sender, EventArgs e)
-        {
-            Unit selectedUnit = _unitActionSystem.GetSelectedUnit();
-            Equipment selectedEquipment = selectedUnit.GetComponent<Equipment>();
-
-            if (_selectedEquipment == null)
-            {
-                _selectedEquipment = selectedEquipment;
-                RedrawUI();
-            }
-            _selectedEquipment = selectedEquipment;
             RedrawUI();
         }
-        private void Start() 
+        
+        private void OnSelectedEquipmentChanged(Equipment selectedEquipment)
         {
+            _selectedEquipment = selectedEquipment;
             RedrawUI();
         }
         
@@ -59,6 +47,7 @@ namespace InventorySystem.UI.Inventories
 
         public InventoryItem GetItem()
         {
+            if (_selectedEquipment == null) return null;
             return _selectedEquipment.GetItemInSlot(equipLocation);
         }
 
@@ -81,7 +70,14 @@ namespace InventorySystem.UI.Inventories
         
         void RedrawUI()
         {
+            if (_selectedEquipment == null) return;
             icon.SetItem(_selectedEquipment.GetItemInSlot(equipLocation));
+        }
+
+        private void OnDestroy()
+        {
+            _selectedEquipmentTracker.OnSelectedEquipmentChanged -= OnSelectedEquipmentChanged;
+            Equipment.OnAnyEquipmentUpdated -= RedrawUI;
         }
     }
 }

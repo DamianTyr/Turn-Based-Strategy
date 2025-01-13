@@ -1,43 +1,47 @@
 using System;
 using System.Collections.Generic;
+using Grid;
 using UnityEngine;
 
-public class PlacedExplosivesDetonator : MonoBehaviour, IInteractable
+namespace Mission
 {
-    [SerializeField] private List<PlacedExplosive> placedExplosivesList;
-    
-    private bool _isActive;
-    private float _timer;
-    private Action _onInteractionComplete;
-    
-    
-    private void Update()
+    public class PlacedExplosivesDetonator : MonoBehaviour, IInteractable
     {
-        if (!_isActive) return;
-        _timer -= Time.deltaTime;
-
-        if (_timer <= 0f)
+        [SerializeField] private List<PlacedExplosive> placedExplosivesList;
+    
+        private bool _isActive;
+        private float _timer;
+        private Action _onInteractionComplete;
+    
+    
+        private void Update()
         {
-            _isActive = false;
-            _onInteractionComplete();
-        }
-    }
-    
-    
-    public void Interact(Action OnInteractionComplete)
-    {
-        _onInteractionComplete = OnInteractionComplete;
-        _isActive = true;
-        _timer = .5f;
-        
-        foreach (PlacedExplosive placedExplosive in placedExplosivesList)
-        {
-            placedExplosive.Explode();
-        }
-    }
+            if (!_isActive) return;
+            _timer -= Time.deltaTime;
 
-    public void AddToGridPositionList(GridPosition gridPosition)
-    {
+            if (_timer <= 0f)
+            {
+                _isActive = false;
+                _onInteractionComplete();
+            }
+        }
+    
+    
+        public void Interact(Action OnInteractionComplete)
+        {
+            _onInteractionComplete = OnInteractionComplete;
+            _isActive = true;
+            _timer = .5f;
         
+            foreach (PlacedExplosive placedExplosive in placedExplosivesList)
+            {
+                placedExplosive.Explode();
+            }
+        }
+
+        public void AddToGridPositionList(GridPosition gridPosition)
+        {
+        
+        }
     }
 }

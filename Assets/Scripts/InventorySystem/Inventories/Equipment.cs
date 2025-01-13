@@ -1,32 +1,30 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using InventorySystem.Saving;
 using Saving;
 
 namespace InventorySystem.Inventories
 {
     public class Equipment : MonoBehaviour, ISaveable
     {
-        Dictionary<EquipLocation, EquipableItem> equippedItems = new Dictionary<EquipLocation, EquipableItem>();
+        Dictionary<EquipLocation, EquipableItem> _equippedItems = new();
         
         public static event Action OnAnyEquipmentUpdated;
         public event Action<EquipLocation, EquipableItem> OnEquipmentUpdated;
         
         public EquipableItem GetItemInSlot(EquipLocation equipLocation)
         {
-            if (!equippedItems.ContainsKey(equipLocation))
+            if (!_equippedItems.ContainsKey(equipLocation))
             {
                 return null;
             }
-
-            return equippedItems[equipLocation];
+            return _equippedItems[equipLocation];
         }
         
-        public void AddItem(EquipLocation slot, EquipableItem item)
+        public void AddItem(EquipLocation equipLocation, EquipableItem item)
         {
-            Debug.Assert(item.GetAllowedEquipLocation() == slot);
-            equippedItems[slot] = item;
+            Debug.Assert(item.GetAllowedEquipLocation() == equipLocation);
+            _equippedItems[equipLocation] = item;
             OnAnyEquipmentUpdated?.Invoke();
             OnEquipmentUpdated?.Invoke(item.GetAllowedEquipLocation(), item);
         }
@@ -34,13 +32,13 @@ namespace InventorySystem.Inventories
         public void RemoveItem(EquipLocation slot)
         {
             OnEquipmentUpdated?.Invoke(slot, null);
-            equippedItems.Remove(slot);
+            _equippedItems.Remove(slot);
             OnAnyEquipmentUpdated?.Invoke();
         }
         
         public IEnumerable<EquipLocation> GetAllPopulatedSlots()
         {
-            return equippedItems.Keys;
+            return _equippedItems.Keys;
         }
         
         public void CaptureState(string guid)

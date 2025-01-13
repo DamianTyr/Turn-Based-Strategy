@@ -1,11 +1,16 @@
+using Colony;
+using Grid;
 using UnityEngine;
 
-public class CraftingSpot : MonoBehaviour
+namespace ColonyBuilding
 {
-   public GridPosition craftingSpotGridPosition;
-   
-   private void Start()
+   public class CraftingSpot : MonoBehaviour
    {
-      craftingSpotGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+      public GridPosition craftingSpotGridPosition;
+   
+      private void Start()
+      {
+         craftingSpotGridPosition = ColonyGrid.Instance.GetGridPosition(transform.position);
+      }
    }
 }

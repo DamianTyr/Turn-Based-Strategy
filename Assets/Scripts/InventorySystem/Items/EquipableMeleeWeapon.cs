@@ -9,17 +9,17 @@ public class EquipableMeleeWeapon : EquipableWeapon
     public override void Setup(Transform transform)
     {
         base.Setup(transform);
-        UnitEquipmentVisuals unitEquipmentVisuals = transform.GetComponent<UnitEquipmentVisuals>();
-        unitEquipmentVisuals.SpawnWeaponVisual(weaponVisualPrefab);
+        EquipmentVisuals equipmentVisuals = transform.GetComponent<EquipmentVisuals>();
+        equipmentVisuals.SpawnWeaponVisual(weaponVisualPrefab);
         
         MeleeAttackAction meleeAttackAction = transform.AddComponent<MeleeAttackAction>();
         meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
-    public override void RemoveFromUnit(Mission.Unit unit)
+    public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
     {
-        base.RemoveFromUnit(unit);
-        unit.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);
+        base.RemoveFromUnit(equipmentSetupManager);
+        equipmentSetupManager.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);
         if (meleeAttackAction)
         {
             Destroy(meleeAttackAction);

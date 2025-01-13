@@ -1,9 +1,12 @@
 using System;
 using UnityEngine;
 
-public interface IColonyActionTarget
+namespace ColonyActions
 {
-    public Vector3 transformPosition { get; set; }
+    public interface IColonyActionTarget
+    {
+        public Vector3 transformPosition { get; set; }
 
-    public void ProgressTask(int progressAmount, Action onTaskCompleted);
+        public void ProgressTask(int progressAmount, Action onTaskCompleted);
+    }
 }

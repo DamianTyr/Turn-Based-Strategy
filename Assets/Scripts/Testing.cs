@@ -1,16 +1,13 @@
-using System;
-using System.Collections;
-using Saving;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class Testing : MonoBehaviour
 {
-    private SavingSystem _savingSystem;
-    
+    private SceneChanger _sceneChanger;
+
     private void Start()
     {
-        _savingSystem = FindObjectOfType<SavingSystem>();
+        _sceneChanger = FindObjectOfType<SceneChanger>();
     }
 
     private void Update()
@@ -21,27 +18,14 @@ public class Testing : MonoBehaviour
 
             if (scene.name == "ColonyScene")
             {
-                StartCoroutine(LoadSceneAsync("MissionScene"));
+                _sceneChanger.LoadScene("MissionScene");
             }
+
             if (scene.name == "MissionScene")
             {
-                StartCoroutine(LoadSceneAsync("ColonyScene"));
+                _sceneChanger.LoadScene("ColonyScene");
             }
         }
     }
-
-    private IEnumerator LoadSceneAsync(string sceneName)
-    {
-        _savingSystem.Save();
-        
-        AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
-
-        while (!asyncOperation.isDone)
-        {
-            yield return null;
-        }
-
-        yield return new WaitForSeconds(1f);
-        _savingSystem.Load();
-    }
 }
+

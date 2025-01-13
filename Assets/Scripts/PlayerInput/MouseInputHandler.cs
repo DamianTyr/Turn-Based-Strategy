@@ -2,7 +2,6 @@ using UnityEngine;
 using System;
 using UnityEngine.EventSystems;
 
-
 namespace PlayerInput
 {
     public class MouseInputHandler : MonoBehaviour

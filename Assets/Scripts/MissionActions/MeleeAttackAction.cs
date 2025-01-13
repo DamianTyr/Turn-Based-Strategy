@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
 using Animancer;
+using Enemy;
+using Grid;
 using UnityEngine;
 using Mission;
 
@@ -55,7 +57,7 @@ public class MeleeAttackAction : BaseAction
                 _state = State.SwingingSwordAfterHit;
                 float afterHitStateTime = 1f;
                 _stateTimer = afterHitStateTime;
-                _targetUnit.Damage(_equipableWeapon.GetDamage(), transform);
+                _targetUnit.TakeDamage(_equipableWeapon.GetDamage(), transform);
                 ScreenShake.Instance.Shake(1f);
                 break;
             case State.SwingingSwordAfterHit:

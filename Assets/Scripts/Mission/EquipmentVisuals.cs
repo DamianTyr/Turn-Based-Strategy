@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Mission
 {
-    public class UnitEquipmentVisuals : MonoBehaviour
+    public class EquipmentVisuals : MonoBehaviour
     {
-        [SerializeField] private UnityEngine.Transform weaponSpawnPointTransform;
+        [SerializeField] private Transform weaponSpawnPointTransform;
         [SerializeField] private GameObject weaponVisual;
     
         public GameObject SpawnWeaponVisual(GameObject weaponVisualPrefab)

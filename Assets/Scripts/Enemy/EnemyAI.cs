@@ -2,114 +2,117 @@ using System;
 using Mission;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+namespace Enemy
 {
-    private enum State
+    public class EnemyAI : MonoBehaviour
     {
-        WaitingForEnemyTurn, 
-        TakingTurn, 
-        Busy,
-    }
+        private enum State
+        {
+            WaitingForEnemyTurn, 
+            TakingTurn, 
+            Busy,
+        }
     
-    private float _timer;
-    private State _state;
+        private float _timer;
+        private State _state;
 
-    private void Awake()
-    {
-        _state = State.WaitingForEnemyTurn;
-    }
-
-    private void Start()
-    {
-        TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange;
-    }
-
-    private void TurnSystem_OnTurnChange(object sender, EventArgs e)
-    {
-        if (!TurnSystem.Instance.IsPlayerTurn())
+        private void Awake()
         {
-            _state = State.TakingTurn;
-            _timer = 2f;
+            _state = State.WaitingForEnemyTurn;
         }
-    }
 
-    private void Update()
-    {
-        if (TurnSystem.Instance.IsPlayerTurn()) return;
-
-        switch (_state)
+        private void Start()
         {
-            case State.WaitingForEnemyTurn:
-                break;
-            case State.TakingTurn:
-                _timer -= Time.deltaTime;
-                if (_timer <= 0f)
-                {
-                    if (TryTakeEnemyAIAction(SetStateTakingTurn))
+            TurnSystem.Instance.OnTurnChange += TurnSystem_OnTurnChange;
+        }
+
+        private void TurnSystem_OnTurnChange(object sender, EventArgs e)
+        {
+            if (!TurnSystem.Instance.IsPlayerTurn())
+            {
+                _state = State.TakingTurn;
+                _timer = 2f;
+            }
+        }
+
+        private void Update()
+        {
+            if (TurnSystem.Instance.IsPlayerTurn()) return;
+
+            switch (_state)
+            {
+                case State.WaitingForEnemyTurn:
+                    break;
+                case State.TakingTurn:
+                    _timer -= Time.deltaTime;
+                    if (_timer <= 0f)
                     {
-                        _state = State.Busy;
+                        if (TryTakeEnemyAIAction(SetStateTakingTurn))
+                        {
+                            _state = State.Busy;
+                        }
+                        else
+                        {
+                            TurnSystem.Instance.NextTurn();
+                        }
                     }
-                    else
-                    {
-                        TurnSystem.Instance.NextTurn();
-                    }
-                }
-                break;
-            case State.Busy:
-                break;
+                    break;
+                case State.Busy:
+                    break;
+            }
         }
-    }
 
-    private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
-    {
-        foreach (Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())   
+        private bool TryTakeEnemyAIAction(Action onEnemyAIActionComplete)
         {
-            if (TryTakeEnemyAIAction(enemyUnit, onEnemyAIActionComplete)) return true;
-        }
+            foreach (Unit enemyUnit in UnitManager.Instance.GetEnemyUnitList())   
+            {
+                if (TryTakeEnemyAIAction(enemyUnit, onEnemyAIActionComplete)) return true;
+            }
 
-        return false;
-    }
+            return false;
+        }
     
-    private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
-    {
-        AIAction bestAIAction = null;
-        BaseAction bestBaseAction = null;
+        private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
+        {
+            AIAction bestAIAction = null;
+            BaseAction bestBaseAction = null;
         
-        foreach (BaseAction baseAction in enemyUnit.GetBaseActionList())
-        {
-            if (!enemyUnit.CanSpendActionPointsToTakeAction(baseAction))
+            foreach (BaseAction baseAction in enemyUnit.GetActonHolder().GetBaseActionList())
             {
-                //Enemy cannot afford this action;
-                continue;
-            }
+                if (!enemyUnit.CanSpendActionPointsToTakeAction(baseAction))
+                {
+                    //Enemy cannot afford this action;
+                    continue;
+                }
 
-            if (bestAIAction == null)
-            {
-                bestAIAction = baseAction.GetBestAIAction();
-                bestBaseAction = baseAction;
-            }
-            else
-            {
-                AIAction testAIAction = baseAction.GetBestAIAction();
-                if (testAIAction != null && testAIAction.ActionValue > bestAIAction.ActionValue)
+                if (bestAIAction == null)
                 {
                     bestAIAction = baseAction.GetBestAIAction();
                     bestBaseAction = baseAction;
                 }
+                else
+                {
+                    AIAction testAIAction = baseAction.GetBestAIAction();
+                    if (testAIAction != null && testAIAction.ActionValue > bestAIAction.ActionValue)
+                    {
+                        bestAIAction = baseAction.GetBestAIAction();
+                        bestBaseAction = baseAction;
+                    }
+                }
             }
+
+            if (bestAIAction != null && enemyUnit.TrySpendActionPointsToTakeAction(bestBaseAction))
+            {
+                bestBaseAction.TakeAction(enemyUnit.GetGridPosition(), bestAIAction.GridPosition, onEnemyAIActionComplete);
+                return true;
+            }
+            return false;
         }
 
-        if (bestAIAction != null && enemyUnit.TrySpendActionPointsToTakeAction(bestBaseAction))
+        private void SetStateTakingTurn()
         {
-            bestBaseAction.TakeAction(enemyUnit.GetGridPosition(), bestAIAction.GridPosition, onEnemyAIActionComplete);
-            return true;
+            _timer = .5f;
+            _state = State.TakingTurn;
         }
-        return false;
-    }
-
-    private void SetStateTakingTurn()
-    {
-        _timer = .5f;
-        _state = State.TakingTurn;
     }
 }

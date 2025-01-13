@@ -29388,7 +29388,7 @@ PrefabInstance:
     - target: {fileID: 3969003442115765792, guid: 2e871848ad6f8bb41bfea0d24fec4433,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 17
+      value: 16
       objectReference: {fileID: 0}
     - target: {fileID: 3969003442115765792, guid: 2e871848ad6f8bb41bfea0d24fec4433,
         type: 3}
@@ -29435,6 +29435,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5677450014150860887, guid: 2e871848ad6f8bb41bfea0d24fec4433,
+        type: 3}
+      propertyPath: runAnimationClip
+      value: 
+      objectReference: {fileID: 1827226128182048838, guid: 6c670ea8c84cf324980a21b4b9b927a0,
+        type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

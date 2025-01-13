@@ -1,93 +1,98 @@
 using System.Collections.Generic;
+using ColonyBuilding;
+using Grid;
 using UnityEngine;
 
-public class ColonyGridObject
+namespace Colony
 {
-    private GridPosition _gridPosition;
-    private GridSystem<ColonyGridObject> _gridSystem;
-    private readonly List<Transform> _occupantList;
-    private Mineable _mineable;
-    private PlacedFurnitureGhost _furnitureGhost;
-    private bool _isReserved;
-    
-    public ColonyGridObject(GridSystem<ColonyGridObject> gridSystem, GridPosition gridPosition) 
+    public class ColonyGridObject
     {
-        _gridSystem = gridSystem;
-        _gridPosition = gridPosition;
-        _occupantList = new List<Transform>();
-    }
+        private GridPosition _gridPosition;
+        private GridSystem<ColonyGridObject> _gridSystem;
+        private readonly List<Transform> _occupantList;
+        private Mineable _mineable;
+        private PlacedFurnitureGhost _furnitureGhost;
+        private bool _isReserved;
     
-    public ColonyGridObject()
-    {
+        public ColonyGridObject(GridSystem<ColonyGridObject> gridSystem, GridPosition gridPosition) 
+        {
+            _gridSystem = gridSystem;
+            _gridPosition = gridPosition;
+            _occupantList = new List<Transform>();
+        }
+    
+        public ColonyGridObject()
+        {
         
-    }
+        }
     
-    public override string ToString()
-    {
-        string occupantString = "";
-        foreach (Transform occupant in _occupantList)
+        public override string ToString()
         {
-            occupantString += occupant + "\n";
+            string occupantString = "";
+            foreach (Transform occupant in _occupantList)
+            {
+                occupantString += occupant + "\n";
+            }
+            return _gridPosition.ToString() + "\n" + occupantString;
         }
-        return _gridPosition.ToString() + "\n" + occupantString;
-    }
 
-    public void AddOccupant(Transform occupant)
-    {
-        _occupantList.Add(occupant);
-    }
-
-    public void RemoveOccupant(Transform occupant)
-    {
-        _occupantList.Remove(occupant);
-    }
-
-    public List<Transform> GetOccupantList()
-    {
-        return _occupantList;
-    }
-
-    public bool HasAnyOccupants()
-    {
-        return _occupantList.Count > 0;
-    }
-
-    public Transform GetOccupant()
-    {
-        if (HasAnyOccupants())
+        public void AddOccupant(Transform occupant)
         {
-            return _occupantList[0];
+            _occupantList.Add(occupant);
         }
-        return null;
-    }
 
-    public void SetMineable(Mineable mineable)
-    {
-        _mineable = mineable;
-    }
+        public void RemoveOccupant(Transform occupant)
+        {
+            _occupantList.Remove(occupant);
+        }
 
-    public Mineable GetMineable()
-    {
-        return _mineable;
-    }
+        public List<Transform> GetOccupantList()
+        {
+            return _occupantList;
+        }
 
-    public void SetReserved(bool isReserved)
-    {
-        _isReserved = isReserved;
-    }
+        public bool HasAnyOccupants()
+        {
+            return _occupantList.Count > 0;
+        }
 
-    public bool GetIsReseved()
-    {
-        return _isReserved;
-    }
+        public Transform GetOccupant()
+        {
+            if (HasAnyOccupants())
+            {
+                return _occupantList[0];
+            }
+            return null;
+        }
 
-    public void SetFurnitureGhost(PlacedFurnitureGhost placedFurnitureGhost)
-    {
-        _furnitureGhost = placedFurnitureGhost;
-    }
+        public void SetMineable(Mineable mineable)
+        {
+            _mineable = mineable;
+        }
 
-    public PlacedFurnitureGhost GetFurnitureGhost()
-    {
-        return _furnitureGhost;
+        public Mineable GetMineable()
+        {
+            return _mineable;
+        }
+
+        public void SetReserved(bool isReserved)
+        {
+            _isReserved = isReserved;
+        }
+
+        public bool GetIsReseved()
+        {
+            return _isReserved;
+        }
+
+        public void SetFurnitureGhost(PlacedFurnitureGhost placedFurnitureGhost)
+        {
+            _furnitureGhost = placedFurnitureGhost;
+        }
+
+        public PlacedFurnitureGhost GetFurnitureGhost()
+        {
+            return _furnitureGhost;
+        }
     }
 }

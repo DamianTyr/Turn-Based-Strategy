@@ -1,63 +1,67 @@
 using System;
+using Grid;
 using UnityEngine;
 
-public class GrenadeProjectile : MonoBehaviour
+namespace Mission
 {
-   public static event EventHandler OnAnyGrenadeExplosion;
-
-   [SerializeField] private Transform grenadeExplosionVFXPrefab;
-   [SerializeField] private TrailRenderer trailRenderer;
-   [SerializeField] private AnimationCurve arcYAnimationCurve;
-   
-   private Vector3 _targetPosition;
-   private Action _onGrenadeBehaviorComplete;
-
-   private float _totalDistance;
-   private Vector3 _positionXZ;
-   
-   private void Update()
+   public class GrenadeProjectile : MonoBehaviour
    {
-      Vector3 moveDir = (_targetPosition - _positionXZ).normalized;
-      float moveSpeed = 15f;
-      _positionXZ += moveDir * moveSpeed * Time.deltaTime;
+      public static event EventHandler OnAnyGrenadeExplosion;
 
-      float distance = Vector3.Distance(_positionXZ, _targetPosition);
-      float distanceNormalized = 1 - distance / _totalDistance;
+      [SerializeField] private Transform grenadeExplosionVFXPrefab;
+      [SerializeField] private TrailRenderer trailRenderer;
+      [SerializeField] private AnimationCurve arcYAnimationCurve;
+   
+      private Vector3 _targetPosition;
+      private Action _onGrenadeBehaviorComplete;
 
-      float maxHeight = _totalDistance / 4f;
-      float positionY = arcYAnimationCurve.Evaluate(distanceNormalized) * maxHeight;
-      transform.position = new Vector3(_positionXZ.x, positionY, _positionXZ.z);
-       
-      float reachedTargetDistance = 0.2f;
-      if (Vector3.Distance(transform.position, _targetPosition) < reachedTargetDistance)
+      private float _totalDistance;
+      private Vector3 _positionXZ;
+   
+      private void Update()
       {
-         float damageRadius = 4f;
-         Collider[] colliderArray = Physics.OverlapSphere(_targetPosition, damageRadius);
+         Vector3 moveDir = (_targetPosition - _positionXZ).normalized;
+         float moveSpeed = 15f;
+         _positionXZ += moveDir * moveSpeed * Time.deltaTime;
 
-         foreach (Collider collider in colliderArray)
+         float distance = Vector3.Distance(_positionXZ, _targetPosition);
+         float distanceNormalized = 1 - distance / _totalDistance;
+
+         float maxHeight = _totalDistance / 4f;
+         float positionY = arcYAnimationCurve.Evaluate(distanceNormalized) * maxHeight;
+         transform.position = new Vector3(_positionXZ.x, positionY, _positionXZ.z);
+       
+         float reachedTargetDistance = 0.2f;
+         if (Vector3.Distance(transform.position, _targetPosition) < reachedTargetDistance)
          {
-            if (collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+            float damageRadius = 4f;
+            Collider[] colliderArray = Physics.OverlapSphere(_targetPosition, damageRadius);
+
+            foreach (Collider collider in colliderArray)
             {
-               damageable.Damage(30, this.transform);
+               if (collider.TryGetComponent<IDamageable>(out IDamageable damageable))
+               {
+                  damageable.TakeDamage(30, this.transform);
+               }
             }
+
+            OnAnyGrenadeExplosion?.Invoke(this, EventArgs.Empty);
+            ScreenShake.Instance.Shake(5f);
+            trailRenderer.transform.parent = null;
+            Instantiate(grenadeExplosionVFXPrefab, _targetPosition + Vector3.up * 1f, Quaternion.identity);
+            _onGrenadeBehaviorComplete();
+            Destroy(gameObject);
          }
-
-         OnAnyGrenadeExplosion?.Invoke(this, EventArgs.Empty);
-         ScreenShake.Instance.Shake(5f);
-         trailRenderer.transform.parent = null;
-         Instantiate(grenadeExplosionVFXPrefab, _targetPosition + Vector3.up * 1f, Quaternion.identity);
-         _onGrenadeBehaviorComplete();
-         Destroy(gameObject);
       }
-   }
    
-   public void Setup(GridPosition targetGridPosition, Action onGrenadeBehaviorComplete)
-   {
-      _onGrenadeBehaviorComplete = onGrenadeBehaviorComplete;
-      _targetPosition = MissionGrid.Instance.GetWorldPosition(targetGridPosition);
+      public void Setup(GridPosition targetGridPosition, Action onGrenadeBehaviorComplete)
+      {
+         _onGrenadeBehaviorComplete = onGrenadeBehaviorComplete;
+         _targetPosition = MissionGrid.Instance.GetWorldPosition(targetGridPosition);
 
-      _positionXZ = transform.position;
-      _positionXZ.y = 0;
-      _totalDistance = Vector3.Distance(transform.position, _targetPosition);
+         _positionXZ = transform.position;
+         _positionXZ.y = 0;
+         _totalDistance = Vector3.Distance(transform.position, _targetPosition);
+      }
    }
 }

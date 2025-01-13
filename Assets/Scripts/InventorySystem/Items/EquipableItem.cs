@@ -22,6 +22,6 @@ namespace InventorySystem.Inventories
 
         public abstract void Setup(Transform transform);
 
-        public abstract void RemoveFromUnit(Mission.Unit unit);
+        public abstract void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager);
     }
 }
