@@ -1,5 +1,4 @@
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class Testing : MonoBehaviour
 {
@@ -12,19 +11,18 @@ public class Testing : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Scene scene = SceneManager.GetActiveScene();
-
-            if (scene.name == "ColonyScene")
-            {
-                _sceneChanger.LoadScene("MissionScene");
-            }
-
-            if (scene.name == "MissionScene")
-            {
-                _sceneChanger.LoadScene("ColonyScene");
-            }
+            _sceneChanger.LoadScene("ColonyScene");
+            Debug.Log("Loading Colony Scene");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _sceneChanger.LoadScene("ArmoryScene");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            _sceneChanger.LoadScene("MissionScene");
         }
     }
 }

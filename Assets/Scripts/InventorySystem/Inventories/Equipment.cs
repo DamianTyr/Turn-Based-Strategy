@@ -1,11 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using Saving;
 
 namespace InventorySystem.Inventories
 {
-    public class Equipment : MonoBehaviour, ISaveable
+    public class Equipment : MonoBehaviour
     {
         Dictionary<EquipLocation, EquipableItem> _equippedItems = new();
         
@@ -25,14 +24,14 @@ namespace InventorySystem.Inventories
         {
             Debug.Assert(item.GetAllowedEquipLocation() == equipLocation);
             _equippedItems[equipLocation] = item;
-            OnAnyEquipmentUpdated?.Invoke();
             OnEquipmentUpdated?.Invoke(item.GetAllowedEquipLocation(), item);
+            OnAnyEquipmentUpdated?.Invoke();
         }
         
         public void RemoveItem(EquipLocation slot)
         {
-            OnEquipmentUpdated?.Invoke(slot, null);
             _equippedItems.Remove(slot);
+            OnEquipmentUpdated?.Invoke(slot, null);
             OnAnyEquipmentUpdated?.Invoke();
         }
         
@@ -40,15 +39,27 @@ namespace InventorySystem.Inventories
         {
             return _equippedItems.Keys;
         }
-        
-        public void CaptureState(string guid)
+
+        public void Save(string characterName)
         {
-           
+            Dictionary<EquipLocation, string> equipedItemIDs = new Dictionary<EquipLocation, string>();
+            foreach (EquipLocation equipLocation in _equippedItems.Keys)
+            {
+                string itemId = _equippedItems[equipLocation].GetItemID();
+                equipedItemIDs[equipLocation] = itemId;
+            }
+            ES3.Save(characterName, equipedItemIDs);
         }
 
-        public void RestoreState(string guid)
+        public void Load(string characterName)
         {
-            
+            Dictionary<EquipLocation, string> equipedItemIDs = new Dictionary<EquipLocation, string>();
+            equipedItemIDs = ES3.Load<Dictionary<EquipLocation, string>>(characterName);
+            foreach (EquipLocation equipLocation in equipedItemIDs.Keys)
+            {
+                InventoryItem item = InventoryItem.GetFromID(equipedItemIDs[equipLocation]);
+                AddItem(equipLocation,(EquipableItem) item);
+            }
         }
     }
 }

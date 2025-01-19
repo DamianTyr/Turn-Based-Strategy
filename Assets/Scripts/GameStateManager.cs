@@ -3,9 +3,10 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
+    
+    //TODO: Currently Unused!
     public static GameStateManager Instance  { get; private set; }
     public GameState _currentGameState = GameState.TurnBased;
-
     public Action<GameState> OnGameStateChanged;
     
     private void Awake()

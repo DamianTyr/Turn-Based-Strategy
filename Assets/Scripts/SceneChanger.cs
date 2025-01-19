@@ -23,6 +23,7 @@ public class SceneChanger : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1f);
+        Debug.Log("Calling after Scene Change");
         onAfterSceneChange?.Invoke();
     }
 }

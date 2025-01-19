@@ -1,8 +1,6 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using InventorySystem.Core.UI.Dragging;
 using InventorySystem.Inventories;
-using Mission;
 
 namespace InventorySystem.UI.Inventories
 {
@@ -12,13 +10,12 @@ namespace InventorySystem.UI.Inventories
         [SerializeField] EquipLocation equipLocation = EquipLocation.Weapon;
         
         private Equipment _selectedEquipment;
-        private UnitActionSystem _unitActionSystem;
-
         private SelectedEquipmentTracker _selectedEquipmentTracker;
         
         private void Start()
         {
             _selectedEquipmentTracker = FindObjectOfType<SelectedEquipmentTracker>();
+            _selectedEquipment = _selectedEquipmentTracker.GetSelectedEquipment();
             _selectedEquipmentTracker.OnSelectedEquipmentChanged += OnSelectedEquipmentChanged;
             Equipment.OnAnyEquipmentUpdated += RedrawUI;
             RedrawUI();
@@ -47,7 +44,6 @@ namespace InventorySystem.UI.Inventories
 
         public InventoryItem GetItem()
         {
-            if (_selectedEquipment == null) return null;
             return _selectedEquipment.GetItemInSlot(equipLocation);
         }
 
@@ -65,18 +61,17 @@ namespace InventorySystem.UI.Inventories
 
         public void RemoveItems(int number)
         {
+
             _selectedEquipment.RemoveItem(equipLocation);
         }
         
         void RedrawUI()
         {
-            if (_selectedEquipment == null) return;
             icon.SetItem(_selectedEquipment.GetItemInSlot(equipLocation));
         }
 
-        private void OnDestroy()
+        private void OnDisable()
         {
-            _selectedEquipmentTracker.OnSelectedEquipmentChanged -= OnSelectedEquipmentChanged;
             Equipment.OnAnyEquipmentUpdated -= RedrawUI;
         }
     }

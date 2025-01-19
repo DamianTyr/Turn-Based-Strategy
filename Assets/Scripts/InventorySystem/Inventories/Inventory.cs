@@ -1,15 +1,16 @@
 ﻿using System;
 using UnityEngine;
-using InventorySystem.Saving;
 using Saving;
-using UnityEngine.SceneManagement;
 
 namespace InventorySystem.Inventories
 {
     public class Inventory : MonoBehaviour, ISaveable
     {
+        [SerializeField] private SceneChanger _sceneChanger;
         [Tooltip("Allowed size")]
         [SerializeField] int inventorySize = 16;
+
+        [SerializeField] private EquipableItem testItem;
         
         InventorySlot[] slots;
 
@@ -19,11 +20,19 @@ namespace InventorySystem.Inventories
             public int number;
         }
         
-      
         public event Action inventoryUpdated;
-        
-        
 
+        private void Start()
+        {
+            AddToFirstEmptySlot(testItem, 1);
+            _sceneChanger.onBeforeSceneChange += SceneChangerOnonBeforeSceneChange;
+        }
+
+        private void SceneChangerOnonBeforeSceneChange()
+        {
+            inventoryUpdated = null;
+        }
+        
         public bool HasSpaceFor(InventoryItem item)
         {
             return FindSlot(item) >= 0;
@@ -179,10 +188,7 @@ namespace InventorySystem.Inventories
 
         public void RestoreState(string guid)
         {
-            if (inventoryUpdated != null)
-            {
-                inventoryUpdated();
-            }
+           
         }
     }
 }

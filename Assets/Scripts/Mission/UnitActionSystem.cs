@@ -37,6 +37,12 @@ namespace Mission
         {
             _selectedEquipmentTracker = FindObjectOfType<SelectedEquipmentTracker>();
             SetSelectedUnit(selectedUnit);
+            Unit.OnAnyUnitClicked += OnAnyUnitSelected;
+        }
+
+        private void OnAnyUnitSelected(Unit unit)
+        {
+            SetSelectedUnit(unit);
         }
 
         void Update()
@@ -44,7 +50,6 @@ namespace Mission
             if (_isBusy) return;
             if (!TurnSystem.Instance.IsPlayerTurn()) return;
             if (EventSystem.current.IsPointerOverGameObject()) return;
-            if (TryHandleUnitSelection()) return;
             HandleSelectedAction();
         }
 
@@ -73,26 +78,7 @@ namespace Mission
             _isBusy = false;
             OnBusyChange?.Invoke(this, _isBusy);
         }
-
-        private bool TryHandleUnitSelection()
-        {
-            if (InputManager.Instance.IsMouseButtonDownThisFrame())
-            {
-                Ray ray = Camera.main.ScreenPointToRay(InputManager.Instance.GetMouseScreenPosition());
-                if (Physics.Raycast(ray, out RaycastHit hitInfo, float.MaxValue, unitLayerMask))
-                {
-                    if (hitInfo.collider.TryGetComponent(out Unit unit))
-                    {
-                        if (unit == selectedUnit) return false;
-                        if (unit.IsEnemy()) return false;
-                        SetSelectedUnit(unit);
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-
+        
         private void SetSelectedUnit(Unit unit)
         {
             selectedUnit = unit;
@@ -105,7 +91,6 @@ namespace Mission
         public void SetSelectedAction(BaseAction baseAction)
         {
             _selectedAction = baseAction;
-            Debug.Log(_selectedAction);
             OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
         }
 
@@ -117,6 +102,11 @@ namespace Mission
         public BaseAction GetSelectedAction()
         {
             return _selectedAction;
+        }
+
+        private void OnDisable()
+        {
+            Unit.OnAnyUnitClicked -= OnAnyUnitSelected;
         }
     }
 }

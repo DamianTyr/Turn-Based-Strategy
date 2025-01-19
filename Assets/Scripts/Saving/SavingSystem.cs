@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Saving
@@ -42,6 +43,12 @@ namespace Saving
             {
                saveable.RestoreState();
             }
+        }
+
+        private void OnDisable()
+        {
+            sceneChanger.onBeforeSceneChange -= Save;
+            sceneChanger.onAfterSceneChange -= Load;
         }
     }
 }

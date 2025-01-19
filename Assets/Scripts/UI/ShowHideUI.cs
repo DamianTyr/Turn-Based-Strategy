@@ -1,27 +1,33 @@
-﻿using UnityEngine;
+﻿using InventorySystem.Inventories;
+using UnityEngine;
 
 namespace InventorySystem.UI
 {
     public class ShowHideUI : MonoBehaviour
     {
         [SerializeField] private GameObject uiContainer;
-
-        private InputManager _inputManager;
+        private SelectedEquipmentTracker _selectedEquipmentTracker;
         
-        // Start is called before the first frame update
         void Start()
         {
+            _selectedEquipmentTracker = FindObjectOfType<SelectedEquipmentTracker>();
+            _selectedEquipmentTracker.OnSelectedEquipmentChanged += OnSelectedEquipmentChanged;
             uiContainer.SetActive(false);
-            _inputManager = InputManager.Instance;
         }
 
-        // Update is called once per frame
-        void Update()
+        private void OnSelectedEquipmentChanged(Equipment equipment)
         {
-            if (_inputManager.IsInventoryButtonDownThisFrame())
+            if (equipment)
             {
-                uiContainer.SetActive(!uiContainer.activeSelf);
+                uiContainer.SetActive(true);
+                return;
             }
+            uiContainer.SetActive(false);
+        }
+
+        private void OnDisable()
+        {
+            _selectedEquipmentTracker.OnSelectedEquipmentChanged -= OnSelectedEquipmentChanged;
         }
     }
 }

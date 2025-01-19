@@ -16,7 +16,7 @@ namespace PlayerInput
 
         [SerializeField] CursorMapping[] cursorMappings = null;
         [SerializeField] float raycastRadius = 1f;
-        [SerializeField] LayerMask layersToIgnoreForComponent;
+        [SerializeField] LayerMask layersToIgnore;
         
         static IRaycastable currentRaycastTarget;
         
@@ -90,7 +90,7 @@ namespace PlayerInput
 
         RaycastHit[] RaycastAllSorted()
         {
-            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius,Mathf.Infinity, ~layersToIgnoreForComponent);
+            RaycastHit[] hits = Physics.SphereCastAll(GetMouseRay(), raycastRadius,Mathf.Infinity, ~layersToIgnore);
             float[] distances = new float[hits.Length];
             for (int i = 0; i < hits.Length; i++)
             {

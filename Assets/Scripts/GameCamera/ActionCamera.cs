@@ -4,13 +4,9 @@ using UnityEngine;
 
 namespace GameCamera
 {
-    public class CameraManager : MonoBehaviour
+    public class ActionCamera : MonoBehaviour
     {
         [SerializeField] private GameObject actionCameraGameObject;
-        [SerializeField] private GameObject inventoryCameraGameObject;
-
-        private InputManager _inputManager;
-        private bool _isShowingInvetory;
     
         private void Start()
         {
@@ -18,27 +14,8 @@ namespace GameCamera
             BaseAction.OnAnyActionCompleted += BaseActionOnOnAnyActionCompleted;
         
             HideActionCamera();
-            HideInventoryCamera();
-            _inputManager = InputManager.Instance;
         }
-
-        private void Update()
-        {
-            if (_inputManager.IsInventoryButtonDownThisFrame())
-            {
-                if (_isShowingInvetory)
-                {
-                    HideInventoryCamera();
-                    _isShowingInvetory = false;
-                }
-                else
-                {
-                    ShowInventoryCamera();
-                    _isShowingInvetory = true;
-                }
-            }
-        }
-
+        
         private void BaseActionOnOnAnyActionCompleted(object sender, EventArgs e)
         {
             switch (sender)
@@ -54,7 +31,7 @@ namespace GameCamera
             switch (sender)
             {
                 case ShootAction shootAction:
-                    UnityEngine.Transform shooterTransform = shootAction.GetHolderTransform();
+                    Transform shooterTransform = shootAction.GetHolderTransform();
                     Unit targetUnit = shootAction.GetTargetUnit();
                 
                     Vector3 cameraCharacterHeight = Vector3.up * 1.7f;
@@ -83,17 +60,7 @@ namespace GameCamera
         {
             actionCameraGameObject.SetActive(false);
         }
-
-        private void ShowInventoryCamera()
-        {
-            inventoryCameraGameObject.SetActive(true);
-        }
-    
-        private void HideInventoryCamera()
-        {
-            inventoryCameraGameObject.SetActive(false);
-        }
-
+        
         private void OnDestroy()
         {
             BaseAction.OnAnyActionStarted -= BaseAction_OnOnAnyActionStarted; 

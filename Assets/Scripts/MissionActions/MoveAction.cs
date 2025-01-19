@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Enemy;
 using Grid;
@@ -17,10 +18,9 @@ public class MoveAction : BaseAction
     
     private void Start()
     {
-        AnimancerComponent.Play(_idleAnimationClip);
         _missionGrid = FindObjectOfType<MissionGrid>();
     }
-
+    
     void Update()
     {
         if (!IsActive) return;

@@ -29,10 +29,10 @@ namespace Mission
         private void Start()
         {
             Unit.OnAnyUnitSpawned += Unit_OnOnAnyUnitSpawned;
-            Unit.OnAnyUnitDead += UnitOnOnAnyUnitDead;
+            Unit.OnAnyUnitDead += Unit_OnAnyUnitDead;
         }
 
-        private void UnitOnOnAnyUnitDead(object sender, EventArgs e)
+        private void Unit_OnAnyUnitDead(object sender, EventArgs e)
         {
             Unit unit = sender as Unit;
             unitList.Remove(unit);

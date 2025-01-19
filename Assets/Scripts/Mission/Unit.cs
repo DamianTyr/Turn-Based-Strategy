@@ -1,17 +1,19 @@
 using System;
 using Grid;
+using PlayerInput;
 using UnityEngine;
 
 namespace Mission
 {
-    public class Unit : MonoBehaviour, IDamageable
+    public class Unit : MonoBehaviour, IDamageable, IRaycastable
     {
         private const int ActionPointsMax = 3;
     
         public static event EventHandler OnAnyActionPointChange;
         public static event EventHandler OnAnyUnitSpawned;
         public static event EventHandler OnAnyUnitDead;
-
+        public static Action<Unit> OnAnyUnitClicked;
+        
         [SerializeField] private bool isEnemy;
     
         private GridPosition _gridPosition;
@@ -120,6 +122,28 @@ namespace Mission
         public ActionHolder GetActonHolder()
         {
             return _actionHolder;
+        }
+
+        public CursorType GetCursorType()
+        {
+            return CursorType.None;
+        }
+
+        public bool HandleRaycast(MouseInputHandler callingController, RaycastHit hit)
+        {
+            return true;
+        }
+
+        public void HandleRaycastStop()
+        {
+
+        }
+
+        public void HandleMouseClick()
+        {
+            if (isEnemy) return;
+            if (!TurnSystem.Instance.IsPlayerTurn()) return;
+            OnAnyUnitClicked?.Invoke(this);
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 using InventorySystem.Inventories;
 
 namespace InventorySystem.UI.Inventories
@@ -10,12 +9,6 @@ namespace InventorySystem.UI.Inventories
         
         private Inventory _inventory;
         
-        private void Awake()
-        {
-            // _inventory = FindObjectOfType<Inventory>();
-            // _inventory.inventoryUpdated += Redraw;
-        }
-
         private void Start()
         {
             _inventory = FindObjectOfType<Inventory>();
@@ -35,11 +28,6 @@ namespace InventorySystem.UI.Inventories
                 var itemUI = Instantiate(InventoryItemPrefab, transform);
                 itemUI.Setup(_inventory, i);
             }
-        }
-
-        private void OnDestroy()
-        {
-            _inventory.inventoryUpdated -= Redraw;
         }
     }
 }

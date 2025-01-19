@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ColonyScene.unity
     guid: 5c01ebe117d74354aa2eb63c2a9bad87
+  - enabled: 1
+    path: Assets/Scenes/ArmoryScene.unity
+    guid: 47b660abc3c5d164aaf2420f1988e2c4
   m_configObjects: {}

@@ -15,18 +15,18 @@ public class UnitWorldUI : MonoBehaviour
     private void Start()
     {
         Unit.OnAnyActionPointChange += Unit_OnOnAnyActionPointChange;
-        GameStateManager.Instance.OnGameStateChanged += GameStateManager_OnGameStateChanged;
+        //GameStateManager.Instance.OnGameStateChanged += GameStateManager_OnGameStateChanged;
         healthSystem.OnDamage += HealthSystemOnDamage;
         
         UpdateActionPointsText();
         UpdateHealthBar();
     }
 
-    private void GameStateManager_OnGameStateChanged(GameState gameState)
-    {
-        if (gameState == GameState.RealTime) actionPointsText.enabled = false;
-        else actionPointsText.enabled = true;
-    }
+    // private void GameStateManager_OnGameStateChanged(GameState gameState)
+    // {
+    //     if (gameState == GameState.RealTime) actionPointsText.enabled = false;
+    //     else actionPointsText.enabled = true;
+    // }
 
     private void HealthSystemOnDamage(object sender, EventArgs e)
     {
