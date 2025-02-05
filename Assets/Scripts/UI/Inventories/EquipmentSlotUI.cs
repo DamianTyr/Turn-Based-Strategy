@@ -61,7 +61,6 @@ namespace InventorySystem.UI.Inventories
 
         public void RemoveItems(int number)
         {
-
             _selectedEquipment.RemoveItem(equipLocation);
         }
         

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace InventorySystem.UI
 {
-    public class ShowHideUI : MonoBehaviour
+    public class ShowHideEquipmentUI : MonoBehaviour
     {
         [SerializeField] private GameObject uiContainer;
         private SelectedEquipmentTracker _selectedEquipmentTracker;

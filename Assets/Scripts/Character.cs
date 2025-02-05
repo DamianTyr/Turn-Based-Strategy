@@ -19,7 +19,6 @@ public class Character : MonoBehaviour, ISaveable
 
     public void RestoreState(string guid)
     {
-        Debug.Log("Restore state called from character");
         characterEquipment.Load(guid);  
     }
 }

@@ -101,6 +101,7 @@ namespace Grid
 
         protected void ShowGridPositionList(List<GridPosition> gridPositionList, GridVisualType gridVisualType)
         {
+            if (gridPositionList == null) return;
             foreach (GridPosition gridPosition in gridPositionList)
             {
                 _gridSystemVisualSingleArray[gridPosition.X, gridPosition.Z].Show(GetGridVisualTypeMaterial(gridVisualType));

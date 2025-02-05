@@ -3,8 +3,6 @@ using UnityEngine;
 
 public class GameStateManager : MonoBehaviour
 {
-    
-    //TODO: Currently Unused!
     public static GameStateManager Instance  { get; private set; }
     public GameState _currentGameState = GameState.TurnBased;
     public Action<GameState> OnGameStateChanged;
@@ -35,9 +33,9 @@ public class GameStateManager : MonoBehaviour
         _currentGameState = gameState;
         OnGameStateChanged?.Invoke(_currentGameState);
     }
-    
-    
 }
+
+
 
 public enum GameState{
     TurnBased, 

@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+    [SerializeField] private string selectedMissionSceneToLoad;
+    
     public event Action onBeforeSceneChange;
     public event Action onAfterSceneChange;
     
@@ -17,13 +19,27 @@ public class SceneChanger : MonoBehaviour
     {
         onBeforeSceneChange?.Invoke();
         AsyncOperation asyncOperation = SceneManager.LoadSceneAsync(sceneName);
+        if (sceneName != "ArmoryScene") selectedMissionSceneToLoad = "";
         while (!asyncOperation.isDone)
         {
             yield return null;
         }
-
         yield return new WaitForSeconds(1f);
-        Debug.Log("Calling after Scene Change");
         onAfterSceneChange?.Invoke();
+    }
+
+    public string GetSelectedMissionToLoad()
+    {
+        return selectedMissionSceneToLoad;
+    }
+
+    public void SetMissionSceneToLoad(string missionSceneName)
+    {
+        selectedMissionSceneToLoad = missionSceneName;
+    }
+
+    public void LoadSelectedMissionScene()
+    {
+        LoadScene(selectedMissionSceneToLoad);
     }
 }
