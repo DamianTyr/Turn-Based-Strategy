@@ -1,12 +1,14 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Mission
 {
     public class UnitManager : MonoBehaviour
     {
         public static UnitManager Instance { get; private set; }
+        public Action OnAllEnemiesKilled;
 
         private List<Unit> unitList;
         private List<Unit> friendlyUnitList;
@@ -40,6 +42,10 @@ namespace Mission
             if (unit.IsEnemy())
             {
                 enemyUnitList.Remove(unit);
+                if (enemyUnitList.Count == 0)
+                {
+                    OnAllEnemiesKilled?.Invoke();
+                }
             }
             else
             {

@@ -16,10 +16,10 @@ public class EquipableMeleeWeapon : EquipableWeapon
         meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
-    public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
+    public override void RemoveFromUnit(EquipmentSetupHandler equipmentSetupHandler)
     {
-        base.RemoveFromUnit(equipmentSetupManager);
-        equipmentSetupManager.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);
+        base.RemoveFromUnit(equipmentSetupHandler);
+        equipmentSetupHandler.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);
         if (meleeAttackAction)
         {
             Destroy(meleeAttackAction);

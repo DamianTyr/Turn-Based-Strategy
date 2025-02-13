@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class UnitActionSystemUI : MonoBehaviour
 {
-    [SerializeField] private UnityEngine.Transform actionButtonPrefab;
-    [SerializeField] private UnityEngine.Transform actionButtonContainerTransform;
+    [SerializeField] private Transform actionButtonPrefab;
+    [SerializeField] private Transform actionButtonContainerTransform;
     [SerializeField] private TextMeshProUGUI actionPointsText;
 
     private List<ActionButtonUI> actionButtonList;

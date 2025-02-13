@@ -19,23 +19,18 @@ public class Testing : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            _sceneChanger.LoadScene("ColonyScene");
-        }
-        
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            _sceneChanger.LoadScene("ArmoryScene");
-        }
-        
         if (Input.GetKeyDown(KeyCode.M))
         {
             _worldMapCamera.ToggleWorldMapCamera();
         }
-        if (Input.GetKeyDown(KeyCode.T))
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            Time.timeScale = 3;
+            _sceneChanger.LoadScene("ColonyScene");
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            _sceneChanger.LoadScene("ArmoryScene");
         }
     }
 }

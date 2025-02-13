@@ -13,7 +13,7 @@ public class ActionButtonUI : MonoBehaviour
 
     public void SetBaseAction(BaseAction baseAction)
     {
-        this._baseAction = baseAction;
+        _baseAction = baseAction;
         textMeshPro.text = baseAction.GetActionName().ToUpper();
         button.onClick.AddListener(() =>
         {

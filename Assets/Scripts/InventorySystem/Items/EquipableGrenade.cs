@@ -14,9 +14,9 @@ public class EquipableGrenade : EquipableItem
         grenadeAction.SetGrenadeProjectilePrefab(grenadeProjectilePrefab);
     }
 
-    public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
+    public override void RemoveFromUnit(EquipmentSetupHandler equipmentSetupHandler)
     {
-        equipmentSetupManager.transform.TryGetComponent(out GrenadeAction grenadeAction);
+        equipmentSetupHandler.transform.TryGetComponent(out GrenadeAction grenadeAction);
         if (grenadeAction)
         {
             Destroy(grenadeAction);

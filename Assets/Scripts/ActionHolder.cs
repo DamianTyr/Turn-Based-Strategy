@@ -7,14 +7,14 @@ using UnityEngine;
 public class ActionHolder : MonoBehaviour
 {
     private List<BaseAction> _baseActionList = new();
-    private EquipmentSetupManager _equipmentSetupManager;
+    private EquipmentSetupHandler _equipmentSetupHandler;
     
     public static Action OnAnyActionListChanged;
 
     private void Start()
     {
-        _equipmentSetupManager = GetComponent<EquipmentSetupManager>();
-        _equipmentSetupManager.onEquipmentSetup += OnEquipmentSetup;
+        _equipmentSetupHandler = GetComponent<EquipmentSetupHandler>();
+        _equipmentSetupHandler.onEquipmentSetup += OnEquipmentSetup;
         UpdateActionList();
     }
     

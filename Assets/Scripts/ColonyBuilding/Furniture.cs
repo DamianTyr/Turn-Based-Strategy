@@ -65,7 +65,6 @@ namespace ColonyBuilding
             {
                 Inventory inventory = FindObjectOfType<Inventory>();
                 inventory.AddToFirstEmptySlot(testInventoryItem, 1);
-                Debug.Log("Added Item to Inventory");
                 onTaskCompleted();
             }
         }

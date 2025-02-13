@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using InventorySystem.Inventories;
 using UnityEngine;
 
-public class EquipmentSetupManager : MonoBehaviour
+public class EquipmentSetupHandler : MonoBehaviour
 {
    [SerializeField] private EquipableWeapon _defaultWeapon;
     
@@ -16,7 +16,6 @@ public class EquipmentSetupManager : MonoBehaviour
    {
       _equipment = GetComponent<Equipment>();
       _equipment.OnEquipmentUpdated += Equipment_OnEquipmentUpdated;
-      
       _defaultWeapon.Setup(transform);
       onEquipmentSetup?.Invoke();
    }

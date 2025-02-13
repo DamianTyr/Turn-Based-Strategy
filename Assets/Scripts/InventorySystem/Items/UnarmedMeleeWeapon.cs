@@ -11,9 +11,9 @@ public class UnarmedMeleeWeapon : EquipableWeapon
         meleeAttackAction.SetEquipableMeleeWeapon(this);
     }
 
-    public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
+    public override void RemoveFromUnit(EquipmentSetupHandler equipmentSetupHandler)
     {
-        equipmentSetupManager.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);
+        equipmentSetupHandler.transform.TryGetComponent(out MeleeAttackAction meleeAttackAction);
         if (meleeAttackAction)
         {
             Destroy(meleeAttackAction);

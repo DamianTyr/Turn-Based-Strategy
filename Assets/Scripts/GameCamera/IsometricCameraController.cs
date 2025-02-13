@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameCamera
 {
-    public class CameraController : MonoBehaviour
+    public class IsometricCameraController : MonoBehaviour
     {
         private const float MinFollowYOffset = 2f;
         private const float MaxFollowYOffset = 36f;

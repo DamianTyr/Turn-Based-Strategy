@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using InventorySystem.Core.UI.Dragging;
 using InventorySystem.Inventories;
 
@@ -10,20 +11,27 @@ namespace InventorySystem.UI.Inventories
         [SerializeField] EquipLocation equipLocation = EquipLocation.Weapon;
         
         private Equipment _selectedEquipment;
-        private SelectedEquipmentTracker _selectedEquipmentTracker;
+        private CharacterManager _characterManager;
         
         private void Start()
         {
-            _selectedEquipmentTracker = FindObjectOfType<SelectedEquipmentTracker>();
-            _selectedEquipment = _selectedEquipmentTracker.GetSelectedEquipment();
-            _selectedEquipmentTracker.OnSelectedEquipmentChanged += OnSelectedEquipmentChanged;
+            _characterManager = FindObjectOfType<CharacterManager>();
+            _characterManager.OnSelectedCharacterSet += OnCharacterSelected;
+            Character selectedCharacter = _characterManager.GetSelectedCharacter();
+            if (selectedCharacter)
+            {
+                _selectedEquipment = selectedCharacter.GetCharacterEquipment();
+            }
+            
             Equipment.OnAnyEquipmentUpdated += RedrawUI;
             RedrawUI();
         }
-        
-        private void OnSelectedEquipmentChanged(Equipment selectedEquipment)
+
+        private void OnCharacterSelected(Character character)
         {
-            _selectedEquipment = selectedEquipment;
+            if (!character) return;
+            Equipment equipment = character.GetCharacterEquipment();
+            _selectedEquipment = equipment;
             RedrawUI();
         }
         

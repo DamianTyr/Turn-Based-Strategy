@@ -1,6 +1,5 @@
 using System;
 using Grid;
-using InventorySystem.Inventories;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -20,8 +19,8 @@ namespace Mission
     
         private BaseAction _selectedAction; 
         private bool _isBusy;
-
-        private SelectedEquipmentTracker _selectedEquipmentTracker;
+        
+        private CharacterManager _characterManager;
     
         private void Awake()
         {
@@ -35,7 +34,7 @@ namespace Mission
 
         private void Start()
         {
-            _selectedEquipmentTracker = FindObjectOfType<SelectedEquipmentTracker>();
+            _characterManager = FindObjectOfType<CharacterManager>();
             SetSelectedUnit(selectedUnit);
             Unit.OnAnyUnitClicked += OnAnyUnitSelected;
         }
@@ -83,8 +82,16 @@ namespace Mission
         {
             selectedUnit = unit;
             ActionHolder actionHolder = unit.GetActonHolder();
-            SetSelectedAction(actionHolder.GetAction<MoveAction>()); 
-            _selectedEquipmentTracker.SetSelectedEquipment(unit.GetComponent<Equipment>());
+            SetSelectedAction(actionHolder.GetAction<MoveAction>());
+
+            Character character = unit.GetComponent<Character>();
+            if (character)
+            { 
+                _characterManager.SetSelectedCharacter(character);
+            }
+
+
+            
             OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
         }
 

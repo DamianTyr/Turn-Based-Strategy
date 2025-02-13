@@ -21,10 +21,10 @@ public class EquipableGun : EquipableWeapon
       shootAction.SetShootPointTransform(weaponShootPoint.transform);
    }
 
-   public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
+   public override void RemoveFromUnit(EquipmentSetupHandler equipmentSetupHandler)
    {
-      base.RemoveFromUnit(equipmentSetupManager);
-      equipmentSetupManager.transform.TryGetComponent(out ShootAction shootAction);
+      base.RemoveFromUnit(equipmentSetupHandler);
+      equipmentSetupHandler.transform.TryGetComponent(out ShootAction shootAction);
       if (shootAction)
       {
          Destroy(shootAction);

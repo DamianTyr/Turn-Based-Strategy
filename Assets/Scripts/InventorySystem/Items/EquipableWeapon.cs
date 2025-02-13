@@ -23,9 +23,9 @@ public abstract class EquipableWeapon : EquipableItem
       moveAction.SetAnimationClips(idleAnimationClip, runAnimationClip);
    }
    
-   public override void RemoveFromUnit(EquipmentSetupManager equipmentSetupManager)
+   public override void RemoveFromUnit(EquipmentSetupHandler equipmentSetupHandler)
    {
-      EquipmentVisuals equipmentVisuals = equipmentSetupManager.transform.GetComponent<EquipmentVisuals>();
+      EquipmentVisuals equipmentVisuals = equipmentSetupHandler.transform.GetComponent<EquipmentVisuals>();
       equipmentVisuals.DestroyWeaponVisual();
    }
 

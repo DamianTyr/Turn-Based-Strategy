@@ -56,9 +56,9 @@ public abstract class BaseAction : MonoBehaviour
         OnAnyActionCompleted?.Invoke(this, EventArgs.Empty);
     }
 
-    public UnityEngine.Transform GetHolderTransform()
+    public Transform GetHolderTransform()
     {
-        return ((Component)this).transform;
+        return transform;
     }
 
     public AIAction GetBestAIAction()
